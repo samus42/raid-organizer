@@ -3,8 +3,6 @@ import { Button } from '@rmwc/button'
 import { useHistory } from "react-router-dom";
 
 const Main = (props) => {
-    console.log('hi')
-    console.log('props: ', props)
     const history = useHistory()
     return (
         <div style={{ paddingLeft: '20px' }}>
