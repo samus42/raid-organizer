@@ -1,8 +1,9 @@
 const DeepStoneCrypt = {
+    title: 'Deep Stone Crypt',
     stages: [
         {
             title: 'Security',
-            description: 'light & dark',
+            description: 'Both starting scanner and operator start on dark side. The designations are for where they go if we need a 2nd phase.',
             roles: [
                 { name: 'Starting Scanner - Light' },
                 { name: 'Starting Operator - Dark' },
@@ -14,7 +15,7 @@ const DeepStoneCrypt = {
         },
         {
             title: 'Atracks-1',
-            description: 'light & dark',
+            description: 'Operator is always in space, scanners trade off between boss damage.',
             roles: [
                 { name: 'Space - Operator' },
                 { name: 'Space - Scanner' },
@@ -26,7 +27,7 @@ const DeepStoneCrypt = {
         },
         {
             title: 'Nuclear Disposal',
-            description: '3rd rold',
+            description: 'Roles will shift base on broken augments. Active Supressor never picks up the bomb. Bomb teams are Scanners & Operators.',
             roles: [
                 { name: 'Starting Operator' },
                 { name: 'Starting Scanner' },
@@ -38,7 +39,7 @@ const DeepStoneCrypt = {
         },
         {
             title: 'Taniks',
-            description: 'Purple Pillars',
+            description: 'Roles will shift base on broken augments. Active Supressor & Operator never picks up the bomb. Bomb teams are Scanners, and the 2 other backups.',
             roles: [
                 { name: 'Starting Operator' },
                 { name: 'Starting Scanner' },

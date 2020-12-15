@@ -8,7 +8,7 @@ const Main = (props) => {
         <Router>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/raid" component={RaidDetails} />
+                <Route exact path="/raid/:raidName" component={RaidDetails} />
             </Switch>
         </Router>
     )

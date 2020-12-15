@@ -7,8 +7,8 @@ const Main = (props) => {
     return (
         <div style={{ paddingLeft: '20px' }}>
             <div><h2>Organize a Raid For:</h2></div>
-            <div style={{ marginBottom: '20px' }}><Button raised onClick={() => history.push('/raid')}>Garden Of Salvation</Button></div>
-            <div><Button raised>Deep Stone Crypt</Button></div>
+            <div style={{ marginBottom: '20px' }}><Button raised onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button></div>
+            <div><Button raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button></div>
         </div>
     )
 }

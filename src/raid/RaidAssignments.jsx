@@ -1,6 +1,5 @@
 import React from 'react'
 import { Typography } from '@rmwc/typography'
-import { Card } from '@rmwc/card'
 import { Grid, GridCell } from '@rmwc/grid'
 
 const Role = ({ role }) => (
