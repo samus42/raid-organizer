@@ -15,6 +15,9 @@ const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }
         getRoster()
     }, [excludeList])
 
+    if (roster.length < 1) {
+        return (<div style={{ paddingTop: '20px', paddingLeft: '10px' }}><strong>Loading...</strong></div>)
+    }
     return (
         <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll' }}>
             <h4 style={{ paddingLeft: '10px' }}>Clan Roster</h4>

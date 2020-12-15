@@ -22,6 +22,7 @@ const Main = (props) => {
                             <li>Allow scheduling of a dungeon.</li>
                             <li>Saving of preferences (i.e. I HATE being scanner) which the algorithm will take into account.</li>
                             <li>Tracking metrics (i.e. When someone complains they are always the scanner, now they can prove it).</li>
+                            <li>Make this more mobile friendly, at least for viewing the raid assignments.</li>
                         </ul>
                         <div>BTW if you get lost, just hit the title in the upper left to come back here.</div>
                         <div style={{ paddingTop: '10px' }}>The source code is hosted at <a href="https://github.com/samus42/raid-organizer">https://github.com/samus42/raid-organizer</a> if you feel like contributing code.  Or you can use the Issues tab so suggest ideas!</div>

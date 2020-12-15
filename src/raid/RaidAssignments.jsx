@@ -11,7 +11,7 @@ const Role = ({ role }) => (
     </div>
 )
 const Stage = ({ stage }) =>
-    <div style={{ marginTop: '20px' }}>
+    <div style={{ marginTop: '20px' }} className="raid-stage">
         <div>
             <Typography use="headline4">{stage.title}</Typography>
             <div>
