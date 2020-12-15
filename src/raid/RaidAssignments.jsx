@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@rmwc/typography'
-import { Icon } from '@rmwc/icon'
 import { Card } from '@rmwc/card'
+import { Grid, GridCell } from '@rmwc/grid'
 
 const Role = ({ role }) => (
     <div style={{ display: 'flex' }}>
@@ -13,19 +13,26 @@ const Role = ({ role }) => (
 )
 const Stage = ({ stage }) =>
     <div style={{ marginTop: '20px' }}>
-        <Card>
+        <div>
             <Typography use="headline4">{stage.title}</Typography>
-            <Typography use="subtitle1">{stage.description}</Typography>
+            <div>
+                <Typography use="subtitle1">{stage.description}</Typography>
+            </div>
             <div>
                 {stage.roles.map((role) => <Role key={`role-${role.name}`} role={role} />)}
             </div>
-        </Card>
+        </div>
     </div>
 
 
 const RaidAssignments = ({ raid }) =>
     <div>
-        {raid.stages.map((stage, index) => <Stage key={`${stage}-${index}`} stage={stage} />)}
+        <Grid>
+            {raid.stages.map((stage, index) =>
+                <GridCell span={6}>
+                    <Stage key={`${stage}-${index}`} stage={stage} />
+                </GridCell>)}
+        </Grid>
     </div>
 
 
