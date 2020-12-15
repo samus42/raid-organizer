@@ -17,6 +17,7 @@ const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }
 
     return (
         <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll' }}>
+            <h4 style={{ paddingLeft: '10px' }}>Clan Roster</h4>
             <List>
                 {roster.map((player) => (
                     <ListItem disabled={disabled} key={player.name} onClick={() => !disabled && onSelect(player)}>
