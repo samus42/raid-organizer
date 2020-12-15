@@ -4,6 +4,7 @@ import Home from './Home'
 import RaidDetails from './raid/RaidDetails.jsx'
 
 const Main = (props) => {
+    console.log('env: ', process.env.REACT_APP_ENV)
     return (
         <Router>
             <Switch>

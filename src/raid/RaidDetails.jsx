@@ -30,7 +30,7 @@ const RaidDetails = ({ match }) => {
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                 <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raidMap[match.params.raidName].title} />
                 <div>
-                    <Button raised disabled={currentRoster.length < 6} onClick={determineRoles}>Determine Roles</Button>
+                    <Button raised disabled={currentRoster.length < 6} onClick={determineRoles}>Randomize Roles</Button>
                 </div>
                 {
                     raid && (<RaidAssignments raid={raid} />)

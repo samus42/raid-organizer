@@ -1,7 +1,5 @@
 import shuffle from 'lodash.shuffle'
 
-const raidSlots = 6
-
 const randomizeRaidAssignments = ({ raid, roster }) => {
     const stages = raid.stages.map((stage) => {
         const shuffled = shuffle(roster)
