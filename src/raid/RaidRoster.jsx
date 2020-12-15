@@ -11,7 +11,8 @@ const RaidRoster = ({ roster = [], onRosterChange = () => { } }) => {
         const emptySpots = raidSlots - roster.length
         const arr = Array(emptySpots)
         arr.fill(emptyPlayer)
-        setPlayers(roster.concat(arr.map((item, index) => ({ ...item, name: `${item.name} ${index + 1}` }))))
+        const startingNumberLabel = (raidSlots - emptySpots) + 1
+        setPlayers(roster.concat(arr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` }))))
     }, [roster])
 
     const removePlayer = (player) => {
