@@ -1,5 +1,6 @@
 const GardenOfSalvation = () => ({
     raidName: 'Garden Of Salvation',
+    active: true,
     stages: [
         {
             title: 'Evade Concecrated Mind',

@@ -12,10 +12,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'
 import { useHistory } from "react-router-dom";
+import omitDeep from 'omit-deep-lodash'
 
-const saveGameMutation = gql`
+const saveRaidMutation = gql`
     mutation ($raid: RaidInput!) {
         raid: saveRaid(raid: $raid) {id}
+    }    
+`
+
+const archiveRaidMutation = gql`
+    mutation ($id: ID!) {
+        raid: archiveRaid(id: $id) {id}
     }    
 `
 
@@ -25,7 +32,7 @@ const loadRaidQuery = gql`
     }
     query ($id: ID!) {
         raid: getRaid(id: $id) {
-            id, raidName, instanceName, date,
+            id, raidName, instanceName, date, active
             stages {
                 title, description
                 roles {
@@ -42,13 +49,13 @@ const loadRaidQuery = gql`
 
 
 const RaidDetails = ({ match }) => {
-    console.log('match: ', match)
     const [currentRoster, setCurrentRoster] = useState([])
     const [raid, setRaid] = useState()
     const [displayRoles, setDisplayRoles] = useState(false)
     const [instanceName, setInstanceName] = useState('')
     const [date, setDate] = useState(new Date())
     const history = useHistory()
+    const [saveMessage, setSaveMessage] = useState('')
 
     useEffect(() => {
         const loadRaid = async () => {
@@ -78,10 +85,21 @@ const RaidDetails = ({ match }) => {
     }
 
     const onSave = async () => {
-        const payload = { ...raid, roster: currentRoster, instanceName, date }
-        const { data } = await raidClient.mutate({ mutation: saveGameMutation, variables: { raid: payload } })
+        const isNew = !raid.id
+        const payload = omitDeep({ ...raid, roster: currentRoster, instanceName, date }, '__typename', 'active')
+        const { data } = await raidClient.mutate({ mutation: saveRaidMutation, variables: { raid: payload } })
         setRaid({ ...raid, id: data.raid.id })
-        history.push(`/raid/${data.raid.id}`)
+        if (isNew) {
+            history.push(`/raid/${data.raid.id}`)
+            setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
+        } else {
+            setSaveMessage('Raid updated!')
+        }
+    }
+
+    const onArchiveRaid = async () => {
+        await raidClient.mutate({ mutation: archiveRaidMutation, variables: { id: raid.id } })
+        setRaid({ ...raid, active: false })
     }
 
     if (!raid) {
@@ -91,6 +109,7 @@ const RaidDetails = ({ match }) => {
         <div>
             <ClanRoster excludeList={currentRoster} onSelect={onAddPlayer} disabled={currentRoster.length > 5} />
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
+                {!raid.active && <h2>This raid is no longer active!</h2>}
                 <Grid>
                     <GridCell>
                         <TextField style={{ width: '100%' }} label="Create a name for this run!" value={instanceName} onChange={(evt) => setInstanceName(evt.target.value)} />
@@ -107,7 +126,10 @@ const RaidDetails = ({ match }) => {
                             dateFormat="iii MM/dd hh:mm a" />
                     </GridCell>
                     <GridCell>
-                        <Button raised disabled={instanceName.length < 1 || !date} onClick={onSave}>Save Details</Button>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <Button style={{ marginBottom: '10px' }} raised disabled={instanceName.length < 1 || !date} onClick={onSave}>Save Details</Button>
+                            <div><small>{saveMessage}</small></div>
+                        </div>
                     </GridCell>
                 </Grid>
                 <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raid.raidName} />
@@ -116,6 +138,11 @@ const RaidDetails = ({ match }) => {
                 </div>
                 {
                     displayRoles && (<RaidAssignments raid={raid} />)
+                }
+                {raid.id && <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                    <Button onClick={onArchiveRaid} raised>Archive Raid To Remove From Active List</Button>
+
+                </div>
                 }
             </div>
 

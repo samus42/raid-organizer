@@ -1,5 +1,6 @@
 const DeepStoneCrypt = () => ({
     raidName: 'Deep Stone Crypt',
+    active: true,
     stages: [
         {
             title: 'Security',
