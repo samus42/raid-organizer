@@ -4,6 +4,7 @@ import { Typography } from '@rmwc/typography'
 import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'
 import { List, SimpleListItem } from '@rmwc/list'
+import dayjs from 'dayjs'
 
 const listRaidsQuery = gql`
     query {
@@ -43,7 +44,7 @@ const ActiveRaidList = () => {
             <Typography use="headline4">Upcoming raids:</Typography>
             <List twoLine>
                 {raids.map((raid) => (
-                    <SimpleListItem onClick={() => onSelectRaid(raid)} key={raid.id} text={`${raid.instanceName}`} secondaryText={`${raid.date}`} meta={raid.raidName} />
+                    <SimpleListItem onClick={() => onSelectRaid(raid)} key={raid.id} text={`${raid.instanceName}`} secondaryText={`${dayjs(raid.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={raid.raidName} />
                 ))}
             </List>
         </div>
