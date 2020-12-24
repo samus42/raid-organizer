@@ -5,15 +5,23 @@ import { Icon } from '@rmwc/icon'
 import DraggablePlayer from './DraggablePlayer'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
 const raidSlots = 6
+const backupSlots = 2
 
 const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
     const [players, setPlayers] = useState([])
     useEffect(() => {
-        const emptySpots = raidSlots - roster.length
-        const arr = Array(emptySpots)
-        arr.fill(emptyPlayer)
+        const emptySpots = Math.max(0, raidSlots - roster.length)
+        const backupSpots = Math.max(0, (raidSlots + backupSlots) - Math.max(roster.length, raidSlots))
+        const emptyRaidSlotArr = Array(emptySpots)
+        const emptyBackupSlotArr = Array(backupSpots)
+        emptyRaidSlotArr.fill(emptyPlayer)
+        emptyBackupSlotArr.fill(emptyPlayer)
         const startingNumberLabel = (raidSlots - emptySpots) + 1
-        setPlayers(roster.concat(arr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` }))))
+        setPlayers(
+            roster
+                .concat(emptyRaidSlotArr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` })))
+                .concat(emptyBackupSlotArr.map((item, index) => ({ ...item, name: `Backup ${index + 1}` })))
+        )
     }, [roster])
 
     const removePlayer = (player) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { Typography } from '@rmwc/typography'
 import { Grid, GridCell } from '@rmwc/grid'
 import DraggablePlayer from './DraggablePlayer'
@@ -24,7 +24,7 @@ const Role = ({ role, onChange = () => { } }) => {
 
     return (
         <div ref={drop} style={{ display: 'flex', padding: '3px' }} className={modifiers}>
-            <div style={{ minWidth: '300px' }}><Typography use="headline6">{role.name}</Typography></div>
+            <div style={{ minWidth: '240px' }}><Typography use="headline6">{role.name}</Typography></div>
             <div style={{ paddingTop: '5px' }}>
                 <DraggablePlayer player={role.player} />
             </div>
@@ -46,15 +46,33 @@ const Stage = ({ stage, onChange = () => { } }) =>
     </div>
 
 
-const RaidAssignments = ({ raid, onChange }) =>
-    <div>
-        <Grid>
-            {raid.stages.map((stage, index) =>
-                <GridCell span={6}>
-                    <Stage key={`${stage}-${index}`} stage={stage} onChange={onChange} />
-                </GridCell>)}
-        </Grid>
-    </div>
+const RaidAssignments = ({ raid, onChange }) => {
+    const [cellSpan, setCellSpan] = useState(6)
+    useLayoutEffect(() => {
+        const updateSize = () => {
+            console.log(window.innerWidth)
+            if (window.innerWidth < 1500) {
+                setCellSpan(7)
+            }
+            else {
+                setCellSpan(6)
+            }
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, [])
+
+    return (
+        <div>
+            <Grid>
+                {raid.stages.map((stage, index) =>
+                    <GridCell span={cellSpan} style={{ minWidth: '480px' }}>
+                        <Stage key={`${stage}-${index}`} stage={stage} onChange={onChange} />
+                    </GridCell>)}
+            </Grid>
+        </div>)
+}
 
 
 export default RaidAssignments

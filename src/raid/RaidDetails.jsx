@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 import ClanRoster from './ClanRoster'
 import RaidRoster from './RaidRoster'
 import { Button } from '@rmwc/button'
@@ -54,11 +54,11 @@ const loadRaidQuery = gql`
 const RaidDetails = ({ match }) => {
     const [currentRoster, setCurrentRoster] = useState([])
     const [raid, setRaid] = useState()
-    const [displayRoles, setDisplayRoles] = useState(false)
     const [instanceName, setInstanceName] = useState('')
     const [date, setDate] = useState(new Date())
     const history = useHistory()
     const [saveMessage, setSaveMessage] = useState('')
+
 
     useEffect(() => {
         const loadRaid = async () => {
@@ -68,8 +68,6 @@ const RaidDetails = ({ match }) => {
             setInstanceName(data.raid.instanceName)
             setDate(new Date(data.raid.date))
             setCurrentRoster(data.raid.roster)
-
-            setDisplayRoles(!!data.raid.stages[0].roles[0].player)
         }
         if (isRaidKey([match.params.raidKey])) {
             setRaid(newRaidByKey(match.params.raidKey))
@@ -84,7 +82,6 @@ const RaidDetails = ({ match }) => {
 
     const determineRoles = () => {
         setRaid(randomizeRaidAssignments({ raid, roster: currentRoster }))
-        setDisplayRoles(true)
     }
 
     const onSave = async () => {
@@ -114,7 +111,7 @@ const RaidDetails = ({ match }) => {
     }
     return (
         <DndProvider backend={HTML5Backend}>
-            <ClanRoster excludeList={currentRoster} onSelect={onAddPlayer} disabled={currentRoster.length > 5} />
+            <ClanRoster excludeList={currentRoster} onSelect={onAddPlayer} disabled={currentRoster.length > 7} />
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                 <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll', borderRight: '1px solid lightgray' }}>
                     <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raid.raidName} />

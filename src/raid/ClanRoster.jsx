@@ -11,7 +11,6 @@ const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }
             const results = await getClanRoster()
             setRoster(differenceBy(results, excludeList, 'destinyId'))
         }
-        console.log('Retrieving clan roster')
         getRoster()
     }, [excludeList])
 

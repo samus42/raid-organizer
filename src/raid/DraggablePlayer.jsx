@@ -20,7 +20,7 @@ const DraggablePlayer = ({ player, onMoved = () => { } }) => {
         return (<div></div>)
     }
     return (
-        (<div ref={drag} style={{ opacity }}>
+        (<div ref={drag} style={{ opacity }} className='draggable-player'>
             <div style={{ display: 'flex' }} >
                 <img src={player.iconPath} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{player.name}</div>
             </div>
