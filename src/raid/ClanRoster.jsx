@@ -19,7 +19,7 @@ const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }
         return (<div style={{ paddingTop: '20px', paddingLeft: '10px' }}><strong>Loading...</strong></div>)
     }
     return (
-        <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll' }}>
+        <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll', borderRight: '1px solid lightgray' }}>
             <h4 style={{ paddingLeft: '10px' }}>Clan Roster</h4>
             <List>
                 {roster.map((player) => (

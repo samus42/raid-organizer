@@ -32,6 +32,7 @@ function App() {
       textDisabledOnDark: 'rgba(255, 255, 255, 0.5)',
       textIconOnDark: 'rgba(255, 255, 255, 0.5)'
     }}>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
       < div >
         <ApplicationBar />
         <Main />
