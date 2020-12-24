@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ClanRoster from './ClanRoster'
 import RaidRoster from './RaidRoster'
 import { Button } from '@rmwc/button'

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { defaultIconUrl } from '../api/destiny'
-import { SimpleListItem, List, ListItem, ListItemMeta, ListItemGraphic } from '@rmwc/list'
-import { Icon } from '@rmwc/icon'
+import { List, ListItem, ListItemMeta } from '@rmwc/list'
 import DraggablePlayer from './DraggablePlayer'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
 const raidSlots = 6
