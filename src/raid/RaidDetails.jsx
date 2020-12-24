@@ -13,6 +13,9 @@ import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'
 import { useHistory } from "react-router-dom";
 import omitDeep from 'omit-deep-lodash'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import changePosition from './changePosition'
 
 const saveRaidMutation = gql`
     mutation ($raid: RaidInput!) {
@@ -102,6 +105,10 @@ const RaidDetails = ({ match }) => {
         setRaid({ ...raid, active: false })
     }
 
+    const onRaidPositionChange = (stage, role, player) => {
+        const newRaid = changePosition(raid, stage, role, player)
+        setRaid(newRaid)
+    }
     if (!raid) {
         return <div>Loading...</div>
     }
@@ -132,13 +139,14 @@ const RaidDetails = ({ match }) => {
                         </div>
                     </GridCell>
                 </Grid>
-                <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raid.raidName} />
-                <div>
-                    <Button raised disabled={currentRoster.length < 6} onClick={determineRoles}>Randomize Roles</Button>
-                </div>
-                {
-                    displayRoles && (<RaidAssignments raid={raid} />)
-                }
+                <DndProvider backend={HTML5Backend}>
+                    <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raid.raidName} />
+                    <div>
+                        <Button raised disabled={currentRoster.length < 6} onClick={determineRoles}>Randomize Roles</Button>
+                    </div>
+
+                    <RaidAssignments raid={raid} onChange={onRaidPositionChange} />
+                </DndProvider>
                 {raid.id && <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
                     <Button onClick={onArchiveRaid} raised>Archive Raid To Remove From Active List</Button>
 

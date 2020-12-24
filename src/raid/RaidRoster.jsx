@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { defaultIconUrl } from '../api/destiny'
 import { Grid, GridCell } from '@rmwc/grid'
-
+import DraggablePlayer from './DraggablePlayer'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
 const raidSlots = 6
 
@@ -26,8 +26,8 @@ const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
             <Grid>
                 {players.map((player) => (
                     <GridCell span={4} key={player.name} onClick={() => removePlayer(player)}>
-                        <div style={{ display: 'flex' }} >
-                            <img src={player.iconPath} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{player.name}</div>
+                        <div className="raid-roster-slot">
+                            <DraggablePlayer player={player} />
                         </div>
                     </GridCell>
                 ))}

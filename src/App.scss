@@ -12,11 +12,31 @@
 }
 
 .react-datepicker-wrapper {
-    width: 300px;
-    .react-datepicker__input-container {
-      input {
-        width: 100%;
-        font-size: medium;
-      }
+  width: 300px;
+  .react-datepicker__input-container {
+    input {
+      width: 100%;
+      font-size: medium;
     }
   }
+}
+
+.raid-roster-slot {
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.player-drop-target-hover {
+  background-color: lightgray;
+}
+
+// .player-drop-target-unassigned {
+//   background-color: lightgray;
+// }
+
+// .player-drop-target-assigned {
+//   background-color: lightgreen;
+// }
+
+  
