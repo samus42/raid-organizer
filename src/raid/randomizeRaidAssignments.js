@@ -10,7 +10,7 @@ const randomizeRaidAssignments = ({ raid, roster }) => {
             }))
         }
     })
-    return { stages }
+    return { ...raid, stages }
 }
 
 export default randomizeRaidAssignments
