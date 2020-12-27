@@ -16,6 +16,7 @@ import omitDeep from 'omit-deep-lodash'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import changePosition from './changePosition'
+import differenceBy from 'lodash.differenceby'
 
 const saveRaidMutation = gql`
     mutation ($raid: RaidInput!) {
@@ -106,6 +107,23 @@ const RaidDetails = ({ match }) => {
         const newRaid = changePosition(raid, stage, role, player)
         setRaid(newRaid)
     }
+
+    const onRaidRosterChange = (newRoster) => {
+        const removed = differenceBy(currentRoster, newRoster, 'destinyId')
+        if (removed.length > 0) {
+            const removedIds = removed.map(({ destinyId }) => destinyId)
+            const newRaid = JSON.parse(JSON.stringify(raid))
+            newRaid.stages.forEach((stage) => {
+                stage.roles.forEach((role) => {
+                    if (role.player && removedIds.includes(role.player.destinyId)) {
+                        role.player = null
+                    }
+                })
+            })
+            setRaid(newRaid)
+        }
+        setCurrentRoster(newRoster)
+    }
     if (!raid) {
         return <div>Loading...</div>
     }
@@ -114,7 +132,7 @@ const RaidDetails = ({ match }) => {
             <ClanRoster excludeList={currentRoster} onSelect={onAddPlayer} disabled={currentRoster.length > 7} />
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                 <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll', borderRight: '1px solid lightgray' }}>
-                    <RaidRoster roster={currentRoster} onRosterChange={setCurrentRoster} raidTitle={raid.raidName} />
+                    <RaidRoster roster={currentRoster} onRosterChange={onRaidRosterChange} raidTitle={raid.raidName} />
                 </div>
                 <div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                     {!raid.active && <h2>This raid is no longer active!</h2>}
