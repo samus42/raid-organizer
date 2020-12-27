@@ -16,10 +16,7 @@ const Main = (props) => {
                     <div>
                         Right now this simply has a raid randomizer + some other items as ideas of what this page can do. Some ideas to add in the future:
                         <ul>
-                            <li>Drag and drop of players into slots, and allowing the switching of slots.</li>
-                            <li>Persistent links for Raid assignments so we can just share that around.</li>
                             <li>Automatically communicating link with Clan chat.</li>
-                            <li>Allow scheduling a raid and have people sign up for slots.</li>
                             <li>Allow scheduling of a dungeon.</li>
                             <li>Saving of preferences (i.e. I HATE being scanner) which the algorithm will take into account.</li>
                             <li>Tracking metrics (i.e. When someone complains they are always the scanner, now they can prove it).</li>

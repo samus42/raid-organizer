@@ -10,6 +10,10 @@ const changePosition = (raid, stage, role, player) => {
     if (!foundRole) {
         throw new Error('Could not find role: ', role.name)
     }
+    if (!player) {
+        foundRole.player = null
+        return newRaid
+    }
     const foundOriginalRole = foundStage.roles.find((role) => role.player && role.player.destinyId === player.destinyId)
     if (!foundOriginalRole) {
         foundRole.player = player

@@ -147,4 +147,15 @@ describe('changePosition', () => {
             })
         })
     })
+
+    it('clears roster position', () => {
+        role1.player = player1
+        const newRaid = changePosition(raid, stage1, role1, null)
+        expect(newRaid).toEqual({
+            stages: [
+                { title: 'a', roles: [{ ...role1, player: null }, role2], },
+                { title: 'b', roles: [role3, role4], },
+            ]
+        })
+    })
 })

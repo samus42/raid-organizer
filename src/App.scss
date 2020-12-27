@@ -36,6 +36,16 @@
     cursor: pointer;
   }
 }
+
+.clear-button {
+  border: 1px solid #b00020;
+  color: #b00020;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+  height: 24px;
+}
 // .player-drop-target-unassigned {
 //   background-color: lightgray;
 // }

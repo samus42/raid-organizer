@@ -3,6 +3,7 @@ import { Typography } from '@rmwc/typography'
 import { Grid, GridCell } from '@rmwc/grid'
 import DraggablePlayer from './DraggablePlayer'
 import { useDrop } from 'react-dnd'
+import { Icon } from '@rmwc/icon'
 
 const Role = ({ role, onChange = () => { } }) => {
     const [{ isOver }, drop] = useDrop({
@@ -25,8 +26,13 @@ const Role = ({ role, onChange = () => { } }) => {
     return (
         <div ref={drop} style={{ display: 'flex', padding: '3px' }} className={modifiers}>
             <div style={{ minWidth: '240px' }}><Typography use="headline6">{role.name}</Typography></div>
-            <div style={{ paddingTop: '5px' }}>
+            <div style={{ paddingTop: '5px', display: 'flex', justifyContent: 'space-between', minWidth: '200px' }}>
                 <DraggablePlayer player={role.player} />
+                {role.player && (
+                    <div className="clear-button">
+                        <Icon icon="clear" onClick={() => onChange(role, null)} />
+                    </div>
+                )}
             </div>
         </div>
     )

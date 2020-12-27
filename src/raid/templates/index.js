@@ -10,7 +10,9 @@ export const newRaidByKey = (key) => {
     if (!raidMap[key]) {
         throw new Error('No raid for key: ', key)
     }
-    return raidMap[key]()
+    const newRaid = raidMap[key]()
+    newRaid.active = true
+    return newRaid
 }
 
 export const isRaidKey = (key) => !!raidMap[key]
