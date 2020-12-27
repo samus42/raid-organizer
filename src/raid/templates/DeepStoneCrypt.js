@@ -6,10 +6,10 @@ const DeepStoneCrypt = () => ({
             title: 'Security',
             description: 'Both starting scanner and operator start on dark side. The designations are for where they go if we need a 2nd phase.',
             roles: [
-                { name: 'Starting Scanner - Light', type: 'scanner' },
-                { name: 'Starting Operator - Dark', type: 'operator' },
-                { name: 'Backup Scanner - Dark', type: 'scanner' },
-                { name: 'Backup Operator - Light', type: 'operator' },
+                { name: 'Starting Scanner - Dark', type: 'scanner' },
+                { name: 'Starting Operator', type: 'operator' },
+                { name: 'Backup Scanner - Light', type: 'scanner' },
+                { name: 'Backup Operator', type: 'operator' },
                 { name: 'Dark Soldier', type: 'soldier' },
                 { name: 'Light Soldier', type: 'soldier' }
             ]
