@@ -56,7 +56,6 @@ const RaidAssignments = ({ raid, onChange }) => {
     const [cellSpan, setCellSpan] = useState(6)
     useLayoutEffect(() => {
         const updateSize = () => {
-            console.log(window.innerWidth)
             if (window.innerWidth < 1500) {
                 setCellSpan(7)
             }

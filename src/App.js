@@ -1,6 +1,5 @@
 import { ThemeProvider } from '@rmwc/theme'
 import './App.scss';
-import ApplicationBar from './ApplicationBar'
 import Main from './Main'
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
     }}>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
       < div >
-        <ApplicationBar />
         <Main />
       </ div>
     </ThemeProvider >

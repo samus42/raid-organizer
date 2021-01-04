@@ -64,7 +64,6 @@ const RaidDetails = ({ match }) => {
     useEffect(() => {
         const loadRaid = async () => {
             const { data } = await raidClient.query({ query: loadRaidQuery, variables: { id: match.params.raidKey } })
-            console.log('loaded: ', data)
             setRaid(data.raid)
             setInstanceName(data.raid.instanceName)
             setDate(new Date(data.raid.date))
