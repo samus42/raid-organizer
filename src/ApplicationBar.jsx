@@ -3,6 +3,7 @@ import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle, TopAppBarFix
 import { Button } from '@rmwc/button'
 import { useHistory, useLocation } from 'react-router-dom'
 import packageJSON from '../package.json'
+import { SimpleMenu, MenuSurfaceAnchor, Menu, MenuItem } from '@rmwc/menu'
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const imageUrlPrefix = 'https://www.bungie.net'
@@ -19,12 +20,20 @@ const getBungieUserInfo = () => {
     return null
 }
 
+const UserMenu = (userInfo) => {
+
+}
 const ApplicationBar = (props) => {
     const location = useLocation()
     const [userInfo, setUserInfo] = useState(null)
     useEffect(() => {
         setUserInfo(getBungieUserInfo)
     }, [location])
+
+    const onLogout = () => {
+        window.localStorage.removeItem('shenaniganizers-bungie-info')
+        setUserInfo(null)
+    }
     return (<>
         <TopAppBar>
             <TopAppBarRow>
@@ -35,10 +44,12 @@ const ApplicationBar = (props) => {
                 </TopAppBarSection>
                 <TopAppBarSection alignEnd>
                     {userInfo ?
-                        (<img alt="user" src={`${imageUrlPrefix}${userInfo.profilePicturePath}`} style={{ width: '24px', height: '24px' }} onClick={() => {
-                            window.localStorage.removeItem('shenaniganizers-bungie-info')
-                            setUserInfo(null)
-                        }} />)
+                        (<SimpleMenu
+                            handle={<img alt="user" src={`${imageUrlPrefix}${userInfo.profilePicturePath}`} style={{ width: '24px', height: '24px' }} />} >
+                            <MenuItem onClick={onLogout}>Logout</MenuItem>
+                            <MenuItem>Profile</MenuItem>
+                        </SimpleMenu>
+                        )
                         : (<Button raised onClick={() => window.location.href = bungieLoginUrl}>Login</Button>)
                     }
                 </TopAppBarSection>
