@@ -4,21 +4,10 @@ import { Button } from '@rmwc/button'
 import { useHistory, useLocation } from 'react-router-dom'
 import packageJSON from '../package.json'
 import { SimpleMenu, MenuSurfaceAnchor, Menu, MenuItem } from '@rmwc/menu'
+import { getCurrentUserInfo, clearMembershipInfo } from './user/currentUser'
 
 const clientId = process.env.REACT_APP_CLIENT_ID
-const imageUrlPrefix = 'https://www.bungie.net'
 const bungieLoginUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code`
-
-const getBungieUserInfo = () => {
-    if (window.localStorage) {
-        const rawInfo = window.localStorage.getItem('shenaniganizers-bungie-info')
-        if (rawInfo && rawInfo !== 'null') {
-            const membershipInfo = JSON.parse(rawInfo)
-            return membershipInfo.bungieNetUser
-        }
-    }
-    return null
-}
 
 const UserMenu = (userInfo) => {
 
@@ -27,11 +16,11 @@ const ApplicationBar = (props) => {
     const location = useLocation()
     const [userInfo, setUserInfo] = useState(null)
     useEffect(() => {
-        setUserInfo(getBungieUserInfo)
+        setUserInfo(getCurrentUserInfo)
     }, [location])
 
     const onLogout = () => {
-        window.localStorage.removeItem('shenaniganizers-bungie-info')
+        clearMembershipInfo()
         setUserInfo(null)
     }
     return (<>
@@ -45,7 +34,7 @@ const ApplicationBar = (props) => {
                 <TopAppBarSection alignEnd>
                     {userInfo ?
                         (<SimpleMenu
-                            handle={<img alt="user" src={`${imageUrlPrefix}${userInfo.profilePicturePath}`} style={{ width: '24px', height: '24px' }} />} >
+                            handle={<div className="menu-bar-user" style={{ display: 'flex' }}><img alt="user" src={userInfo.profilePictureUrl} style={{ width: '24px', height: '24px' }} /><div style={{ paddingLeft: '10px' }}> {userInfo.name}</div></div>} >
                             <MenuItem onClick={onLogout}>Logout</MenuItem>
                             <MenuItem>Profile</MenuItem>
                         </SimpleMenu>

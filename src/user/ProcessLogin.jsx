@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory, useLocation } from "react-router-dom"
 import { getUserAuthInfo, getMembershipById } from '../api/destiny'
+import { setMembershipInfo } from './currentUser'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -14,7 +15,7 @@ const ProcessLogin = () => {
         const processCode = async (code) => {
             const authInfo = await getUserAuthInfo(code)
             const membershipInfo = await getMembershipById(authInfo.membershipId)
-            window.localStorage.setItem('shenaniganizers-bungie-info', JSON.stringify(membershipInfo))
+            setMembershipInfo(membershipInfo)
             history.push('/')
         }
         processCode(query.get('code'))

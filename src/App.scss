@@ -37,6 +37,12 @@
   }
 }
 
+.menu-bar-user {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .clear-button {
   border: 1px solid #b00020;
   color: #b00020;
