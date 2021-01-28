@@ -19,7 +19,6 @@ const Main = (props) => {
                             <li>Automatically communicating link with Clan chat.</li>
                             <li>Allow scheduling of a dungeon.</li>
                             <li>Saving of preferences (i.e. I HATE being scanner) which the algorithm will take into account.</li>
-                            <li>Tracking metrics (i.e. When someone complains they are always the scanner, now they can prove it).</li>
                             <li>Make this more mobile friendly, at least for viewing the raid assignments.</li>
                         </ul>
                         <div>BTW if you get lost, just hit the title in the upper left to come back here.</div>
@@ -58,6 +57,11 @@ const Main = (props) => {
                     <div><Button raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button></div>
                     <div style={{ paddingTop: '20px' }}>
                         <ActiveRaidList />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <Typography use="headline4">Want a PS5?</Typography>
+                        <div>Getting a PS5 is hard, however we have some individuals who are eagerly locating when certain stock goes on sale. Nekro mentioned having a signup so if they could get more than one, they would and then provide it at cost to another clanmate.</div>
+                        <div style={{ marginTop: '10px', fontSize: 'larger' }}><a href="https://docs.google.com/spreadsheets/d/16N5gQ97mN3D34N9AtPIl5__aRyfqFZ7RntVR_mIUBJ4/edit?usp=sharing" target="_blank" rel="noreferrer">Go To PS5 Signup List</a></div>
                     </div>
                 </GridCell>
             </Grid>
