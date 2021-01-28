@@ -23,6 +23,11 @@ const ApplicationBar = (props) => {
         clearMembershipInfo()
         setUserInfo(null)
     }
+
+    const onProfile = () => {
+        console.log(props)
+        // props.history.push('/profile')
+    }
     return (<>
         <TopAppBar>
             <TopAppBarRow>
@@ -36,7 +41,7 @@ const ApplicationBar = (props) => {
                         (<SimpleMenu
                             handle={<div className="menu-bar-user" style={{ display: 'flex' }}><img alt="user" src={userInfo.profilePictureUrl} style={{ width: '24px', height: '24px' }} /><div style={{ paddingLeft: '10px' }}> {userInfo.name}</div></div>} >
                             <MenuItem onClick={onLogout}>Logout</MenuItem>
-                            <MenuItem>Profile</MenuItem>
+                            <MenuItem onClick={onProfile}>Profile</MenuItem>
                         </SimpleMenu>
                         )
                         : (<Button raised onClick={() => window.location.href = bungieLoginUrl}>Login</Button>)
