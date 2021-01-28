@@ -66,18 +66,26 @@ const RaidDetails = ({ raidInfo }) => {
 const Profile = () => {
     const [currentUser] = useState(getCurrentUserInfo())
     const [raidMetrics, setRaidMetrics] = useState([])
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         const getRaidInfo = async () => {
             const { data } = await raidClient.query({ query, variables: { destinyId: currentUser.destinyId } })
             const metrics = calculateMetrics(currentUser.destinyId, data.history)
             setRaidMetrics(metrics)
+            setLoading(false)
         }
+        setLoading(true)
         getRaidInfo()
     }, [currentUser.destinyId])
 
+    if (loading) {
+        return (<div style={{ padding: '10px' }}>
+            <Typography use="headline4">Loading...</Typography>
+        </div>)
+    }
     return (
         <div style={{ padding: '10px' }}>
-            <Typography use="headline2"><img src={currentUser.profilePictureUrl} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
+            <Typography use="headline2"><img alt="profile icon" src={currentUser.profilePictureUrl} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
             <Grid>
                 {raidMetrics.map((raidInfo) => <RaidDetails raidInfo={raidInfo} key={raidInfo.raidName} />)}
             </Grid>

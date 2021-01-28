@@ -13,6 +13,7 @@ const UserMenu = (userInfo) => {
 
 }
 const ApplicationBar = (props) => {
+    const history = useHistory()
     const location = useLocation()
     const [userInfo, setUserInfo] = useState(null)
     useEffect(() => {
@@ -26,14 +27,14 @@ const ApplicationBar = (props) => {
 
     const onProfile = () => {
         console.log(props)
-        // props.history.push('/profile')
+        history.push('/profile')
     }
     return (<>
         <TopAppBar>
             <TopAppBarRow>
                 <TopAppBarSection>
                     <TopAppBarTitle style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>Raid Shenanigans <small>{packageJSON.version}</small></a>
+                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>Shenaniganizers <small>{packageJSON.version}</small></a>
                     </TopAppBarTitle>
                 </TopAppBarSection>
                 <TopAppBarSection alignEnd>
