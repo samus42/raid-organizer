@@ -41,7 +41,7 @@ const Samus = () => (
 const Members = () => {
     const history = useHistory()
     return (
-        <div style={{ paddingLeft: '20px', paddingTop: '20px' }}>
+        <div className="main-tab-content">
             <div><Typography use="headline6">Our clan members have their own things to share with the community. Check out their web pages / creations!</Typography> </div>
             <Grid>
                 <GridCell><Ace /></GridCell>

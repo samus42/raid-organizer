@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from './Home'
+import Home from './HomeBeta'
 import RaidDetails from './raid/RaidDetails.jsx'
 import ApplicationBar from './ApplicationBar'
 import ProcessLogin from './user/ProcessLogin'
