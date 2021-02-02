@@ -5,6 +5,20 @@ import { useHistory } from "react-router-dom"
 import { Typography } from '@rmwc/typography'
 import ActiveRaidList from './raid/ActiveRaidList'
 
+const W6MIR = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc22.jpg" />
+        </div>
+        <Typography use="headline4">W6MIR</Typography>
+        <div className="member-detail">
+            <strong>Alert!</strong> Under Section 8, Paragraph 4 of the Clan Charter, W6MIR will not be obligated to be fireteam leader under any circumstance.
+        </div>
+        <div>
+            <small>And no, he has no interest in playing Gambit with you.</small>
+        </div>
+    </div>
+)
 const Ace = () => (
     <div className="member-card">
         <div>
@@ -46,6 +60,7 @@ const Members = () => {
             <Grid>
                 <GridCell><Ace /></GridCell>
                 <GridCell><Samus /></GridCell>
+                <GridCell><W6MIR /></GridCell>
             </Grid>
         </div>
     )
