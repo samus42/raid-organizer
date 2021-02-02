@@ -52,6 +52,18 @@
   }
   height: 24px;
 }
+
+.member-card {
+  text-align: center;
+  border: 2px solid lightgray;
+  border-radius: 25px;
+  padding: 5px;
+  min-height: 350px;
+
+  .member-detail {
+    padding: 5px;
+  }
+}
 // .player-drop-target-unassigned {
 //   background-color: lightgray;
 // }
