@@ -1,9 +1,6 @@
 import React from 'react'
-import { Button } from '@rmwc/button'
 import { Grid, GridCell } from '@rmwc/grid'
-import { useHistory } from "react-router-dom"
 import { Typography } from '@rmwc/typography'
-import ActiveRaidList from './raid/ActiveRaidList'
 
 const W6MIR = () => (
     <div className="member-card">
@@ -53,15 +50,15 @@ const Samus = () => (
 )
 
 const Members = () => {
-    const history = useHistory()
     return (
         <div className="main-tab-content">
             <div><Typography use="headline6">Our clan members have their own things to share with the community. Check out their web pages / creations!</Typography> </div>
-            <Grid>
+            <Grid style={{ paddingLeft: '0', paddingRight: '0' }}>
                 <GridCell><Ace /></GridCell>
                 <GridCell><Samus /></GridCell>
                 <GridCell><W6MIR /></GridCell>
             </Grid>
+            <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
     )
 }

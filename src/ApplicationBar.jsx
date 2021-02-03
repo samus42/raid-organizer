@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle, TopAppBarFixedAdjust, TopAppBarActionItem } from '@rmwc/top-app-bar'
+import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle, TopAppBarFixedAdjust } from '@rmwc/top-app-bar'
 import { Button } from '@rmwc/button'
 import { useHistory, useLocation } from 'react-router-dom'
 import packageJSON from '../package.json'
-import { SimpleMenu, MenuSurfaceAnchor, Menu, MenuItem } from '@rmwc/menu'
+import { SimpleMenu, MenuItem } from '@rmwc/menu'
 import { getCurrentUserInfo, clearMembershipInfo } from './user/currentUser'
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const bungieLoginUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code`
 
-const UserMenu = (userInfo) => {
-
-}
 const ApplicationBar = (props) => {
     const history = useHistory()
     const location = useLocation()
