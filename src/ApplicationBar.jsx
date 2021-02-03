@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle, TopAppBarFixedAdjust } from '@rmwc/top-app-bar'
 import { Button } from '@rmwc/button'
 import { useHistory, useLocation } from 'react-router-dom'
-import packageJSON from '../package.json'
 import { SimpleMenu, MenuItem } from '@rmwc/menu'
 import { getCurrentUserInfo, clearMembershipInfo } from './user/currentUser'
 
@@ -31,7 +30,7 @@ const ApplicationBar = (props) => {
             <TopAppBarRow>
                 <TopAppBarSection>
                     <TopAppBarTitle style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>Shenaniganizers <small>{packageJSON.version}</small></a>
+                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>Shenaniganizers</a>
                     </TopAppBarTitle>
                 </TopAppBarSection>
                 <TopAppBarSection alignEnd>

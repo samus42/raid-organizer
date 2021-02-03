@@ -3,6 +3,7 @@
 @import '~@material/menu/dist/mdc.menu.css';
 @import '~@material/menu-surface/dist/mdc.menu-surface.css';
 @import '~@material/list/dist/mdc.list.css';
+@import 'Media';
 
 .raid-stage {
     border-radius: 25px;
@@ -74,6 +75,11 @@
   padding-top: 20px;
   padding-left: 40px;
   padding-right: 40px;
+
+  @include for_breakpoint(mobile) {
+    padding-left:5px;
+    padding-right:5px;
+  }
 }
 // .player-drop-target-unassigned {
 //   background-color: lightgray;

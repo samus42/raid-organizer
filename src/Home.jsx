@@ -3,6 +3,7 @@ import { Typography } from '@rmwc/typography'
 import { TabBar, Tab } from '@rmwc/tabs'
 import Members from './Members'
 import Activities from './Activities'
+import packageJSON from '../package.json'
 
 const tabs = {
     acitivities: 0,
@@ -49,6 +50,9 @@ const Main = (props) => {
                     </div>
                 )
             }
+            <div style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%', color: 'gray' }}>
+                <small>Version {packageJSON.version}</small>
+            </div>
         </div>
     )
 }

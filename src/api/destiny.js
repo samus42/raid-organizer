@@ -11,6 +11,11 @@ export const defaultIconUrl = `${baseUrl}/img/theme/bungienet/icons/psnLogo.png`
 
 let rosterCache = null
 
+//TODO: Put this on the server side
+const deprecatedMemberNames = [
+    'BuzukaToof', 'Chitown726', 'columbianeddie', 'ddfed', 'Dead_Again_420', 'Deathsquid112', 'Dragonlord198369', 'Drekken79', 'dukkhah', 'I_am_Bradock', 'jaeuu520', 'JBAKE', 'Lonomakihe', 'patbot92', 'r_oh_33', 'Skull_Krusher_97', 'StoutHouse', 'TansyRagwort', 'wscott42'
+]
+
 export const getClanRoster = async () => {
     if (rosterCache) {
         return rosterCache
@@ -24,7 +29,7 @@ export const getClanRoster = async () => {
         name: destinyUserInfo.displayName,
         iconPath: bungieNetUserInfo ? `${baseUrl}/${bungieNetUserInfo.iconPath}` : defaultIconUrl,
         destinyId: destinyUserInfo.membershipId,
-    }))
+    })).filter(({ name }) => !deprecatedMemberNames.includes(name))
 
     rosterCache = sortBy(members, ({ name }) => name.toUpperCase())
     return rosterCache
