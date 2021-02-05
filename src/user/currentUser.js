@@ -25,7 +25,7 @@ export const getCurrentUserInfo = () => {
     if (membershipInfo) {
         const { bungieNetUser, destinyMemberships } = membershipInfo
         return {
-            profilePictureUrl: `${imageUrlPrefix}${bungieNetUser.profilePicturePath}`,
+            iconPath: `${imageUrlPrefix}${bungieNetUser.profilePicturePath}`,
             name: bungieNetUser.displayName,
             destinyId: destinyMemberships[0].membershipId
         }

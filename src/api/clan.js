@@ -45,3 +45,7 @@ export const saveRaid = async (raid) => {
     const { data } = await raidClient.mutate({ mutation: saveRaidMutation, variables: { raid: payload } })
     return { ...raid, id: data.raid.id }
 }
+
+export const archiveRaid = async (raid) => {
+    await raidClient.mutate({ mutation: archiveRaidMutation, variables: { id: raid.id } })
+}

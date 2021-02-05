@@ -46,12 +46,10 @@ export const determineRank = (raidName, type, count) => {
     if (!raidRanks) {
         return { rank: 'None' }
     }
-    console.log(raidName, type)
     const typeRanks = raidRanks[type]
     if (!typeRanks) {
         return { rank: 'None' }
     }
-    console.log(typeRanks)
     const nextRankIndex = _.findIndex(typeRanks, (({ value }) => value > count))
 
     if (nextRankIndex < 0) {

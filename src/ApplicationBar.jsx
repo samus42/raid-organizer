@@ -22,7 +22,6 @@ const ApplicationBar = (props) => {
     }
 
     const onProfile = () => {
-        console.log(props)
         history.push('/profile')
     }
     return (<>
@@ -36,7 +35,7 @@ const ApplicationBar = (props) => {
                 <TopAppBarSection alignEnd>
                     {userInfo ?
                         (<SimpleMenu
-                            handle={<div className="menu-bar-user" style={{ display: 'flex' }}><img alt="user" src={userInfo.profilePictureUrl} style={{ width: '24px', height: '24px' }} /><div style={{ paddingLeft: '10px' }}> {userInfo.name}</div></div>} >
+                            handle={<div className="menu-bar-user" style={{ display: 'flex' }}><img alt="user" src={userInfo.iconPath} style={{ width: '24px', height: '24px' }} /><div style={{ paddingLeft: '10px' }}> {userInfo.name}</div></div>} >
                             <MenuItem onClick={onLogout}>Logout</MenuItem>
                             <MenuItem onClick={onProfile}>Profile</MenuItem>
                         </SimpleMenu>

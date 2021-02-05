@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { TabBar, Tab } from '@rmwc/tabs'
 import { Typography } from '@rmwc/typography'
+import { Snackbar, SnackbarAction } from '@rmwc/snackbar'
 import MobileDetails from './MobileDetails'
 import MobileRoster from './MobileRoster'
 import MobileStages from './MobileStages'
 import { newRaidByKey, isRaidKey } from '../templates'
 import { loadRaid, saveRaid } from '../../api/clan'
 import isEmpty from 'lodash.isempty'
-import omitDeep from 'omit-deep-lodash'
 
 // 601a0b0d7de116071287f9b3
 const tabs = {
@@ -25,6 +25,7 @@ const MobileMain = ({ match }) => {
     const [currentRoster, setCurrentRoster] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [saveEnabled, setSaveEnabled] = useState(false)
+    const [saveMessage, setSaveMessage] = useState(null)
 
     useEffect(() => {
         const getRaid = async () => {
@@ -55,16 +56,24 @@ const MobileMain = ({ match }) => {
         setSaveEnabled(!isEmpty(details.instanceName.trim()) && details.date)
     }
 
-    const onSave = async () => {
+    const performSave = async (raidData) => {
         const isNew = !raid.id
-        const updated = await saveRaid({ ...raid, roster: currentRoster, instanceName, date })
+        const updated = await saveRaid(raidData)
         setRaid(updated)
         if (isNew) {
             history.push(`/raid/${updated.id}`)
-            // setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
+            setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
         } else {
-            // setSaveMessage('Raid updated!')
+            setSaveMessage('Raid updates saved!')
         }
+    }
+    const onSave = async () => {
+        await performSave({ ...raid, roster: currentRoster, instanceName, date })
+    }
+
+    const onRosterChange = async (newRoster) => {
+        setCurrentRoster(newRoster)
+        await performSave({ ...raid, roster: newRoster, instanceName, date })
     }
 
     if (isLoading) {
@@ -73,7 +82,6 @@ const MobileMain = ({ match }) => {
         )
     }
 
-    console.log(raid)
     return (
         <div>
             <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
@@ -81,13 +89,24 @@ const MobileMain = ({ match }) => {
                 <Tab>Roster</Tab>
                 <Tab>Stages</Tab>
             </TabBar>
-            <div style={{ padding: '5px', paddingTop: '20px' }}><Typography use="headline4">{raid.raidName}</Typography></div>
+            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{raid.raidName}</Typography></div>
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
-                {activeTab === tabs.roster && <MobileRoster roster={currentRoster} saveEnabled={saveEnabled} onRosterChange={setCurrentRoster} />}
+                {activeTab === tabs.roster && <MobileRoster roster={currentRoster} saveEnabled={saveEnabled} onRosterChange={onRosterChange} />}
                 {activeTab === tabs.stages && <MobileStages raid={raid} saveEnabled={saveEnabled} />}
             </div>
-        </div>
+            <Snackbar
+                open={saveMessage}
+                onClose={evt => setSaveMessage(null)}
+                message={saveMessage}
+                dismissesOnAction
+                action={
+                    <SnackbarAction
+                        label="Dismiss"
+                    />
+                }
+            />
+        </div >
     )
 }
 

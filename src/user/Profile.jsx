@@ -48,7 +48,6 @@ const RoleDetail = ({ raidName, roleType, count }) => {
 }
 const RaidDetails = ({ raidInfo }) => {
     const { raidName, numRuns, roleTypes } = raidInfo
-    console.log(raidInfo)
     return (
         <GridCell span={6}>
             <Typography use="headline4">{raidName}<small>{`  (${numRuns} runs)`}</small></Typography>
@@ -85,7 +84,7 @@ const Profile = () => {
     }
     return (
         <div style={{ padding: '10px' }}>
-            <Typography use="headline2"><img alt="profile icon" src={currentUser.profilePictureUrl} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
+            <Typography use="headline2"><img alt="profile icon" src={currentUser.iconPath} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
             <Grid>
                 {raidMetrics.map((raidInfo) => <RaidDetails raidInfo={raidInfo} key={raidInfo.raidName} />)}
             </Grid>

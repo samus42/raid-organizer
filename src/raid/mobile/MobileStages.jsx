@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Typography } from '@rmwc/typography'
 import { Grid, GridCell } from '@rmwc/grid'
-import { Icon } from '@rmwc/icon'
 
 const Role = ({ role, onChange = () => { } }) => {
     return (
@@ -9,7 +8,7 @@ const Role = ({ role, onChange = () => { } }) => {
             <div>{role.name}</div>
             <div style={{ display: 'flex', justifyContent: 'space-between', minWidth: '150px' }}>
                 {role.player && (<div style={{ display: 'flex', padding: '0px' }} >
-                    <img src={role.player.iconPath || role.player.profilePictureUrl} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{role.player.name}</div>
+                    <img src={role.player.iconPath} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{role.player.name}</div>
                 </div>)}
             </div>
         </div>
@@ -31,7 +30,6 @@ const Stage = ({ stage, onChange = () => { } }) =>
 
 
 const RaidAssignments = ({ raid, onChange = () => { } }) => {
-    console.log('raid: ', raid)
     return (
         <div>
             <Grid>

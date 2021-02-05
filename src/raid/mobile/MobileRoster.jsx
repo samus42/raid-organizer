@@ -9,7 +9,7 @@ const emptyPlayer = { name: 'Slot Open', iconPath: defaultIconUrl, destinyId: nu
 
 const PlayerSlot = ({ player }) => (
     <div style={{ display: 'flex', padding: '15px', justifyContent: 'center' }} >
-        <img src={player.iconPath || player.profilePictureUrl} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{player.name}</div>
+        <img src={player.iconPath} style={{ width: '24px', height: '24px' }} alt="" /><div style={{ paddingLeft: '5px' }}>{player.name}</div>
     </div>
 )
 
@@ -36,7 +36,6 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
 
     const memberChanged = () => {
         const currentUser = getCurrentUserInfo()
-        console.log(currentUser)
         if (currentUserAdded) {
             onRosterChange(roster.filter((player) => player.destinyId !== currentUser.destinyId))
         } else {
