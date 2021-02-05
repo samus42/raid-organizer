@@ -72,7 +72,7 @@ const RaidAssignments = ({ raid, onChange }) => {
         <div>
             <Grid>
                 {raid.stages.map((stage, index) =>
-                    <GridCell span={cellSpan} style={{ minWidth: '480px' }}>
+                    <GridCell key={`${stage}-${index}`} span={cellSpan} style={{ minWidth: '480px' }}>
                         <Stage key={`${stage}-${index}`} stage={stage} onChange={onChange} />
                     </GridCell>)}
             </Grid>
