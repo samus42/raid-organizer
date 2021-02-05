@@ -6,6 +6,7 @@ import { newRaidByKey, isRaidKey } from './templates'
 import { loadRaid, saveRaid, archiveRaid } from '../api/clan'
 import { Snackbar, SnackbarAction } from '@rmwc/snackbar'
 import isEmpty from 'lodash.isempty'
+import differenceBy from 'lodash.differenceby'
 
 const RaidMain = ({ match }) => {
     const [screenLayout, setScreenLayout] = useState('desktop')
@@ -20,7 +21,6 @@ const RaidMain = ({ match }) => {
 
     useLayoutEffect(() => {
         const updateSize = () => {
-            console.log(window.innerWidth)
             if (window.innerWidth < 1025) {
                 setScreenLayout('mobile')
             }
@@ -81,9 +81,22 @@ const RaidMain = ({ match }) => {
     }
 
     const onRosterChange = async (newRoster, saveData = false) => {
+        const removed = differenceBy(currentRoster, newRoster, 'destinyId')
+        const newRaid = JSON.parse(JSON.stringify(raid))
+        if (removed.length > 0) {
+            const removedIds = removed.map(({ destinyId }) => destinyId)
+            newRaid.stages.forEach((stage) => {
+                stage.roles.forEach((role) => {
+                    if (role.player && removedIds.includes(role.player.destinyId)) {
+                        role.player = null
+                    }
+                })
+            })
+            setRaid(newRaid)
+        }
         setCurrentRoster(newRoster)
         if (saveData) {
-            await performSave({ ...raid, roster: newRoster, instanceName, date })
+            await performSave({ ...newRaid, roster: newRoster, instanceName, date })
         }
     }
 

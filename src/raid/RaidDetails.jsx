@@ -11,7 +11,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import changePosition from './changePosition'
-import differenceBy from 'lodash.differenceby'
 
 const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, onArchive, onChangeRaid, onDetailsChange, onRosterChange }) => {
 
@@ -28,33 +27,12 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
         onChangeRaid(newRaid)
     }
 
-    const onRaidRosterChange = (newRoster) => {
-        const removed = differenceBy(roster, newRoster, 'destinyId')
-        console.log('removed: ', removed)
-        if (removed.length > 0) {
-            const removedIds = removed.map(({ destinyId }) => destinyId)
-            const newRaid = JSON.parse(JSON.stringify(raid))
-            newRaid.stages.forEach((stage) => {
-                stage.roles.forEach((role) => {
-                    if (role.player && removedIds.includes(role.player.destinyId)) {
-                        console.log('removed')
-                        role.player = null
-                    }
-                })
-            })
-            onChangeRaid(newRaid)
-        }
-        onRosterChange(newRoster)
-    }
-    if (!raid) {
-        return <div>Loading...</div>
-    }
     return (
         <DndProvider backend={HTML5Backend}>
             <ClanRoster excludeList={roster} onSelect={onAddPlayer} disabled={roster.length > 7} />
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                 <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll', borderRight: '1px solid lightgray' }}>
-                    <RaidRoster roster={roster} onRosterChange={onRaidRosterChange} raidTitle={raid.raidName} />
+                    <RaidRoster roster={roster} onRosterChange={onRosterChange} raidTitle={raid.raidName} />
                 </div>
                 <div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                     {!raid.active && <h2>This raid is no longer active!</h2>}
