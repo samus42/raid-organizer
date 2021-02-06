@@ -49,6 +49,91 @@ const Samus = () => (
     </div>
 )
 
+
+const Nutbar = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/avatar2.jpg" />
+        </div>
+        <Typography use="headline4">Malkavian Nutbar</Typography>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>"Empowered Left"</span>
+        </div>
+        <div className="member-detail">
+            Has a secret superpower. He can cause his clan to complete any raid with just one sentence. <span style={{ fontStyle: 'italic' }}>"Guys, this is my last run."</span>
+        </div>
+        <div className="member-detail">
+            <small>And his other character is ALSO a Warlock...</small>
+        </div>
+    </div>
+)
+
+const Silly = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net/img/profile/avatars/odst_skull_fire.png" />
+        </div>
+        <Typography use="headline4">Silly Milly</Typography>
+        <div className="member-detail">
+            <div><strong>Q:</strong><span> What do you use when fighting Fallen?</span></div>
+            <div><strong>A:</strong><span> A bow.</span></div>
+            <div><strong>Q:</strong><span> What do you use when fighting an armored boss?</span></div>
+            <div><strong>A:</strong><span> A bow.</span></div>
+            <div><strong>Q:</strong><span> What do you use when fighting an bow proof boss?</span></div>
+            <div><strong>A:</strong><span> A bow.</span></div>
+        </div>
+    </div>
+)
+
+const Halily = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" />
+        </div>
+        <Typography use="headline4">Halily</Typography>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>"God@#$@ @%#@ing @#@$% of a jumping puzzle."</span>
+        </div>
+        <div className="member-detail">
+            This is a public site, you can't say things like that!
+        </div>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>"@#$# you, you @#$@ing @#$wipe mother @#$@er"</span>
+        </div>
+    </div>
+)
+
+const Momo = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
+        </div>
+        <Typography use="headline4">Momo</Typography>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>"Can you remind me which weapons I killed you with? I've lost track."</span>
+        </div>
+        <div className="member-detail">
+            If he tells you something's going to be easy. <strong>RUN</strong>
+        </div>
+    </div>
+)
+
+const Mabie = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/attention2.gif" />
+        </div>
+        <Typography use="headline4">Mabie</Typography>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>"Hey, this orange glowing Shank followed me home, can we keep it?"</span>
+        </div>
+        <div className="member-detail">
+            <div>Mabie, where did you go? We just started this jumping puzzle.</div>
+            <div><span style={{ fontStyle: 'italic' }}>"@#$@ that. I'm in orbit."</span></div>
+        </div>
+    </div>
+)
+
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -57,6 +142,11 @@ const Members = () => {
                 <GridCell><Ace /></GridCell>
                 <GridCell><Samus /></GridCell>
                 <GridCell><W6MIR /></GridCell>
+                <GridCell><Nutbar /></GridCell>
+                <GridCell><Silly /></GridCell>
+                <GridCell><Halily /></GridCell>
+                <GridCell><Momo /></GridCell>
+                <GridCell><Mabie /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
