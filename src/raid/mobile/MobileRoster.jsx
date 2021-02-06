@@ -16,6 +16,7 @@ const PlayerSlot = ({ player }) => (
 const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) => {
     const [players, setPlayers] = useState([])
     const [currentUserAdded, setCurrentUserAdded] = useState(false)
+    const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
         const emptySpots = Math.max(0, raidSlots - roster.length)
@@ -30,8 +31,9 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
                 .concat(emptyRaidSlotArr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` })))
                 .concat(emptyBackupSlotArr.map((item, index) => ({ ...item, name: `Backup ${index + 1}` })))
         )
-        const { destinyId } = getCurrentUserInfo()
-        setCurrentUserAdded(!!roster.find((player) => player.destinyId === destinyId))
+        const user = getCurrentUserInfo()
+        setCurrentUser(user)
+        setCurrentUserAdded(user && !!roster.find((player) => player.destinyId === user.destinyId))
     }, [roster])
 
     const memberChanged = () => {
@@ -45,7 +47,8 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
     return (
         <div>
             <div style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}>
-                <Button raised disabled={!saveEnabled} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                <Button raised disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                {!currentUser && <div style={{ paddingTop: '5px' }}><strong>You must login to add/remove yourself.</strong></div>}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
