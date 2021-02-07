@@ -79,7 +79,7 @@ const Silly = () => (
             <div><strong>A:</strong><span> A bow.</span></div>
             <div><strong>Q:</strong><span> What do you use when fighting an armored boss?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
-            <div><strong>Q:</strong><span> What do you use when fighting an bow proof boss?</span></div>
+            <div><strong>Q:</strong><span> What do you use when fighting a bow proof boss?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
         </div>
     </div>

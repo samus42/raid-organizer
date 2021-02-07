@@ -1,5 +1,5 @@
 const LastWish = () => ({
-    raidName: 'Deep Stone Crypt',
+    raidName: 'Last Wish',
     active: true,
     stages: [
         {

@@ -11,8 +11,15 @@ const Activities = () => {
         <Grid>
             <GridCell span={6}>
                 <div><Typography use="headline4">Organize a Raid For:</Typography></div>
-                <div style={{ marginBottom: '20px', marginTop: '20px' }}><Button raised onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button></div>
-                <div><Button raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button></div>
+                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button>
+                </div>
+                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button>
+                </div>
+                <div>
+                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/wish')}>Last Wish</Button>
+                </div>
                 <div style={{ paddingTop: '20px' }}>
                     <ActiveRaidList />
                 </div>
