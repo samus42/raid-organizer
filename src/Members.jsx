@@ -163,6 +163,23 @@ const KaiJae = () => (
         </div>
     </div>
 )
+
+const GMann = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/e2015_11.jpg" />
+        </div>
+        <Typography use="headline4">GMann</Typography>
+        <div className="member-detail">
+            <div>Ok, for Atraks-1 we need to decide who is go-</div>
+            <div><span style={{ fontStyle: 'italic' }}>"I'm going to space."</span></div>
+            <div>GMann, you should probably let others-</div>
+            <div><span style={{ fontStyle: 'italic' }}>{`[Gun cocks] "I'm going to space."`}</span></div>
+            <div>Oooook, you are going to space. You can ber operat-</div>
+            <div><span style={{ fontStyle: 'italic' }}>{`[Gunshot]`}</span></div>
+        </div>
+    </div>
+)
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -178,6 +195,8 @@ const Members = () => {
                 <GridCell><Mabie /></GridCell>
                 <GridCell><Kaizyn /></GridCell>
                 <GridCell><KaiJae /></GridCell>
+                <GridCell><GMann /></GridCell>
+
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
