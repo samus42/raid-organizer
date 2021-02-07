@@ -134,6 +134,35 @@ const Mabie = () => (
     </div>
 )
 
+const Kaizyn = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/septagonsuperanimated6.gif" />
+        </div>
+        <Typography use="headline4">Kaizyn</Typography>
+        <div className="member-detail">
+            <strong>Cheif Interrogator</strong>
+        </div>
+        <div className="member-detail">
+            <div><span style={{ fontStyle: 'italic' }}>"Before I let you go, I need to know your college roomate's sister's best friend's middle name."</span></div>
+        </div>
+    </div>
+)
+
+const KaiJae = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
+        </div>
+        <Typography use="headline4">KaiJae</Typography>
+        <div className="member-detail">
+            <div><span style={{ fontStyle: 'italic' }}>"You're right, that WAS a hard bounty. It took me 3 matches to get 250 sniper kills in the Crucible.  Rough."</span></div>
+        </div>
+        <div className="member-detail">
+            <div><span style={{ fontStyle: 'italic' }}>"What do you mean you're having trouble getting a PS5?"</span></div>
+        </div>
+    </div>
+)
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -147,6 +176,8 @@ const Members = () => {
                 <GridCell><Halily /></GridCell>
                 <GridCell><Momo /></GridCell>
                 <GridCell><Mabie /></GridCell>
+                <GridCell><Kaizyn /></GridCell>
+                <GridCell><KaiJae /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
