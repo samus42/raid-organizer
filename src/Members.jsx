@@ -38,6 +38,9 @@ const Samus = () => (
         </div>
         <Typography use="headline4">Samus Darkthorn</Typography>
         <div className="member-detail">
+            <strong>God</strong><small style={{ marginLeft: '5px' }}>Kaizyn said so</small>
+        </div>
+        <div className="member-detail">
             Samus has written some guides to help his fellow Guardians. They try to be entertaining as well as helpful.
         </div>
         <div className="member-detail">
@@ -141,10 +144,10 @@ const Kaizyn = () => (
         </div>
         <Typography use="headline4">Kaizyn</Typography>
         <div className="member-detail">
-            <strong>Cheif Interrogator</strong>
+            <strong>Chief Interrogator</strong>
         </div>
         <div className="member-detail">
-            <div><span style={{ fontStyle: 'italic' }}>"Before I let you go, I need to know your college roomate's sister's best friend's middle name."</span></div>
+            <div><span style={{ fontStyle: 'italic' }}>"Before I let you go, I need to know your college roommate's sister's best friend's middle name."</span></div>
         </div>
     </div>
 )
@@ -175,8 +178,25 @@ const GMann = () => (
             <div><span style={{ fontStyle: 'italic' }}>"I'm going to space."</span></div>
             <div>GMann, you should probably let others-</div>
             <div><span style={{ fontStyle: 'italic' }}>{`[Gun cocks] "I'm going to space."`}</span></div>
-            <div>Oooook, you are going to space. You can ber operat-</div>
+            <div>Oooook, you are going to space. You can be operat-</div>
             <div><span style={{ fontStyle: 'italic' }}>{`[Gunshot]`}</span></div>
+        </div>
+    </div>
+)
+
+const Stink = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/bungieday_19.jpg" />
+        </div>
+        <Typography use="headline4">Stink Machine</Typography>
+        <div className="member-detail">
+            <div>[Stickmachine has joined your fireteam]</div>
+            <div>Hey man! Long time so see! How you doing?</div>
+            <div>[Stickmachine has gained a level]</div>
+            <div>[Stickmachine has left your fireteam]</div>
+            <div>I....I've been used...for shared wisdom.</div>
+            <div>[crying sounds]</div>
         </div>
     </div>
 )
@@ -196,7 +216,7 @@ const Members = () => {
                 <GridCell><Kaizyn /></GridCell>
                 <GridCell><KaiJae /></GridCell>
                 <GridCell><GMann /></GridCell>
-
+                <GridCell><Stink /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
