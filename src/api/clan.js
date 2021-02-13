@@ -49,3 +49,45 @@ export const saveRaid = async (raid) => {
 export const archiveRaid = async (raid) => {
     await raidClient.mutate({ mutation: archiveRaidMutation, variables: { id: raid.id } })
 }
+
+const saveActivityMutation = gql`
+    mutation ($activity: ActivityInput!) {
+        activity: saveActivity(activity: $activity) {id, version}
+    }    
+`
+
+const archiveActivityMutation = gql`
+    mutation ($id: ID!) {
+        activity: archiveActivity(id: $id) {id}
+    }    
+`
+
+const loadActivityQuery = gql`
+    fragment PlayerInfo on ActivityPlayer {
+        name, id, type
+    }
+    query ($id: ID!) {
+        activity: getActivity(id: $id) {
+            id, type, instanceName, date, active
+            maxPlayers, info, version
+            players {
+                ...PlayerInfo
+            }
+        }
+    }
+`
+
+export const loadActivity = async (activityKey) => {
+    const { data } = await raidClient.query({ query: loadActivityQuery, variables: { id: activityKey } })
+    return data.activity
+}
+
+export const saveActivity = async (activity) => {
+    const payload = omitDeep(activity, '__typename', 'active')
+    const { data } = await raidClient.mutate({ mutation: saveActivityMutation, variables: { activity: payload } })
+    return { ...activity, id: data.version.id, version: data.activity.version }
+}
+
+export const archiveActivity = async (activity) => {
+    await raidClient.mutate({ mutation: archiveActivityMutation, variables: { id: activity.id } })
+}
