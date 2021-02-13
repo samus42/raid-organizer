@@ -204,11 +204,11 @@ const Stink = () => (
 const Nekro = () => (
     <div className="member-card">
         <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/e2015_14.jpg" />
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc000011.jpg" />
         </div>
         <Typography use="headline4">Nekronomikan</Typography>
         <div className="member-detail">
-            <strong>Apex Preditor</strong>
+            <strong>Apex Predator</strong>
         </div>
         <div className="member-detail">
             <div>You think you're better than me? The fact that you're not a Hunter means that you're not.</div>
