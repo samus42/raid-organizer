@@ -200,6 +200,25 @@ const Stink = () => (
         </div>
     </div>
 )
+
+const Nekro = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc000011.jpg" />
+        </div>
+        <Typography use="headline4">Nekronomikan</Typography>
+        <div className="member-detail">
+            <strong>Apex Predator</strong>
+        </div>
+        <div className="member-detail">
+            <div>You think you're better than me? The fact that you're not a Hunter means that you're not.</div>
+            <div>We're better than you in <strong>everything</strong>.</div>
+            <div>That's right, even <span style={{ fontStyle: 'italic' }}>etiquette</span>.</div>
+            <div>Our table manners are <strong>impeccable</strong>!</div>
+        </div>
+    </div>
+)
+
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -217,6 +236,7 @@ const Members = () => {
                 <GridCell><KaiJae /></GridCell>
                 <GridCell><GMann /></GridCell>
                 <GridCell><Stink /></GridCell>
+                <GridCell><Nekro /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
