@@ -36,13 +36,19 @@ const ActivityMain = ({ match }) => {
 
     useEffect(() => {
         const getActivity = async () => {
-            const loaded = await loadActivity(match.params.activityKey)
-            setActivity(loaded)
-            setInstanceName(loaded.instanceName)
-            setDate(new Date(loaded.date))
-            setCurrentRoster(loaded.roster)
-            setIsLoading(false)
-            setSaveEnabled(true)
+            try {
+                const loaded = await loadActivity(match.params.activityKey)
+                console.log('loaded: ', loaded)
+                setActivity(loaded)
+                setInstanceName(loaded.instanceName)
+                setDate(new Date(loaded.date))
+                setCurrentRoster(loaded.players)
+                setIsLoading(false)
+                setSaveEnabled(true)
+            } catch (err) {
+                console.error(err)
+                setError(err)
+            }
         }
         setIsLoading(true)
         console.log('activityKey: ', match.params.raidKey)
@@ -56,24 +62,30 @@ const ActivityMain = ({ match }) => {
     }, [match, reloadFlag])
 
     const onDetailsChange = (details) => {
-        setInstanceName(details.instanceName.trim())
+        setInstanceName(details.instanceName)
         setDate(details.date)
         setSaveEnabled(!isEmpty(details.instanceName.trim()) && details.date)
     }
 
     const performSave = async (activityData) => {
-        const isNew = !activity.id
-        const updated = await saveActivity(activityData)
-        setActivity(updated)
-        if (isNew) {
-            history.push(`/activity/${updated.id}`)
-            setSaveMessage('Activity saved! You can now share the URL in the browser with others.')
-        } else {
-            setSaveMessage('Activity updates saved!')
+        try {
+            const isNew = !activity.id
+            console.log('saving: ', activityData)
+            const updated = await saveActivity(activityData)
+            setActivity(updated)
+            if (isNew) {
+                history.push(`/activity/${updated.id}`)
+                setSaveMessage('Activity saved! You can now share the URL in the browser with others.')
+            } else {
+                setSaveMessage('Activity updates saved!')
+            }
+        } catch (err) {
+            console.error(err)
+            setError(err)
         }
     }
     const onSave = async () => {
-        await performSave({ ...activity, roster: currentRoster, instanceName, date })
+        await performSave({ ...activity, players: currentRoster, instanceName, date })
     }
 
     const onArchive = async () => {
@@ -82,30 +94,16 @@ const ActivityMain = ({ match }) => {
     }
 
     const onRosterChange = async (newRoster, saveData = false) => {
-        /*
-        const removed = differenceBy(currentRoster, newRoster, 'destinyId')
-        const newRaid = JSON.parse(JSON.stringify(raid))
-        if (removed.length > 0) {
-            const removedIds = removed.map(({ destinyId }) => destinyId)
-            newRaid.stages.forEach((stage) => {
-                stage.roles.forEach((role) => {
-                    if (role.player && removedIds.includes(role.player.destinyId)) {
-                        role.player = null
-                    }
-                })
-            })
-            setRaid(newRaid)
-        }
         setCurrentRoster(newRoster)
-        if (saveData) {
-            await performSave({ ...newRaid, roster: newRoster, instanceName, date })
+        if (saveEnabled) {
+            await performSave({ ...activity, players: newRoster, instanceName, date })
         }
-        */
     }
 
     const onErrorDialogClose = (action) => {
         if (action === 'reload') {
             //refresh page
+            window.location.reload()
             setReloadFlag(reloadFlag + 1)
         }
         setError(null)

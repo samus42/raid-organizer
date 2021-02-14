@@ -85,7 +85,7 @@ export const loadActivity = async (activityKey) => {
 export const saveActivity = async (activity) => {
     const payload = omitDeep(activity, '__typename', 'active')
     const { data } = await raidClient.mutate({ mutation: saveActivityMutation, variables: { activity: payload } })
-    return { ...activity, id: data.version.id, version: data.activity.version }
+    return { ...activity, id: data.activity.id, version: data.activity.version }
 }
 
 export const archiveActivity = async (activity) => {

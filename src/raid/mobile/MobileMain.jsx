@@ -5,7 +5,6 @@ import MobileDetails from './MobileDetails'
 import MobileRoster from './MobileRoster'
 import MobileStages from './MobileStages'
 
-// 601a0b0d7de116071287f9b3
 const tabs = {
     details: 0,
     roster: 1,
