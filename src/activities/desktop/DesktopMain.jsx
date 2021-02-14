@@ -10,7 +10,7 @@ const DesktopMain = ({ roster, date, instanceName, activity, saveEnabled, onSave
     return (
         <div>
             <div style={{ paddingLeft: '20px', paddingTop: '20px' }}>
-                <Typography use="headline4">Among Us</Typography>
+                <Typography use="headline4">{activity.activityName}</Typography>
             </div>
             <Grid>
                 <GridCell span={4}>

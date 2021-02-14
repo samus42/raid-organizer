@@ -38,7 +38,6 @@ const ActivityMain = ({ match }) => {
         const getActivity = async () => {
             try {
                 const loaded = await loadActivity(match.params.activityKey)
-                console.log('loaded: ', loaded)
                 setActivity(loaded)
                 setInstanceName(loaded.instanceName)
                 setDate(new Date(loaded.date))
@@ -70,7 +69,6 @@ const ActivityMain = ({ match }) => {
     const performSave = async (activityData) => {
         try {
             const isNew = !activity.id
-            console.log('saving: ', activityData)
             const updated = await saveActivity(activityData)
             setActivity(updated)
             if (isNew) {

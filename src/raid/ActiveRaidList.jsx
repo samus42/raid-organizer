@@ -40,7 +40,7 @@ const ActiveRaidList = () => {
         history.push(`/raid/${raid.id}`)
     }
     return (
-        <div>
+        <div style={{ maxWidth: '500px' }}>
             <Typography use="headline4">Upcoming raids:</Typography>
             <List twoLine>
                 {raids.map((raid) => (

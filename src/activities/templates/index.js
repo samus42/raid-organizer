@@ -1,5 +1,6 @@
 const AmongUs = () => ({
     type: 'amongus',
+    activityName: 'Among Us',
     players: [],
     maxPlayers: 10,
     info: '',

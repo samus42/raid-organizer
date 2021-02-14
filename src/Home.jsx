@@ -37,7 +37,6 @@ const Main = (props) => {
                         <div>
                             Right now this simply has a raid randomizer + some other items as ideas of what this page can do. Some ideas to add in the future:
                             <ul>
-                                <li>Scheduling of Among Us</li>
                                 <li>Allow signup of associates for non-clan members to join in the Among Us schedule</li>
                                 <li>Automatically communicating via calendar link</li>
                                 <li>Allow scheduling of a dungeon.</li>

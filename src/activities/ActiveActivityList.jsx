@@ -11,6 +11,7 @@ const listActivitiesQuery = gql`
         activities: listActivities {
             id
             type
+            activityName
             instanceName
             date
         }
@@ -40,11 +41,11 @@ const ActiveActivityList = () => {
         history.push(`/activity/${activity.id}`)
     }
     return (
-        <div>
+        <div style={{ maxWidth: '500px' }}>
             <Typography use="headline4">Upcoming activities:</Typography>
             <List twoLine>
                 {activities.map((activity) => (
-                    <SimpleListItem onClick={() => onSelectActivity(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.type} />
+                    <SimpleListItem onClick={() => onSelectActivity(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.activityName} />
                 ))}
             </List>
         </div>

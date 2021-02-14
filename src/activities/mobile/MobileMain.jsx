@@ -34,7 +34,7 @@ const MobileMain = ({ roster, date, instanceName, activity, saveEnabled, onSave,
                 <Tab>Details</Tab>
                 <Tab>Roster</Tab>
             </TabBar>
-            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">Among Us</Typography></div>
+            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{activity.activityName}</Typography></div>
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
                 {activeTab === tabs.roster && <DesktopRoster activity={activity} roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
