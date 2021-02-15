@@ -219,6 +219,23 @@ const Nekro = () => (
     </div>
 )
 
+const Hada = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net/img/profile/avatars/cc21.jpg" />
+        </div>
+        <Typography use="headline4">Hadashirts</Typography>
+        <div className="member-detail">
+            <strong>Gotta snag a Hada</strong>
+        </div>
+        <div className="member-detail">
+            <div><span style={{ fontStyle: 'italic' }}>"I'm sorry, I'm not sure what I'm doing."</span></div>
+            <div>You wiped out all the enemies in record time!</div>
+            <div><span style={{ fontStyle: 'italic' }}>"So....that's good...right?"</span></div>
+        </div>
+    </div>
+)
+
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -237,6 +254,7 @@ const Members = () => {
                 <GridCell><GMann /></GridCell>
                 <GridCell><Stink /></GridCell>
                 <GridCell><Nekro /></GridCell>
+                <GridCell><Hada /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
