@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
+// import Select from 'react-select'
+import { Select } from '@rmwc/select'
 import differenceBy from 'lodash.differenceby'
 import isEmpty from 'lodash.isempty'
 import { getClanRoster } from '../../api/destiny'
@@ -11,25 +12,24 @@ import { List, ListItem, ListItemMeta } from '@rmwc/list'
 const normalizeId = (destinyPlayer) => {
     return { name: destinyPlayer.name, id: destinyPlayer.destinyId, type: 'destiny' }
 }
-const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) => {
+const MobileRoster = ({ roster = [], excludeList, onRosterChange, activity }) => {
     const [destinyRoster, setDestinyRoster] = useState([])
-    const [filteredRoster, setFilteredRoster] = useState([])
     const [manualPlayerName, setManualPlayerName] = useState('')
     useEffect(() => {
         const loadDestinyRoster = async () => {
             const results = await getClanRoster()
-            const normalized = results.map(normalizeId)
-            setDestinyRoster(normalized)
-            setFilteredRoster(differenceBy(results.map(normalizeId), roster, 'id'))
+            setDestinyRoster(differenceBy(results.map(normalizeId), roster, 'id'))
         }
         loadDestinyRoster()
     }, [excludeList])
 
     useEffect(() => {
-        setFilteredRoster(differenceBy(destinyRoster, roster, 'id'))
+        setDestinyRoster(differenceBy(destinyRoster, roster, 'id'))
     }, [roster])
 
-    const onSelectDestinyPlayer = (player) => {
+    const onSelectDestinyPlayer = (evt) => {
+        const id = evt.target.value
+        const player = destinyRoster.find((o) => o.id === id)
         onRosterChange(roster.concat(player))
         setManualPlayerName('')
     }
@@ -41,6 +41,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) =
     const onAddPlayer = () => {
         if (!isEmpty(manualPlayerName)) {
             onRosterChange(roster.concat({ id: uuid(), type: 'manual', name: manualPlayerName }))
+            setManualPlayerName('')
         }
     }
 
@@ -52,7 +53,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) =
     return (
         <div style={{ maxWidth: '500px' }}>
             <div>
-                <Select isDisabled={atLimit()} placeholder="Select Destiny Player" value={null} getOptionLabel={(o) => o.name} getOptionValue={(o) => o} options={filteredRoster} onChange={onSelectDestinyPlayer} />
+                <Select label="Select Destiny Player" value={''} options={destinyRoster.map((p) => ({ label: p.name, value: p.id }))} onChange={onSelectDestinyPlayer} />
             </div>
             <div style={{ padding: '20px' }}>
                 <strong>OR</strong>
@@ -82,4 +83,4 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) =
     )
 }
 
-export default DesktopRoster
+export default MobileRoster

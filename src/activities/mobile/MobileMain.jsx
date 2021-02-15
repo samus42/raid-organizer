@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import DateTimePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
-import { Button } from '@rmwc/button'
 import { Typography } from '@rmwc/typography'
-import { TextField } from '@rmwc/textfield'
-import DesktopRoster from '../desktop/DesktopRoster'
+import MobileRoster from '../desktop/DesktopRoster'
+// import MobileRoster from './MobileRoster'
 import MobileDetails from '../../raid/mobile/MobileDetails'
 import { TabBar, Tab } from '@rmwc/tabs'
+import '@rmwc/select/styles';
 
 const tabs = {
     details: 0,
@@ -37,7 +35,7 @@ const MobileMain = ({ roster, date, instanceName, activity, saveEnabled, onSave,
             <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{activity.activityName}</Typography></div>
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
-                {activeTab === tabs.roster && <DesktopRoster activity={activity} roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
+                {activeTab === tabs.roster && <MobileRoster activity={activity} roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
             </div>
         </div >
     )
