@@ -15,7 +15,7 @@ const archiveRaidMutation = gql`
 `
 
 const loadRaidQuery = gql`
-    fragment PlayerInfo on Player {
+    fragment PlayerInfo on DestinyPlayer {
         destinyId, name, iconPath
     }
     query ($id: ID!) {

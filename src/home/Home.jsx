@@ -3,7 +3,7 @@ import { Typography } from '@rmwc/typography'
 import { TabBar, Tab } from '@rmwc/tabs'
 import Members from './Members'
 import Activities from './Activities'
-import packageJSON from '../package.json'
+import packageJSON from '../../package.json'
 
 const tabs = {
     acitivities: 0,
