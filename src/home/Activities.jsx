@@ -5,36 +5,32 @@ import { Grid, GridCell } from '@rmwc/grid'
 import { Typography } from '@rmwc/typography'
 import ActiveRaidList from '../raid/ActiveRaidList'
 import ActiveActivityList from '../activities/ActiveActivityList'
+import ActiveList from './ActiveList'
 
 const Activities = () => {
     const history = useHistory()
     return (<div className="main-tab-content">
         <Grid>
             <GridCell span={6}>
-                <div><Typography use="headline4">Organize a Raid:</Typography></div>
-                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button>
-                </div>
-                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button>
-                </div>
-                <div>
-                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/wish')}>Last Wish</Button>
-                </div>
                 <div style={{ paddingTop: '20px' }}>
-                    <ActiveRaidList />
+                    <ActiveList />
                 </div>
             </GridCell>
             <GridCell span={6}>
                 <div><Typography use="headline4">Organize an Activity:</Typography></div>
-                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                    <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/activity/amongus')}>Among Us</Button>
-                </div>
-                <div>
-                    Coming soon: Being able to create your own activity type.
-                </div>
-                <div style={{ paddingTop: '20px' }}>
-                    <ActiveActivityList />
+                <div style={{ paddingLeft: '20px' }}>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button>
+                    </div>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button>
+                    </div>
+                    <div>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/wish')}>Last Wish</Button>
+                    </div>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/activity/amongus')}>Among Us</Button>
+                    </div>
                 </div>
             </GridCell>
             <GridCell span={6}>
