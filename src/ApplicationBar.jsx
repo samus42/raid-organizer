@@ -48,7 +48,7 @@ const ApplicationBar = (props) => {
                         <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>
                             {screenLayout === 'desktop' ? (
                                 <div style={{ display: 'flex' }}>
-                                    <img src="chaos-white.png" style={{ width: '56px' }} alt="" />
+                                    <img src="/chaos-white.png" style={{ width: '56px' }} alt="" />
                                     <div style={{ paddingLeft: '10px', paddingTop: '13px' }}>Shenaniganizers</div>
                                 </div>
                             ) : 'Shenaniganizers'}

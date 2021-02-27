@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { newRaidByKey, isRaidKey } from './templates'
 import { loadRaid, saveRaid, archiveRaid } from '../api/clan'
 import { Snackbar, SnackbarAction } from '@rmwc/snackbar'
+import ErrorDialog from '../ErrorDialog'
 import isEmpty from 'lodash.isempty'
 import differenceBy from 'lodash.differenceby'
 
@@ -18,6 +19,8 @@ const RaidMain = ({ match }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [saveEnabled, setSaveEnabled] = useState(false)
     const [saveMessage, setSaveMessage] = useState(null)
+    const [error, setError] = useState(null)
+    const [reloadFlag, setReloadFlag] = useState(1)
 
     useLayoutEffect(() => {
         const updateSize = () => {
@@ -52,7 +55,7 @@ const RaidMain = ({ match }) => {
         } else {
             getRaid()
         }
-    }, [match])
+    }, [match, reloadFlag])
 
     const onDetailsChange = (details) => {
         setInstanceName(details.instanceName)
@@ -61,14 +64,19 @@ const RaidMain = ({ match }) => {
     }
 
     const performSave = async (raidData) => {
-        const isNew = !raid.id
-        const updated = await saveRaid(raidData)
-        setRaid(updated)
-        if (isNew) {
-            history.push(`/raid/${updated.id}`)
-            setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
-        } else {
-            setSaveMessage('Raid updates saved!')
+        try {
+            const isNew = !raid.id
+            const updated = await saveRaid(raidData)
+            setRaid(updated)
+            if (isNew) {
+                history.push(`/raid/${updated.id}`)
+                setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
+            } else {
+                setSaveMessage('Raid updates saved!')
+            }
+        } catch (err) {
+            console.error(err)
+            setError(err)
         }
     }
     const onSave = async () => {
@@ -100,6 +108,15 @@ const RaidMain = ({ match }) => {
         }
     }
 
+    const onErrorDialogClose = (action) => {
+        if (action === 'reload') {
+            //refresh page
+            window.location.reload()
+            setReloadFlag(reloadFlag + 1)
+        }
+        setError(null)
+    }
+
     if (isLoading) {
         return (
             <div>Loading...</div>
@@ -109,6 +126,7 @@ const RaidMain = ({ match }) => {
     const ViewComponent = screenLayout === 'mobile' ? MobileMain : RaidDetails
     return (
         <div>
+            <ErrorDialog error={error} onClose={onErrorDialogClose} />
             <ViewComponent
                 roster={currentRoster}
                 date={date}

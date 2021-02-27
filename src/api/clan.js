@@ -4,7 +4,7 @@ import omitDeep from 'omit-deep-lodash'
 
 const saveRaidMutation = gql`
     mutation ($raid: RaidInput!) {
-        raid: saveRaid(raid: $raid) {id}
+        raid: saveRaid(raid: $raid) {id, version}
     }    
 `
 
@@ -20,7 +20,7 @@ const loadRaidQuery = gql`
     }
     query ($id: ID!) {
         raid: getRaid(id: $id) {
-            id, raidName, instanceName, date, active
+            id, raidName, instanceName, date, active, version
             stages {
                 title, description
                 roles {
@@ -43,7 +43,7 @@ export const loadRaid = async (raidKey) => {
 export const saveRaid = async (raid) => {
     const payload = omitDeep(raid, '__typename', 'active')
     const { data } = await raidClient.mutate({ mutation: saveRaidMutation, variables: { raid: payload } })
-    return { ...raid, id: data.raid.id }
+    return { ...raid, id: data.raid.id, version: data.raid.version }
 }
 
 export const archiveRaid = async (raid) => {

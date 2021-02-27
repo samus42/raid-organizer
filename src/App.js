@@ -4,6 +4,7 @@ import Main from './Main'
 
 function App() {
   // console.log('key: ', process.env.REACT_APP_API_KEY)
+  console.log('public: ', process.env)
   return (
     <ThemeProvider options={{
       primary: '#5d1049',
