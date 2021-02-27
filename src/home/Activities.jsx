@@ -3,8 +3,6 @@ import { Button } from '@rmwc/button'
 import { useHistory } from "react-router-dom"
 import { Grid, GridCell } from '@rmwc/grid'
 import { Typography } from '@rmwc/typography'
-import ActiveRaidList from '../raid/ActiveRaidList'
-import ActiveActivityList from '../activities/ActiveActivityList'
 import ActiveList from './ActiveList'
 
 const Activities = () => {

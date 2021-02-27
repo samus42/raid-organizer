@@ -29,7 +29,12 @@ const ApplicationBar = (props) => {
             <TopAppBarRow>
                 <TopAppBarSection>
                     <TopAppBarTitle style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>Shenaniganizers</a>
+                        <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>
+                            <div style={{ display: 'flex' }}>
+                                <img src="chaos-white.png" style={{ width: '56px' }} alt="" />
+                                <div style={{ paddingLeft: '10px', paddingTop: '13px' }}>Shenaniganizers</div>
+                            </div>
+                        </a>
                     </TopAppBarTitle>
                 </TopAppBarSection>
                 <TopAppBarSection alignEnd>
