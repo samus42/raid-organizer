@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { TopAppBar, TopAppBarRow, TopAppBarSection, TopAppBarTitle, TopAppBarFixedAdjust } from '@rmwc/top-app-bar'
 import { Button } from '@rmwc/button'
 import { useHistory, useLocation } from 'react-router-dom'
@@ -12,9 +12,25 @@ const ApplicationBar = (props) => {
     const history = useHistory()
     const location = useLocation()
     const [userInfo, setUserInfo] = useState(null)
+    const [screenLayout, setScreenLayout] = useState('desktop')
+
     useEffect(() => {
         setUserInfo(getCurrentUserInfo)
     }, [location])
+
+    useLayoutEffect(() => {
+        const updateSize = () => {
+            if (window.innerWidth < 1025) {
+                setScreenLayout('mobile')
+            }
+            else {
+                setScreenLayout('desktop')
+            }
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, [])
 
     const onLogout = () => {
         clearMembershipInfo()
@@ -30,10 +46,12 @@ const ApplicationBar = (props) => {
                 <TopAppBarSection>
                     <TopAppBarTitle style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                         <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>
-                            <div style={{ display: 'flex' }}>
-                                <img src="chaos-white.png" style={{ width: '56px' }} alt="" />
-                                <div style={{ paddingLeft: '10px', paddingTop: '13px' }}>Shenaniganizers</div>
-                            </div>
+                            {screenLayout === 'desktop' ? (
+                                <div style={{ display: 'flex' }}>
+                                    <img src="chaos-white.png" style={{ width: '56px' }} alt="" />
+                                    <div style={{ paddingLeft: '10px', paddingTop: '13px' }}>Shenaniganizers</div>
+                                </div>
+                            ) : 'Shenaniganizers'}
                         </a>
                     </TopAppBarTitle>
                 </TopAppBarSection>
