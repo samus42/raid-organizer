@@ -55,7 +55,7 @@ const RaidMain = ({ match }) => {
     }, [match])
 
     const onDetailsChange = (details) => {
-        setInstanceName(details.instanceName.trim())
+        setInstanceName(details.instanceName)
         setDate(details.date)
         setSaveEnabled(!isEmpty(details.instanceName.trim()) && details.date)
     }
@@ -72,7 +72,7 @@ const RaidMain = ({ match }) => {
         }
     }
     const onSave = async () => {
-        await performSave({ ...raid, roster: currentRoster, instanceName, date })
+        await performSave({ ...raid, roster: currentRoster, instanceName: instanceName.trim(), date })
     }
 
     const onArchive = async () => {
