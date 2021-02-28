@@ -9,8 +9,8 @@ const Role = ({ role, raid, onChange = () => { } }) => {
         <div style={{ display: 'flex', paddingTop: '10px', paddingBottom: '10px', justifyContent: 'space-between' }}>
             <div>{role.name}</div>
             <div style={{ display: 'flex', justifyContent: 'space-between', minWidth: '150px' }}>
-                <select onChange={(evt) => onChange(role, evt.target.value)} style={{ fontSize: '18px' }}>
-                    {[<option value={-1} selected={!role.player}>Empty</option>].concat(raid.roster.map((player) => (<option selected={role.player && role.player.destinyId === player.destinyId} value={player.destinyId}>{player.name}</option>)))}
+                <select onChange={(evt) => onChange(role, evt.target.value)} style={{ fontSize: '18px' }} value={role.player ? role.player.destinyId : -1}>
+                    {[<option key={-1} value={-1}>Empty</option>].concat(raid.roster.map((player) => (<option key={player.destinyId} value={player.destinyId}>{player.name}</option>)))}
                 </select>
             </div>
         </div>
