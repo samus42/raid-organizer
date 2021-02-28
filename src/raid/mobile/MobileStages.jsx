@@ -1,7 +1,9 @@
 import React from 'react'
 import { Typography } from '@rmwc/typography'
 import { Grid, GridCell } from '@rmwc/grid'
+import { Button } from '@rmwc/button'
 import MobileEditStageDialog from './MobileEditStage'
+
 const Role = ({ role, onChange = () => { } }) => {
     return (
         <div style={{ display: 'flex', padding: '3px', justifyContent: 'space-between' }}>
@@ -32,9 +34,12 @@ const Stage = ({ raid, stage, onChange = () => { } }) =>
     </div>
 
 
-const RaidAssignments = ({ raid, onChange = () => { } }) => {
+const RaidAssignments = ({ raid, onChange = () => { }, onRandomizeRoles = () => { } }) => {
     return (
         <div>
+            <div style={{ textAlign: 'center' }}>
+                <Button raised disabled={raid.roster.length < 6} onClick={onRandomizeRoles}>Randomize Roles</Button>
+            </div>
             <Grid>
                 {raid.stages.map((stage, index) =>
                     <GridCell key={`${stage}_${index}`}>

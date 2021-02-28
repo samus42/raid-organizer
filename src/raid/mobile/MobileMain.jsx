@@ -4,6 +4,7 @@ import { Typography } from '@rmwc/typography'
 import MobileDetails from './MobileDetails'
 import MobileRoster from './MobileRoster'
 import MobileStages from './MobileStages'
+import randomizeRaidAssignments from '../randomizeRaidAssignments'
 
 const tabs = {
     details: 0,
@@ -24,6 +25,9 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
         onRosterChange(newRoster, true)
     }
 
+    const onRandomizeRoles = () => {
+        onChangeRaid(randomizeRaidAssignments({ raid, roster }), true)
+    }
     return (
         <div>
             <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
@@ -35,7 +39,14 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
                 {activeTab === tabs.roster && <MobileRoster roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
-                {activeTab === tabs.stages && <MobileStages raid={raid} saveEnabled={saveEnabled} onChange={(newRaid) => onChangeRaid(newRaid, true)} />}
+                {activeTab === tabs.stages &&
+                    (<MobileStages
+                        raid={raid}
+                        saveEnabled={saveEnabled}
+                        onChange={(newRaid) => onChangeRaid(newRaid, true)}
+                        onRandomizeRoles={onRandomizeRoles}
+                    />
+                    )}
             </div>
         </div >
     )
