@@ -35,7 +35,7 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
                 {activeTab === tabs.roster && <MobileRoster roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
-                {activeTab === tabs.stages && <MobileStages raid={raid} saveEnabled={saveEnabled} />}
+                {activeTab === tabs.stages && <MobileStages raid={raid} saveEnabled={saveEnabled} onChange={(newRaid) => onChangeRaid(newRaid, true)} />}
             </div>
         </div >
     )

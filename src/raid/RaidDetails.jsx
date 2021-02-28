@@ -10,7 +10,7 @@ import DateTimePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import changePosition from './changePosition'
+import { changeRaidPosition } from './changePosition'
 
 const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, onArchive, onChangeRaid, onDetailsChange, onRosterChange }) => {
 
@@ -23,7 +23,7 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
     }
 
     const onRaidPositionChange = (stage, role, player) => {
-        const newRaid = changePosition(raid, stage, role, player)
+        const newRaid = changeRaidPosition(raid, stage, role, player)
         onChangeRaid(newRaid)
     }
 

@@ -133,7 +133,12 @@ const RaidMain = ({ match }) => {
                 instanceName={instanceName}
                 raid={raid}
                 saveEnabled={saveEnabled}
-                onChangeRaid={(updated) => setRaid(updated)}
+                onChangeRaid={async (updated, doSave) => {
+                    setRaid(updated)
+                    if (doSave) {
+                        await performSave({ ...updated, roster: currentRoster, instanceName: instanceName.trim(), date })
+                    }
+                }}
                 onSave={onSave}
                 onArchive={onArchive}
                 onDetailsChange={onDetailsChange}
