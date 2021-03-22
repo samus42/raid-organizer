@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory, useLocation } from "react-router-dom"
 import { getUserAuthInfo, getMembershipById } from '../api/destiny'
-import { setMembershipInfo } from './currentUser'
+import { setMembershipInfo, setAuthInfo } from './currentUser'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -16,6 +16,7 @@ const ProcessLogin = () => {
             const authInfo = await getUserAuthInfo(code)
             const membershipInfo = await getMembershipById(authInfo.membershipId)
             setMembershipInfo(membershipInfo)
+            setAuthInfo(authInfo)
             history.push('/')
         }
         processCode(query.get('code'))

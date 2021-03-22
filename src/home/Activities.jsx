@@ -10,6 +10,12 @@ const Activities = () => {
     return (<div className="main-tab-content">
         <Grid>
             <GridCell span={6}>
+                <div>
+                    <div>
+                        Subscribe to the events calendar!
+                    <div><a href="webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar">webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar</a></div>
+                    </div>
+                </div>
                 <div style={{ paddingTop: '20px' }}>
                     <ActiveList />
                 </div>

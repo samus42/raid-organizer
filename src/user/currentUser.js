@@ -1,4 +1,6 @@
+import dayjs from 'dayjs'
 const key = 'shenaniganizers-bungie-info'
+const authKey = 'shenaniganizers-bungie-auth'
 const imageUrlPrefix = 'https://www.bungie.net'
 
 export const setMembershipInfo = (info) => {
@@ -16,8 +18,24 @@ export const getMembershipInfo = () => {
     return null
 }
 
+export const setAuthInfo = (authInfo) => {
+    window.localStorage.setItem(authKey, JSON.stringify(authInfo))
+}
+
+export const getAuthInfo = () => {
+    if (window.localStorage) {
+        const rawInfo = window.localStorage.getItem(authKey)
+        if (rawInfo && rawInfo !== 'null') {
+            const authInfo = JSON.parse(rawInfo)
+            return authInfo
+        }
+    }
+    return null
+}
+
 export const clearMembershipInfo = () => {
     window.localStorage.removeItem(key)
+    window.localStorage.removeItem(authKey)
 }
 
 export const getCurrentUserInfo = () => {
@@ -30,4 +48,20 @@ export const getCurrentUserInfo = () => {
             destinyId: destinyMemberships[0].membershipId
         }
     }
+}
+
+export const isAuthCurrent = () => {
+    const authInfo = getAuthInfo()
+    if (authInfo) {
+        return dayjs().isBefore(dayjs(authInfo.expiresOn))
+    }
+    return false
+}
+
+export const isRefreshCurrent = () => {
+    const authInfo = getAuthInfo()
+    if (authInfo) {
+        return dayjs().isBefore(dayjs(authInfo.refreshExpiresOn))
+    }
+    return false
 }

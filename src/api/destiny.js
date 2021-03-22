@@ -39,9 +39,10 @@ export const getUserAuthInfo = async (code) => {
     const url = 'https://www.bungie.net/Platform/App/OAuth/Token/'
 
     const { body } = await agent.post(url).type('form').send({ client_id: clientId, grant_type: 'authorization_code', code }).set(header)
-    const { access_token, membership_id, expires_in } = body
+    const { access_token, membership_id, expires_in, refresh_token, refresh_expires_in } = body
     const expiresOn = dayjs().add(expires_in, 'seconds')
-    return { token: access_token, membershipId: membership_id, expiresOn }
+    const refreshExpiresOn = dayjs().add(refresh_expires_in, 'seconds')
+    return { token: access_token, membershipId: membership_id, expiresOn, refreshExpiresOn, refreshToken: refresh_token }
 }
 
 export const getMembershipById = async (membershipId) => {

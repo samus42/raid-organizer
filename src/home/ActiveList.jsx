@@ -57,6 +57,7 @@ const EventList = () => {
     return (
         <div style={{ maxWidth: '500px' }}>
             <Typography use="headline4">Upcoming events:</Typography>
+
             <List twoLine>
                 {events.map((activity) => (
                     <SimpleListItem onClick={() => onSelectEvent(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.activityName} />
