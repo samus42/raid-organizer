@@ -6,6 +6,7 @@ import ApplicationBar from './ApplicationBar'
 import ProcessLogin from './user/ProcessLogin'
 import Profile from './user/Profile'
 import ActivityMain from './activities/ActivityMain'
+import CalendarInstructions from './home/CalendarInstructions'
 
 const Main = (props) => {
     console.log('env: ', process.env.REACT_APP_ENV)
@@ -14,6 +15,7 @@ const Main = (props) => {
             <ApplicationBar />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/help/calendar" component={CalendarInstructions} />
                 <Route exact path="/raid/:raidKey" component={RaidMain} />
                 <Route exact path="/activity/:activityKey" component={ActivityMain} />
                 <Route exact path="/profile" component={Profile} />
