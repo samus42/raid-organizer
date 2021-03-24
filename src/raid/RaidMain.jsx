@@ -8,6 +8,7 @@ import { Snackbar, SnackbarAction } from '@rmwc/snackbar'
 import ErrorDialog from '../ErrorDialog'
 import isEmpty from 'lodash.isempty'
 import differenceBy from 'lodash.differenceby'
+import { getCurrentUserInfo } from '../user/currentUser'
 
 const RaidMain = ({ match }) => {
     const [screenLayout, setScreenLayout] = useState('desktop')
@@ -52,6 +53,8 @@ const RaidMain = ({ match }) => {
             setRaid(newRaidByKey(match.params.raidKey))
             setIsLoading(false)
             setSaveEnabled(false)
+            const currentUser = getCurrentUserInfo()
+            setCurrentRoster([currentUser])
         } else {
             getRaid()
         }
