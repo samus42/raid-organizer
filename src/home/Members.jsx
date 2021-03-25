@@ -246,12 +246,10 @@ const Tansy = () => (
             <strong>Ringer</strong><small style={{ marginLeft: '5px' }}>Also Samus's Best Friend</small>
         </div>
         <div className="member-detail">
-            <div>Gambit Record last week without Tansy: 2-12</div>
-            <div>Gambit Record last week with Tansy: 14-1</div>
-            <div>Crucible Record last week without Tansy: 1-8</div>
-            <div>Crucible Record last week with Tansy: 10-3</div>
-            <div>Prophecy Run with Tansy: Best personal time ever.</div>
-            <div><span style={{ fontStyle: 'italic' }}>She's just that good.</span></div>
+            <div><small>Based on Real Life</small></div>
+            <div><span style={{ fontStyle: 'italic' }}>Thanks Blueberry!</span></div>
+            <div>I'm in your voice chat right now, I'm in your clan!</div>
+            <div><span style={{ fontStyle: 'italic' }}>That's a good Blueberry, good job.</span></div>
         </div>
     </div>
 )
