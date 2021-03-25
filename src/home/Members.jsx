@@ -38,7 +38,7 @@ const Samus = () => (
         </div>
         <Typography use="headline4">Samus Darkthorn</Typography>
         <div className="member-detail">
-            <strong>God</strong><small style={{ marginLeft: '5px' }}>Kaizyn said so</small>
+            <strong>Meat Shield</strong>
         </div>
         <div className="member-detail">
             Samus has written some guides to help his fellow Guardians. They try to be entertaining as well as helpful.
@@ -236,25 +236,46 @@ const Hada = () => (
     </div>
 )
 
+const Tansy = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://static-resource.np.community.playstation.net/avatar_m/SCEI/I0041_m.png" />
+        </div>
+        <Typography use="headline4">TansyRagwort</Typography>
+        <div className="member-detail">
+            <strong>Ringer</strong><small style={{ marginLeft: '5px' }}>Also Samus's Best Friend</small>
+        </div>
+        <div className="member-detail">
+            <div>Gambit Record last week without Tansy: 2-12</div>
+            <div>Gambit Record last week with Tansy: 14-1</div>
+            <div>Crucible Record last week without Tansy: 1-8</div>
+            <div>Crucible Record last week with Tansy: 10-3</div>
+            <div>Prophecy Run with Tansy: Best personal time ever.</div>
+            <div><span style={{ fontStyle: 'italic' }}>She's just that good.</span></div>
+        </div>
+    </div>
+)
+
 const Members = () => {
     return (
         <div className="main-tab-content">
             <div><Typography use="headline6">Our clan members have their own things to share with the community. Check out their web pages / creations!</Typography> </div>
             <Grid style={{ paddingLeft: '0', paddingRight: '0' }}>
                 <GridCell><Ace /></GridCell>
-                <GridCell><Samus /></GridCell>
-                <GridCell><W6MIR /></GridCell>
-                <GridCell><Nutbar /></GridCell>
-                <GridCell><Silly /></GridCell>
+                <GridCell><GMann /></GridCell>
+                <GridCell><Hada /></GridCell>
                 <GridCell><Halily /></GridCell>
                 <GridCell><Momo /></GridCell>
-                <GridCell><Mabie /></GridCell>
+                <GridCell><Nekro /></GridCell>
                 <GridCell><Kaizyn /></GridCell>
                 <GridCell><KaiJae /></GridCell>
-                <GridCell><GMann /></GridCell>
+                <GridCell><Mabie /></GridCell>
+                <GridCell><Nutbar /></GridCell>
+                <GridCell><Samus /></GridCell>
+                <GridCell><Silly /></GridCell>
                 <GridCell><Stink /></GridCell>
-                <GridCell><Nekro /></GridCell>
-                <GridCell><Hada /></GridCell>
+                <GridCell><Tansy /></GridCell>
+                <GridCell><W6MIR /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
