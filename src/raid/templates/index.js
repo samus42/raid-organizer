@@ -20,6 +20,7 @@ export const newRaidByKey = (key) => {
     }
     const newRaid = raidMap[key]()
     newRaid.active = true
+    newRaid.roster = []
     return newRaid
 }
 

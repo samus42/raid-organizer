@@ -50,11 +50,13 @@ const RaidMain = ({ match }) => {
         setIsLoading(true)
         console.log('raidKey: ', match.params.raidKey)
         if (isRaidKey([match.params.raidKey])) {
-            setRaid(newRaidByKey(match.params.raidKey))
+            const newRaid = newRaidByKey(match.params.raidKey)
             setIsLoading(false)
             setSaveEnabled(false)
             const currentUser = getCurrentUserInfo()
             setCurrentRoster([currentUser])
+            newRaid.roster = [currentUser]
+            setRaid(newRaid)
         } else {
             getRaid()
         }
