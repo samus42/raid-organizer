@@ -239,7 +239,7 @@ const Hada = () => (
 const Tansy = () => (
     <div className="member-card">
         <div>
-            <img alt="icon" src="https://static-resource.np.community.playstation.net/avatar_m/SCEI/I0041_m.png" />
+            <img alt="icon" src="https://image.api.np.km.playstation.net/images/?format=png&w=160&h=160&image=https%3A%2F%2Fkfscdn.api.np.km.playstation.net%2F5387964934898443052%2F1541722837287.png&sign=1cc7d0286c4fc59c83ec1f0c6a37f2d414df1daa" />
         </div>
         <Typography use="headline4">TansyRagwort</Typography>
         <div className="member-detail">
@@ -247,9 +247,9 @@ const Tansy = () => (
         </div>
         <div className="member-detail">
             <div><small>Based on Real Life</small></div>
-            <div><span style={{ fontStyle: 'italic' }}>Thanks Blueberry!</span></div>
+            <div><span style={{ fontStyle: 'italic' }}>"Thanks Blueberry!"</span></div>
             <div>I'm in your voice chat right now, I'm in your clan!</div>
-            <div><span style={{ fontStyle: 'italic' }}>That's a good Blueberry, good job.</span></div>
+            <div><span style={{ fontStyle: 'italic' }}>"That's a good Blueberry, good job."</span></div>
         </div>
     </div>
 )

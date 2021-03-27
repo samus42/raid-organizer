@@ -1,11 +1,15 @@
 import DeepStoneCrypt from './DeepStoneCrypt'
 import GardenOfSalvation from './GardenOfSalvation'
 import LastWish from './LastWish'
+import Crota from './Crota'
+import TakenKing from './TakenKing'
 
 const raidMap = {
     'garden': GardenOfSalvation,
     'crypt': DeepStoneCrypt,
     'wish': LastWish,
+    'crota': Crota,
+    'ttk': TakenKing,
 }
 
 export const newRaidByKey = (key) => {
