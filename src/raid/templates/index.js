@@ -3,6 +3,7 @@ import GardenOfSalvation from './GardenOfSalvation'
 import LastWish from './LastWish'
 import Crota from './Crota'
 import TakenKing from './TakenKing'
+import WrathOfTheMachine from './WrathOfTheMachine'
 
 const raidMap = {
     'garden': GardenOfSalvation,
@@ -10,6 +11,7 @@ const raidMap = {
     'wish': LastWish,
     'crota': Crota,
     'ttk': TakenKing,
+    'wrath': WrathOfTheMachine
 }
 
 export const newRaidByKey = (key) => {

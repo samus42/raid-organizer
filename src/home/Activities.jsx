@@ -34,6 +34,9 @@ const Activities = () => {
                         <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/wish')}>Last Wish</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/wrath')}>Wrath Of the Machine</Button>
+                    </div>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/ttk')}>Taken King</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
