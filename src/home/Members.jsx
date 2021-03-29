@@ -44,10 +44,10 @@ const Samus = () => (
             Samus has written some guides to help his fellow Guardians. They try to be entertaining as well as helpful.
         </div>
         <div className="member-detail">
-            <a href="https://www.faier.net/scott/shattered-throne/">Shattered Throne Solo Guide</a>
+            <a href="/guides/shattered-throne/">Shattered Throne Solo Guide</a>
         </div>
         <div className="member-detail">
-            <a href="https://www.faier.net/scott/tkk/">Taken King Raid Guide</a>
+            <a href="/guides/taken-king">Taken King Raid Guide</a>
         </div>
     </div>
 )
