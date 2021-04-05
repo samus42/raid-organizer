@@ -43,6 +43,9 @@ const Activities = () => {
                         <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/crota')}>Crota's End</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/raid/vault')}>Vault Of Glass</Button>
+                    </div>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/activity/amongus')}>Among Us</Button>
                     </div>
                 </div>

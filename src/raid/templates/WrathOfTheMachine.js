@@ -39,18 +39,6 @@ const WrathOfTheMachine = () => ({
             ]
         },
         {
-            title: 'Golgoroth',
-            description: '',
-            roles: [
-                { name: 'First Gaze Pull', type: 'soldier' },
-                { name: 'Main Gaze Pull', type: 'soldier' },
-                { name: 'Position 3', type: 'soldier' },
-                { name: 'Position 4', type: 'soldier' },
-                { name: 'Position 5', type: 'soldier' },
-                { name: 'Position 6', type: 'soldier' },
-            ]
-        },
-        {
             title: 'Aksis Part 1',
             description: '',
             roles: [

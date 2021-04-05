@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { defaultIconUrl } from '../api/destiny'
 import { List, ListItem, ListItemMeta } from '@rmwc/list'
+import { Button } from '@rmwc/button'
+import { getCurrentUserInfo } from '../user/currentUser'
 import DraggablePlayer from './DraggablePlayer'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
 const raidSlots = 6
@@ -8,6 +10,7 @@ const backupSlots = 2
 
 const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
     const [players, setPlayers] = useState([])
+
     useEffect(() => {
         const emptySpots = Math.max(0, raidSlots - roster.length)
         const backupSpots = Math.max(0, (raidSlots + backupSlots) - Math.max(roster.length, raidSlots))
@@ -40,6 +43,9 @@ const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
                 ))
                 }
             </List >
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Button raised>Add Myself</Button>
+            </div>
         </div >
     )
 }
