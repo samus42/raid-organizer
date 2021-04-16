@@ -13,7 +13,7 @@ let rosterCache = null
 
 //TODO: Put this on the server side
 const deprecatedMemberNames = [
-    'BuzukaToof', 'Chitown726', 'columbianeddie', 'ddfed', 'Dead_Again_420', 'Deathsquid112', 'Dragonlord198369', 'Drekken79', 'dukkhah', 'I_am_Bradock', 'jaeuu520', 'JBAKE', 'Lonomakihe', 'patbot92', 'r_oh_33', 'Skull_Krusher_97', 'StoutHouse', 'wscott42'
+    'BuzukaToof', 'Chitown726', 'columbianeddie', 'ddfed', 'Dead_Again_420', 'Deathsquid112', 'Dragonlord198369', 'Drekken79', 'dukkhah', 'jaeuu520', 'JBAKE', 'Lonomakihe', 'patbot92', 'r_oh_33', 'Skull_Krusher_97', 'StoutHouse', 'wscott42'
 ]
 
 export const getClanRoster = async () => {
