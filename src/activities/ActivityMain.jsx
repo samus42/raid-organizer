@@ -13,6 +13,7 @@ const ActivityMain = ({ match }) => {
     const history = useHistory()
     const [activity, setActivity] = useState()
     const [instanceName, setInstanceName] = useState('')
+    const [maxPlayers, setMaxPlayers] = useState(6)
     const [date, setDate] = useState(new Date())
     const [currentRoster, setCurrentRoster] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -42,6 +43,7 @@ const ActivityMain = ({ match }) => {
                 setInstanceName(loaded.instanceName)
                 setDate(new Date(loaded.date))
                 setCurrentRoster(loaded.players)
+                setMaxPlayers(loaded.maxPlayers)
                 setIsLoading(false)
                 setSaveEnabled(true)
             } catch (err) {
@@ -63,6 +65,7 @@ const ActivityMain = ({ match }) => {
     const onDetailsChange = (details) => {
         setInstanceName(details.instanceName)
         setDate(details.date)
+        setMaxPlayers(details.maxPlayers)
         setSaveEnabled(!isEmpty(details.instanceName.trim()) && details.date)
     }
 
@@ -83,7 +86,7 @@ const ActivityMain = ({ match }) => {
         }
     }
     const onSave = async () => {
-        await performSave({ ...activity, players: currentRoster, instanceName, date })
+        await performSave({ ...activity, players: currentRoster, instanceName, date, maxPlayers })
     }
 
     const onArchive = async () => {
@@ -121,6 +124,7 @@ const ActivityMain = ({ match }) => {
                 roster={currentRoster}
                 date={date}
                 instanceName={instanceName}
+                maxPlayers={maxPlayers}
                 activity={activity}
                 saveEnabled={saveEnabled}
                 onChangeActivity={(updated) => setActivity(updated)}

@@ -4,26 +4,28 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Button } from '@rmwc/button'
 import { Typography } from '@rmwc/typography'
 import { TextField } from '@rmwc/textfield'
+import { Slider } from '@rmwc/slider'
 import DesktopRoster from './DesktopRoster'
 
-const DesktopMain = ({ roster, date, instanceName, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
+const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
     return (
         <div>
             <div style={{ paddingLeft: '20px', paddingTop: '20px' }}>
                 <Typography use="headline4">{activity.activityName}</Typography>
             </div>
+            {!activity.active && <h2 style={{ paddingLeft: '20px' }}>This activity is longer active!</h2>}
             <Grid>
                 <GridCell span={4}>
                     <div>
                         <Typography use="headline6">Details</Typography>
                     </div>
                     <div>
-                        <TextField style={{ width: '100%' }} label="Create a name for this event!" value={instanceName} onChange={(evt) => onDetailsChange({ instanceName: evt.target.value, date })} />
+                        <TextField style={{ width: '100%' }} label="Create a name for this activity!" value={instanceName} onChange={(evt) => onDetailsChange({ instanceName: evt.target.value, date, maxPlayers })} />
                     </div>
                     <div style={{ paddingTop: '10px' }}>
                         <label style={{ paddingRight: '10px' }}>What time do you want to go?</label>
                         <DateTimePicker
-                            onChange={(val) => onDetailsChange({ instanceName, date: val })}
+                            onChange={(val) => onDetailsChange({ instanceName, date: val, maxPlayers })}
                             selected={date}
                             showTimeSelect
                             timeFormat="HH:mm"
@@ -31,15 +33,23 @@ const DesktopMain = ({ roster, date, instanceName, activity, saveEnabled, onSave
                             timeCaption="time"
                             dateFormat="iii MM/dd hh:mm a" />
                     </div>
+                    <div style={{ paddingTop: '20px' }}>
+                        <label style={{ paddingRight: '10px' }}>How many players? <strong style={{ paddingLeft: '10px' }}>{maxPlayers}</strong></label>
+                        <Slider discrete displayMarkers value={maxPlayers} min={1} max={10} step={1} onChange={(evt) => onDetailsChange({ instanceName, date, maxPlayers: evt.detail.value })}></Slider>
+                    </div>
                     <div style={{ paddingTop: '30px' }}>
                         <Button raised disabled={!saveEnabled} onClick={onSave}>Save Changes</Button>
                     </div>
+                    {activity.id && <div style={{ marginTop: '50px' }}>
+                        <Button onClick={onArchive} raised>Archive Activity To Remove From Active List</Button>
+                    </div>
+                    }
                 </GridCell>
                 <GridCell span={8}>
                     <div>
                         <Typography use="headline6">Roster</Typography>
                     </div>
-                    <DesktopRoster roster={roster} onRosterChange={onRosterChange} activity={activity} />
+                    <DesktopRoster roster={roster} onRosterChange={onRosterChange} activity={activity} maxPlayers={maxPlayers} />
                 </GridCell>
             </Grid>
         </div>

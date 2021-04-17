@@ -48,6 +48,9 @@ const Activities = () => {
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/activity/amongus')}>Among Us</Button>
                     </div>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} raised onClick={() => history.push('/activity/custom')}>Custom Activity</Button>
+                    </div>
                 </div>
             </GridCell>
             <GridCell span={6}>

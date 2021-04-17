@@ -6,8 +6,16 @@ const AmongUs = () => ({
     info: '',
 })
 
+const Custom = () => ({
+    type: 'custom',
+    activityName: 'Custom',
+    players: [],
+    maxPlayers: 6,
+    info: ''
+})
 const activityMap = {
-    amongus: AmongUs
+    amongus: AmongUs,
+    custom: Custom,
 }
 
 

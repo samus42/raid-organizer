@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Typography } from '@rmwc/typography'
 import MobileRoster from '../desktop/DesktopRoster'
 // import MobileRoster from './MobileRoster'
-import MobileDetails from '../../raid/mobile/MobileDetails'
+import MobileDetails from './MobileDetails'
 import { TabBar, Tab } from '@rmwc/tabs'
 import '@rmwc/select/styles';
 
@@ -11,7 +11,7 @@ const tabs = {
     roster: 1,
 }
 
-const MobileMain = ({ roster, date, instanceName, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
+const MobileMain = ({ roster, date, instanceName, maxPlayers, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
     const [activeTab, setActiveTab] = useState(tabs.details)
 
     useEffect(() => {
@@ -33,9 +33,10 @@ const MobileMain = ({ roster, date, instanceName, activity, saveEnabled, onSave,
                 <Tab>Roster</Tab>
             </TabBar>
             <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{activity.activityName}</Typography></div>
+            {!activity.active && <h2 style={{ padding: '5px' }}>This activity is longer active!</h2>}
             <div style={{ padding: '5px' }}>
-                {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
-                {activeTab === tabs.roster && <MobileRoster activity={activity} roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
+                {activeTab === tabs.details && <MobileDetails activity={activity} date={date} instanceName={instanceName} maxPlayers={maxPlayers} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} onArchive={onArchive} />}
+                {activeTab === tabs.roster && <MobileRoster activity={activity} roster={roster} maxPlayers={maxPlayers} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
             </div>
         </div >
     )

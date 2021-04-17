@@ -11,7 +11,7 @@ import { List, ListItem, ListItemMeta } from '@rmwc/list'
 const normalizeId = (destinyPlayer) => {
     return { name: destinyPlayer.name, id: destinyPlayer.destinyId, type: 'destiny' }
 }
-const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) => {
+const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, maxPlayers }) => {
     const [destinyRoster, setDestinyRoster] = useState([])
     const [filteredRoster, setFilteredRoster] = useState([])
     const [manualPlayerName, setManualPlayerName] = useState('')
@@ -47,7 +47,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) =
     const onRemovePlayer = (player) => {
         onRosterChange(roster.filter(({ id }) => id !== player.id))
     }
-    const atLimit = () => activity.maxPlayers - roster.length <= 0
+    const atLimit = () => maxPlayers - roster.length <= 0
 
     return (
         <div style={{ maxWidth: '500px' }}>
@@ -66,7 +66,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity }) =
             </div>
             <div style={{ paddingTop: '10px' }}>
                 <div style={{ paddingLeft: '10px' }}>
-                    <strong>{`${activity.maxPlayers - roster.length} slots available`}</strong>
+                    <strong>{`${Math.max(0, maxPlayers - roster.length)} slots available`}</strong>
                 </div>
                 <List>
                     {roster.map((player) => (
