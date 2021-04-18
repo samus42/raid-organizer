@@ -9,7 +9,6 @@ import ActivityMain from './activities/ActivityMain'
 import CalendarInstructions from './home/CalendarInstructions'
 
 const Main = (props) => {
-    console.log('env: ', process.env.REACT_APP_ENV)
     return (
         <Router>
             <ApplicationBar />

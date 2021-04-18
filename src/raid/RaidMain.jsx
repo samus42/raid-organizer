@@ -48,7 +48,6 @@ const RaidMain = ({ match }) => {
             setSaveEnabled(true)
         }
         setIsLoading(true)
-        console.log('raidKey: ', match.params.raidKey)
         if (isRaidKey([match.params.raidKey])) {
             const newRaid = newRaidByKey(match.params.raidKey)
             setIsLoading(false)

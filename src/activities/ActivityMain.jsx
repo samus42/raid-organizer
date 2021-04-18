@@ -52,7 +52,6 @@ const ActivityMain = ({ match }) => {
             }
         }
         setIsLoading(true)
-        console.log('activityKey: ', match.params.raidKey)
         if (isActivityKey([match.params.activityKey])) {
             setActivity(newActivityByKey(match.params.activityKey))
             setIsLoading(false)
