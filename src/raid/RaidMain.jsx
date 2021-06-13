@@ -53,8 +53,10 @@ const RaidMain = ({ match }) => {
             setIsLoading(false)
             setSaveEnabled(false)
             const currentUser = getCurrentUserInfo()
-            setCurrentRoster([currentUser])
-            newRaid.roster = [currentUser]
+            if (currentUser) {
+                setCurrentRoster([currentUser])
+                newRaid.roster = [currentUser]
+            }
             setRaid(newRaid)
         } else {
             getRaid()

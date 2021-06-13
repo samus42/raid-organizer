@@ -32,7 +32,7 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
             <ClanRoster excludeList={roster} onSelect={onAddPlayer} disabled={roster.length > 7} />
             < div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                 <div style={{ position: 'fixed', width: '250px', top: '65px', bottom: '0', overflowY: 'scroll', borderRight: '1px solid lightgray' }}>
-                    <RaidRoster roster={roster} onRosterChange={onRosterChange} raidTitle={raid.raidName} />
+                    <RaidRoster roster={roster} onRosterChange={onRosterChange} raidTitle={raid.raidName} saveEnabled={saveEnabled} />
                 </div>
                 <div style={{ marginLeft: '260px', paddingTop: '0px' }}>
                     {!raid.active && <h2>This raid is no longer active!</h2>}

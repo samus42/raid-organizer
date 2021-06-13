@@ -8,8 +8,10 @@ const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destiny
 const raidSlots = 6
 const backupSlots = 2
 
-const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
+const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () => { } }) => {
     const [players, setPlayers] = useState([])
+    const [currentUserAdded, setCurrentUserAdded] = useState(false)
+    const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
         const emptySpots = Math.max(0, raidSlots - roster.length)
@@ -24,12 +26,23 @@ const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
                 .concat(emptyRaidSlotArr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` })))
                 .concat(emptyBackupSlotArr.map((item, index) => ({ ...item, name: `Backup ${index + 1}` })))
         )
+        const user = getCurrentUserInfo()
+        setCurrentUser(user)
+        setCurrentUserAdded(user && !!roster.find((player) => player.destinyId === user.destinyId))
     }, [roster])
 
     const removePlayer = (player) => {
         onRosterChange(players.filter((p) => p.destinyId && p.destinyId !== player.destinyId))
     }
 
+    const memberChanged = () => {
+        const currentUser = getCurrentUserInfo()
+        if (currentUserAdded) {
+            onRosterChange(roster.filter((player) => player.destinyId !== currentUser.destinyId))
+        } else {
+            onRosterChange(roster.concat(currentUser))
+        }
+    }
     return (
         <div>
             <h4>Select your roster for {raidTitle}</h4>
@@ -43,9 +56,11 @@ const RaidRoster = ({ roster = [], raidTitle, onRosterChange = () => { } }) => {
                 ))
                 }
             </List >
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Button raised>Add Myself</Button>
-            </div>
+            {currentUser &&
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button raised disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                </div>
+            }
         </div >
     )
 }
