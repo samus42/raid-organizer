@@ -43,11 +43,11 @@ const VaultOfGlass = () => ({
             description: '',
             roles: [
                 { name: 'Relic Holder', type: 'relic' },
-                { name: 'Oracle Hunter', type: 'hunter' },
                 { name: 'Soldier 1', type: 'soldier' },
                 { name: 'Soldier 2', type: 'soldier' },
                 { name: 'Soldier 3', type: 'soldier' },
                 { name: 'Soldier 4', type: 'soldier' },
+                { name: 'Soldier 5', type: 'soldier' },
             ]
         },
         {
@@ -66,12 +66,12 @@ const VaultOfGlass = () => ({
             title: `Gatekeeper`,
             description: '',
             roles: [
-                { name: 'Mars Relic', type: 'relic' },
-                { name: 'Mars Escort', type: 'escort' },
-                { name: 'Venus Relic', type: 'relic' },
-                { name: 'Venus Escort', type: 'escort' },
-                { name: 'Minotaur Hunter', type: 'hunter' },
-                { name: 'Flex Soldier', type: 'soldier' },
+                { name: 'Mars Start', type: 'relic' },
+                { name: 'Venus Start', type: 'relic' },
+                { name: 'Relic Start', type: 'relic' },
+                { name: 'Floater Start', type: 'relic' },
+                { name: 'Mars Plate', type: 'soldier' },
+                { name: 'Venus Plate', type: 'soldier' },
             ]
         },
         {
