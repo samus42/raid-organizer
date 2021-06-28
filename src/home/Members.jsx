@@ -23,12 +23,15 @@ const Ace = () => (
         </div>
         <Typography use="headline4">Ace Malicious</Typography>
         <div className="member-detail">
-            <a href="https://www.acemalicious.com/">Visit Ace's Home page</a> to learn more about the player and see some writings about the character.
+            <span style={{ fontStyle: 'italic' }}>"I'm tired of people saying I'm directionally challenged! Now follow me, it's to the right!"</span>
         </div>
         <div className="member-detail">
-            Read Ace's new novel <a href="https://archiveofourown.org/works/25198228/chapters/61071031?fbclid=IwAR2N2-V9T9KmaMqB3yFQYu2BnsbkbLtyc08UuGSt_u8eGtoxVfJ6WtYb9JM">Dôl Arnách</a>!
+            That's a broom closet.
         </div>
-    </div>
+        <div>
+            <span style={{ fontStyle: 'italic' }}>"Damn it to hell!"</span>
+        </div>
+    </div >
 )
 
 const Samus = () => (
@@ -41,13 +44,16 @@ const Samus = () => (
             <strong>Meat Shield</strong>
         </div>
         <div className="member-detail">
-            Samus has written some guides to help his fellow Guardians. They try to be entertaining as well as helpful.
+            We think the opposite team is around the corner, go look.
         </div>
         <div className="member-detail">
-            <a href="/guides/shattered-throne/">Shattered Throne Solo Guide</a>
+            <span style={{ fontStyle: 'italic' }}>[Gun shots]"Ow! Ow! Ow! Ow! So many holes in me!"</span>
         </div>
         <div className="member-detail">
-            <a href="/guides/taken-king">Taken King Raid Guide</a>
+            Great job! We flanked them while they were shooting you. On to the next capture point!
+        </div>
+        <div className="member-detail">
+            <span style={{ fontStyle: 'italic' }}>Wait...wait...medic...</span>
         </div>
     </div>
 )

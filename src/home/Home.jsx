@@ -4,11 +4,12 @@ import { TabBar, Tab } from '@rmwc/tabs'
 import Members from './Members'
 import Activities from './Activities'
 import packageJSON from '../../package.json'
+import Extras from './Extras'
 
 const tabs = {
     acitivities: 0,
     members: 1,
-    about: 2,
+    extras: 2,
 }
 
 const Main = (props) => {
@@ -19,7 +20,7 @@ const Main = (props) => {
             <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
                 <Tab>Activities</Tab>
                 <Tab>Members</Tab>
-                <Tab>About</Tab>
+                <Tab>Extras</Tab>
             </TabBar>
             {
                 activeTab === tabs.acitivities && (
@@ -30,8 +31,19 @@ const Main = (props) => {
                 activeTab === tabs.members && <Members />
             }
             {
-                activeTab === tabs.about && (
-                    <div className="main-tab-content">
+                activeTab === tabs.extras && <Extras />
+            }
+            <div style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%', color: 'gray' }}>
+                <small>Version {packageJSON.version}</small>
+            </div>
+        </div>
+    )
+}
+
+export default Main
+
+/*
+<div className="main-tab-content">
                         <Typography use="headline4">Welcome to the Shenaniganizers!</Typography>
                         <div><Typography use="headline6">The glitchiest clan ever. <small>(this website is bug free though)</small></Typography></div>
                         <div>
@@ -46,14 +58,4 @@ const Main = (props) => {
                             <div>BTW if you get lost, just hit the title in the upper left to come back here.</div>
                             <div style={{ paddingTop: '10px' }}>The source code is hosted at <a href="https://github.com/samus42/raid-organizer">https://github.com/samus42/raid-organizer</a> if you feel like contributing code.  Or you can use the Issues tab so suggest ideas!</div>
                         </div>
-                    </div>
-                )
-            }
-            <div style={{ textAlign: 'center', position: 'fixed', bottom: '0', width: '100%', color: 'gray' }}>
-                <small>Version {packageJSON.version}</small>
-            </div>
-        </div>
-    )
-}
-
-export default Main
+                    </div>*/
