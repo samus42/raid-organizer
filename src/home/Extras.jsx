@@ -15,10 +15,10 @@ const Extras = () => {
                             <a href="https://www.acemalicious.com/">Visit Ace's Home page</a> to learn more about the player and see some writings about the character.
                         </li>
                         <li>
-                            Read Ace's new novel <a href="https://archiveofourown.org/works/25198228/chapters/61071031?fbclid=IwAR2N2-V9T9KmaMqB3yFQYu2BnsbkbLtyc08UuGSt_u8eGtoxVfJ6WtYb9JM">Dôl Arnách</a>!
+                            Book 1: <a href="https://drive.google.com/file/d/1aRAdXjs53rym6sK1TX0QnqLbMOhccBOK/view?usp=sharing">Into the Lair of Dôl Arnách</a>!
                         </li>
                         <li>
-                            Coming soon, Book 2 in the series, Halily's War!
+                            Book 2 just released: <a href="https://drive.google.com/file/d/1KHoI2UM9XrucOfadcGYgQA-VmRZaIJam/view?usp=sharing">Halily's War</a>
                         </li>
                     </ul>
                 </GridCell>

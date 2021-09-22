@@ -77,12 +77,12 @@ const Nutbar = () => (
     </div>
 )
 
-const Silly = () => (
+const ThirdEye = () => (
     <div className="member-card">
         <div>
             <img alt="icon" src="https://www.bungie.net/img/profile/avatars/odst_skull_fire.png" />
         </div>
-        <Typography use="headline4">Silly Milly</Typography>
+        <Typography use="headline4">ThirdEye</Typography>
         <div className="member-detail">
             <div><strong>Q:</strong><span> What do you use when fighting Fallen?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
@@ -260,26 +260,75 @@ const Tansy = () => (
     </div>
 )
 
+const KillerPotatoez = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc47.jpg" />
+        </div>
+        <Typography use="headline4">KillerPotatoez</Typography>
+        <div className="member-detail">
+            <div>We would like to formally apologize for the comments made by KillerPotatoez on Monday, Tuesday, Thursday, Friday, Saturday, and Sunday.</div>
+            <div>After a formal investigation, we retract our apology for Wednesday.</div>
+            <div>DNA analysis concluded that yes, he is your daddy.</div>
+        </div>
+    </div>
+)
+
+const Wdnesday = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc12.jpg" />
+        </div>
+        <Typography use="headline4">Wdnesday</Typography>
+        <div className="member-detail">
+            <div>Is that your pet turtle?</div>
+            <div><span style={{ fontStyle: 'italic' }}>"Yup! Isn't he cute?"</span></div>
+            <div>Wait... is that a Rocket Launcher on its shell?</div>
+            <div><span style={{ fontStyle: 'italic' }}>[Explosion]</span></div>
+            <div><span style={{ fontStyle: 'italic' }}>"Yup! Isn't it cute?"</span></div>
+        </div>
+    </div>
+)
+
+const Darkwomble = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWEvoJqVSiysJaQ1l3e0ofHo3Nxj6fHt9a_A&usqp=CAU" style={{ height: '180px' }} />
+        </div>
+        <Typography use="headline4">Darkwomble</Typography>
+        <div className="member-detail">
+            <div>Ok, here's how this next part works- </div>
+            <div><span style={{ fontStyle: 'italic' }}>[Explosions and gunfire erupts]</span></div>
+            <div>Who started the encounter?</div>
+            <div><span style={{ fontStyle: 'italic' }}>Not me! / I didn't move! / Not I! / I was in the bathroom!</span></div>
+            <div>Womble?</div>
+            <div><span style={{ fontStyle: 'italic' }}>"Uh... cheers mate!"</span></div>
+        </div>
+    </div>
+)
 const Members = () => {
     return (
         <div className="main-tab-content">
             <div><Typography use="headline6">Our clan members have their own things to share with the community. Check out their web pages / creations!</Typography> </div>
             <Grid style={{ paddingLeft: '0', paddingRight: '0' }}>
                 <GridCell><Ace /></GridCell>
+                <GridCell><Darkwomble /></GridCell>
                 <GridCell><GMann /></GridCell>
                 <GridCell><Hada /></GridCell>
                 <GridCell><Halily /></GridCell>
-                <GridCell><Momo /></GridCell>
-                <GridCell><Nekro /></GridCell>
                 <GridCell><Kaizyn /></GridCell>
                 <GridCell><KaiJae /></GridCell>
+                <GridCell><KillerPotatoez /></GridCell>
                 <GridCell><Mabie /></GridCell>
                 <GridCell><Nutbar /></GridCell>
+                <GridCell><Momo /></GridCell>
+                <GridCell><Nekro /></GridCell>
                 <GridCell><Samus /></GridCell>
-                <GridCell><Silly /></GridCell>
                 <GridCell><Stink /></GridCell>
                 <GridCell><Tansy /></GridCell>
+                <GridCell><ThirdEye /></GridCell>
                 <GridCell><W6MIR /></GridCell>
+                <GridCell><Wdnesday /></GridCell>
             </Grid>
             <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
