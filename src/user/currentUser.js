@@ -42,10 +42,17 @@ export const getCurrentUserInfo = () => {
     const membershipInfo = getMembershipInfo()
     if (membershipInfo) {
         const { bungieNetUser, destinyMemberships } = membershipInfo
-        return {
-            iconPath: `${imageUrlPrefix}${bungieNetUser.profilePicturePath}`,
-            name: bungieNetUser.displayName,
-            destinyId: destinyMemberships[0].membershipId
+        if (bungieNetUser && destinyMemberships && destinyMemberships.length > 0) {
+            return {
+                iconPath: `${imageUrlPrefix}${bungieNetUser.profilePicturePath}`,
+                name: bungieNetUser.displayName,
+                destinyId: destinyMemberships[0].membershipId
+            }
+        } else {
+            console.warn('No bungieNetUser or destinyMemberships info, try logging in again.')
+            console.warn('bungieNetUser: ', bungieNetUser)
+            console.warn('destinyMemberships: ', destinyMemberships)
+            return null
         }
     }
 }

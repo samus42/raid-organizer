@@ -26,7 +26,7 @@ export const getClanRoster = async () => {
         throw new Error(body.Message)
     }
     const members = body.Response.results.map(({ destinyUserInfo, bungieNetUserInfo }) => ({
-        name: destinyUserInfo.displayName,
+        name: destinyUserInfo.bungieGlobalDisplayName || destinyUserInfo.displayName,
         iconPath: bungieNetUserInfo ? `${baseUrl}/${bungieNetUserInfo.iconPath}` : defaultIconUrl,
         destinyId: destinyUserInfo.membershipId,
     })).filter(({ name }) => !deprecatedMemberNames.includes(name))

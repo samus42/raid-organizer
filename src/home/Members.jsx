@@ -306,16 +306,58 @@ const Darkwomble = () => (
         </div>
     </div>
 )
+
+
+const Harmony = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" style={{ height: '180px' }} />
+        </div>
+        <Typography use="headline4">Harmony</Typography>
+        <div className="member-detail">
+            <div>Hey Harmony, want to raid?</div>
+            <div><span style={{ fontStyle: 'italic' }}>"Of course! But can we do the Lava challenge?"</span></div>
+            <div>The <span style={{ fontWeight: 'bold' }}>what</span> now?</div>
+            <div><span style={{ fontStyle: 'italic' }}>"You know, the one where every encounter is done without touching the floor."</span></div>
+            <div>Uhh... I guess...</div>
+            <div><span style={{ fontStyle: 'italic' }}>"Oh, and you have use sidearms for every kill."</span></div>
+            <div><span style={{ fontStyle: 'italic' }}>"Hello? Hello?"</span></div>
+        </div>
+    </div>
+)
+
+const CatNoir = () => (
+    <div className="member-card">
+        <div>
+            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc54.jpg" style={{ height: '180px' }} />
+        </div>
+        <Typography use="headline4">CatNoir</Typography>
+        <div className="member-detail">
+            <div>Okay, so Cat we need you to-</div>
+            <div><span style={{ fontStyle: 'italic' }}>"I just shoot things."</span></div>
+            <div>Well... yes... but also you need to carry the orb-</div>
+            <div><span style={{ fontStyle: 'italic' }}>[Gunshot]</span></div>
+            <div>You killed our team leader! Why?!</div>
+            <div><span style={{ fontStyle: 'italic' }}>"As I said, I just shoot things."</span></div>
+        </div>
+    </div>
+)
+
+// const MoonlitOwl = () => (
+//     <div></div>
+// )
+
 const Members = () => {
     return (
         <div className="main-tab-content">
-            <div><Typography use="headline6">Our clan members have their own things to share with the community. Check out their web pages / creations!</Typography> </div>
             <Grid style={{ paddingLeft: '0', paddingRight: '0' }}>
                 <GridCell><Ace /></GridCell>
+                <GridCell><CatNoir /></GridCell>
                 <GridCell><Darkwomble /></GridCell>
                 <GridCell><GMann /></GridCell>
                 <GridCell><Hada /></GridCell>
                 <GridCell><Halily /></GridCell>
+                <GridCell><Harmony /></GridCell>
                 <GridCell><Kaizyn /></GridCell>
                 <GridCell><KaiJae /></GridCell>
                 <GridCell><KillerPotatoez /></GridCell>
