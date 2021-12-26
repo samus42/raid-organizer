@@ -24,10 +24,20 @@ const Extras = () => {
                 </GridCell>
                 <GridCell>
                     <Typography use="headline4">Samus Darkthorn</Typography>
+
                     <ul className="extras-list">
+                        <li>
+                            His first book! <strong>A Thorn In Twilight</strong>. You can read this in multiple formats:
+                            <ul className="extras-list">
+                                <li><a href="https://drive.google.com/file/d/1IYXWvPoNCadS-PTuYfHjHayNVFKwSP8Y/view?usp=sharing">PDF</a></li>
+                                <li><a href="https://drive.google.com/file/d/1oZanJFX7YdoNPi6YMufbKU4gpbNs5yqd/view?usp=sharing">MOBI (for Kindle)</a></li>
+                                <li><a href="https://drive.google.com/file/d/1BjwOC80JfBmZVaoKJtgPpn8m5J1OeUOD/view?usp=sharing">ePUB (for all other eReaders)</a></li>
+                                <li>In print! Just reach out to him and he'll send you a copy when he orders a batch.</li>
+                            </ul>
+                        </li>
                         <li><a href="/guides/shattered-throne/">Shattered Throne Solo Guide</a></li>
                         <li><a href="/guides/taken-king">Taken King Raid Guide</a></li>
-                        <li>Coming soon, part 1 of his new novel (name TBD)</li>
+                        <li>A special <a href="https://docs.google.com/document/d/1uqDBXnZr-ZUKNLKE7t-30NyN_ze6pOI2nP__xpYXs04/edit?usp=sharing">holiday story</a> for all my clanmates!</li>
                     </ul>
                 </GridCell>
             </Grid>
