@@ -67,7 +67,6 @@ const EventList = () => {
             history.push(`/raid/${event.id}`)
         }
     }
-    console.log(events)
     return (
         <div style={{ maxWidth: '500px' }}>
             <Typography use="headline4">Upcoming events:</Typography>
@@ -75,7 +74,6 @@ const EventList = () => {
             <List>
                 {events.map((activity) => (
                     <EventListItem key={activity.id} onClick={() => onSelectEvent(activity)} activity={activity} />
-                    // <SimpleListItem onClick={() => onSelectEvent(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.activityName} />
                 ))}
             </List>
         </div>
