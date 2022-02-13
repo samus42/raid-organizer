@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getClanRoster } from '../api/destiny'
-import { List, ListItem, ListItemGraphic, ListItemText } from '@rmwc/list'
+import { List, ListItem, ListItemIcon, ListItemText, ListItemButton } from '@mui/material'
 import differenceBy from 'lodash.differenceby'
 
 const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }) => {
@@ -22,10 +22,12 @@ const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }
             <h4 style={{ paddingLeft: '10px' }}>Clan Roster</h4>
             <List>
                 {roster.map((player) => (
-                    <ListItem disabled={disabled} key={player.name} onClick={() => !disabled && onSelect(player)}>
-                        <ListItemGraphic icon={<img src={player.iconPath} alt="" width="24" height="24" />} />
-                        <ListItemText>{player.name}</ListItemText>
-                    </ListItem>
+                    <ListItemButton disabled={disabled} key={player.name} onClick={() => !disabled && onSelect(player)}>
+                        <ListItemIcon>
+                            <img src={player.iconPath} alt="" width="24" height="24" />
+                        </ListItemIcon>
+                        <ListItemText primary={player.name} />
+                    </ListItemButton>
                 ))}
             </List>
         </div>

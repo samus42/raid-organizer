@@ -5,8 +5,7 @@ import { getCurrentUserInfo } from './currentUser'
 import raidClient from '../api/raidClient'
 import calculateMetrics from './calculateMetrics'
 import { determineRank, hasRanks } from './ranks'
-import { Typography } from '@rmwc/typography'
-import { Grid, GridCell } from '@rmwc/grid'
+import { Typography, Grid } from '@mui/material'
 
 const query = gql`
 query($destinyId: String!) {
@@ -49,17 +48,17 @@ const RoleDetail = ({ raidName, roleType, count }) => {
 const RaidDetails = ({ raidInfo }) => {
     const { raidName, numRuns, roleTypes } = raidInfo
     return (
-        <GridCell span={6}>
-            <Typography use="headline4">{raidName}<small>{`  (${numRuns} runs)`}</small></Typography>
+        <Grid item >
+            <Typography variant="h4">{raidName}<small>{`  (${numRuns} runs)`}</small></Typography>
             <div>
-                <Typography use="headline6">Roles:</Typography>
+                <Typography variant="h6">Roles:</Typography>
                 <div style={{ marginLeft: '20px' }}>
                     {Object.keys(roleTypes).map((roleType) => {
                         return (<RoleDetail key={`${raidName}_${roleType}`} raidName={raidName} roleType={roleType} count={roleTypes[roleType]} />)
                     })}
                 </div>
             </div>
-        </GridCell>
+        </Grid>
     )
 }
 const Profile = () => {
@@ -79,13 +78,13 @@ const Profile = () => {
 
     if (loading) {
         return (<div style={{ padding: '10px' }}>
-            <Typography use="headline4">Loading...</Typography>
+            <Typography variant="h4">Loading...</Typography>
         </div>)
     }
     return (
         <div style={{ padding: '10px' }}>
-            <Typography use="headline2"><img alt="profile icon" src={currentUser.iconPath} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
-            <Grid>
+            <Typography variant="h2"><img alt="profile icon" src={currentUser.iconPath} style={{ width: '48px', marginRight: '10px' }} />{currentUser.name}</Typography>
+            <Grid container spacing={6}>
                 {raidMetrics.map((raidInfo) => <RaidDetails raidInfo={raidInfo} key={raidInfo.raidName} />)}
             </Grid>
         </div>

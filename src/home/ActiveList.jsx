@@ -4,7 +4,7 @@ import {
     List,
     ListItemText,
     ListItemButton,
-    Divider, Typography
+    Typography
 } from '@mui/material'
 import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'

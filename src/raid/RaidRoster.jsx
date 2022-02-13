@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { defaultIconUrl } from '../api/destiny'
-import { List, ListItem, ListItemMeta } from '@rmwc/list'
-import { Button } from '@rmwc/button'
+import { List, ListItem, Button, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/PersonRemove'
 import { getCurrentUserInfo } from '../user/currentUser'
 import DraggablePlayer from './DraggablePlayer'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
@@ -49,16 +49,21 @@ const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () =
             <p>Choose players on the left. To remove a player just click on the <strong>X</strong> to the right of the player.</p>
             <List>
                 {players.map((player) => (
-                    <ListItem span={4} key={player.name}>
+                    <ListItem span={4} key={player.name}
+                        secondaryAction={
+                            <IconButton edge="end" aria-label="delete" onClick={() => removePlayer(player)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        }>
                         <DraggablePlayer player={player} />
-                        <ListItemMeta icon="clear" onClick={() => removePlayer(player)} />
+
                     </ListItem>
                 ))
                 }
             </List >
             {currentUser &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button raised disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                    <Button variant="contained" disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
                 </div>
             }
         </div >

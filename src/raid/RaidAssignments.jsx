@@ -1,9 +1,8 @@
 import React, { useState, useLayoutEffect } from 'react'
-import { Typography } from '@rmwc/typography'
-import { Grid, GridCell } from '@rmwc/grid'
+import { Typography, Grid, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/PersonRemove'
 import DraggablePlayer from './DraggablePlayer'
 import { useDrop } from 'react-dnd'
-import { Icon } from '@rmwc/icon'
 
 const Role = ({ role, onChange = () => { } }) => {
     const [{ isOver }, drop] = useDrop({
@@ -24,14 +23,14 @@ const Role = ({ role, onChange = () => { } }) => {
     }
 
     return (
-        <div ref={drop} style={{ display: 'flex', padding: '3px' }} className={modifiers}>
-            <div style={{ minWidth: '240px' }}><Typography use="headline6">{role.name}</Typography></div>
-            <div style={{ paddingTop: '5px', display: 'flex', justifyContent: 'space-between', minWidth: '200px' }}>
+        <div ref={drop} style={{ display: 'flex', padding: '3px', alignItems: 'center' }} className={modifiers}>
+            <div style={{ minWidth: '240px' }}><Typography variant="h6">{role.name}</Typography></div>
+            <div style={{ paddingTop: '0px', display: 'flex', justifyContent: 'space-between', minWidth: '200px', alignItems: 'center' }}>
                 <DraggablePlayer player={role.player} />
                 {role.player && (
-                    <div className="clear-button">
-                        <Icon icon="clear" onClick={() => onChange(role, null)} />
-                    </div>
+                    <IconButton aria-label="delete" onClick={() => onChange(role, null)}>
+                        <DeleteIcon />
+                    </IconButton>
                 )}
             </div>
         </div>
@@ -41,9 +40,9 @@ const Role = ({ role, onChange = () => { } }) => {
 const Stage = ({ stage, onChange = () => { } }) =>
     <div style={{ marginTop: '20px' }} className="raid-stage">
         <div>
-            <Typography use="headline4">{stage.title}</Typography>
+            <Typography variant="h4">{stage.title}</Typography>
             <div>
-                <Typography use="subtitle1">{stage.description}</Typography>
+                <Typography variant="subtitle1">{stage.description}</Typography>
             </div>
             <div>
                 {stage.roles.map((role) => <Role key={`role-${role.name}`} role={role} onChange={(role, player) => onChange(stage, role, player)} />)}
@@ -70,11 +69,11 @@ const RaidAssignments = ({ raid, onChange }) => {
 
     return (
         <div>
-            <Grid>
+            <Grid container spacing={3}>
                 {raid.stages.map((stage, index) =>
-                    <GridCell key={`${stage}-${index}`} span={cellSpan} style={{ minWidth: '480px' }}>
+                    <Grid item key={`${stage}-${index}`} span={cellSpan} style={{ width: '500px' }}>
                         <Stage key={`${stage}-${index}`} stage={stage} onChange={onChange} />
-                    </GridCell>)}
+                    </Grid>)}
             </Grid>
         </div>)
 }

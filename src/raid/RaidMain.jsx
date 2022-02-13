@@ -4,7 +4,8 @@ import MobileMain from './mobile/MobileMain'
 import { useHistory } from 'react-router-dom'
 import { newRaidByKey, isRaidKey } from './templates'
 import { loadRaid, saveRaid, archiveRaid } from '../api/clan'
-import { Snackbar, SnackbarAction } from '@rmwc/snackbar'
+import { Snackbar, IconButton } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
 import ErrorDialog from '../ErrorDialog'
 import isEmpty from 'lodash.isempty'
 import differenceBy from 'lodash.differenceby'
@@ -151,14 +152,23 @@ const RaidMain = ({ match }) => {
                 onRosterChange={onRosterChange}
             />
             <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center'
+                }}
                 open={saveMessage}
                 onClose={evt => setSaveMessage(null)}
                 message={saveMessage}
-                dismissesOnAction
+                autoHideDuration={6000}
                 action={
-                    <SnackbarAction
-                        label="Dismiss"
-                    />
+                    <IconButton
+                        size="small"
+                        aria-label="close"
+                        color="inherit"
+                        onClick={evt => setSaveMessage(null)}
+                    >
+                        <CloseIcon fontSize="small" />
+                    </IconButton>
                 }
             />
         </div>

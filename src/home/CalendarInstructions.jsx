@@ -1,15 +1,15 @@
 import React from 'react'
-import { Typography } from '@rmwc/typography'
+import { Typography } from '@mui/material'
 const CalendarInstructions = () => {
 
     return (
         <div style={{ paddingTop: '10px', paddingLeft: '20px' }}>
-            <Typography use="headline3">Calendar Subscription Help</Typography>
+            <Typography variant="h3">Calendar Subscription Help</Typography>
             <div>
                 So typically just clicking on the link <a href="webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar">webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar</a> on your phone or computer should cause your calendar application to use it correctly. However not everyone's world is the same, so there are some alternate ways.
 
                 <div style={{ paddingTop: '20px' }}>
-                    <Typography use="headline6">Google Calendar</Typography>
+                    <Typography variant="h6">Google Calendar</Typography>
                     <div>
                         <ul>
                             <li>Visit the <a href="https://calendar.google.com">Google Calendar Site</a></li>
@@ -22,7 +22,7 @@ const CalendarInstructions = () => {
                     </div>
                 </div>
                 <div style={{ paddingTop: '10px' }}>
-                    <Typography use="headline6">OSX (i.e. an Apple computer)</Typography>
+                    <Typography variant="h6">OSX (i.e. an Apple computer)</Typography>
                     <div>
                         <ul>
                             <li>Just clicking on the link should allow your Calendar app to try to use it, but if that doesn't work, do the following.</li>
@@ -34,7 +34,7 @@ const CalendarInstructions = () => {
                     </div>
                 </div>
                 <div style={{ paddingTop: '10px' }}>
-                    <Typography use="headline6">iPhone</Typography>
+                    <Typography variant="h6">iPhone</Typography>
                     <div>
                         <ul>
                             <li>First make sure you're on the latest iOS. If you're not, then update then try to click on the link again in your phone.</li>
