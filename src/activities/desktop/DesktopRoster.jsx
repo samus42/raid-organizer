@@ -3,10 +3,9 @@ import Select from 'react-select'
 import differenceBy from 'lodash.differenceby'
 import isEmpty from 'lodash.isempty'
 import { getClanRoster } from '../../api/destiny'
-import { TextField } from '@rmwc/textfield'
-import { Button } from '@rmwc/button'
+import { TextField, Button, List, ListItem, IconButton } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/PersonRemove'
 import { v4 as uuid } from 'uuid'
-import { List, ListItem, ListItemMeta } from '@rmwc/list'
 
 const normalizeId = (destinyPlayer) => {
     return { name: destinyPlayer.name, id: destinyPlayer.destinyId, type: 'destiny' }
@@ -58,7 +57,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
                 <strong>OR</strong>
             </div>
             <div>
-                <TextField disabled={atLimit()} style={{ width: '100%' }} label="Enter player name" value={manualPlayerName} onChange={onManualPlayerChange} />
+                <TextField disabled={atLimit()} fullWidth label="Enter player name" value={manualPlayerName} onChange={onManualPlayerChange} />
 
             </div>
             <div style={{ paddingTop: '10px' }}>
@@ -70,9 +69,14 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
                 </div>
                 <List>
                     {roster.map((player) => (
-                        <ListItem span={4} key={player.name}>
+                        <ListItem span={4} key={player.name}
+                            secondaryAction={
+                                <IconButton edge="end" aria-label="delete" onClick={() => onRemovePlayer(player)}>
+                                    <DeleteIcon />
+                                </IconButton>
+                            }>
                             <span>{player.name}</span>
-                            <ListItemMeta icon="clear" onClick={() => onRemovePlayer(player)} />
+                            {/* <ListItemMeta icon="clear" onClick={() => onRemovePlayer(player)} /> */}
                         </ListItem>
                     ))}
                 </List>

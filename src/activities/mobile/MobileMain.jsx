@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Typography } from '@rmwc/typography'
 import MobileRoster from '../desktop/DesktopRoster'
 // import MobileRoster from './MobileRoster'
 import MobileDetails from './MobileDetails'
-import { TabBar, Tab } from '@rmwc/tabs'
-import '@rmwc/select/styles';
+import { Tabs, Tab, Typography } from '@mui/material'
+// import '@rmwc/select/styles';
 
 const tabs = {
     details: 0,
@@ -28,11 +27,15 @@ const MobileMain = ({ roster, date, instanceName, maxPlayers, activity, saveEnab
 
     return (
         <div>
-            <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
-                <Tab>Details</Tab>
-                <Tab>Roster</Tab>
-            </TabBar>
-            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{activity.activityName}</Typography></div>
+            <Tabs indicatorColor="secondary"
+                textColor="inherit"
+                variant="fullWidth"
+                value={activeTab}
+                onChange={(evt, newValue) => setActiveTab(newValue)}>
+                <Tab label="Details" />
+                <Tab label="Roster" />
+            </Tabs>
+            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography variant="h4">{activity.activityName}</Typography></div>
             {!activity.active && <h2 style={{ padding: '5px' }}>This activity is longer active!</h2>}
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails activity={activity} date={date} instanceName={instanceName} maxPlayers={maxPlayers} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} onArchive={onArchive} />}
