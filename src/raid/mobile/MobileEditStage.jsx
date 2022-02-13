@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogButton } from '@rmwc/dialog'
-import { Button } from '@mui/material'
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 import { changeStagePosition } from '../changePosition'
 const clone = (obj) => JSON.parse(JSON.stringify(obj))
 
@@ -31,19 +30,22 @@ const MobileEditStageDialog = ({ stage, raid, onChange = () => { } }) => {
         const newStage = changeStagePosition(workingStage, role, player)
         setWorkingStage(newStage)
     }
+
+    const onSave = () => {
+        const stageIndex = raid.stages.findIndex((s) => s.title === stage.title)
+        const newRaid = clone(raid)
+        newRaid.stages[stageIndex] = workingStage
+        onChange(newRaid)
+        setOpen(false)
+    }
     return (
         <>
             <Dialog
+                fullScreen
                 open={open}
-                onClose={(evt) => {
-                    if (evt.detail.action === 'accept') {
-                        const stageIndex = raid.stages.findIndex((s) => s.title === stage.title)
-                        const newRaid = clone(raid)
-                        newRaid.stages[stageIndex] = workingStage
-                        onChange(newRaid)
-                    }
+                onClose={() =>
                     setOpen(false)
-                }}
+                }
             >
                 <DialogTitle>{stage.title}</DialogTitle>
                 <DialogContent>
@@ -52,8 +54,8 @@ const MobileEditStageDialog = ({ stage, raid, onChange = () => { } }) => {
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <DialogButton action="close">Cancel</DialogButton>
-                    <DialogButton action="accept">Save</DialogButton>
+                    <Button variant="contained" onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button variant="contained" onClick={onSave}>Save</Button>
                 </DialogActions>
             </Dialog>
             <Button variant="contained" onClick={() => setOpen(true)}>Edit Roles</Button>
