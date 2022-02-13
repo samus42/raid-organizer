@@ -1,6 +1,5 @@
 import React from 'react'
-import { Grid, GridCell } from '@rmwc/grid'
-import { Typography } from '@rmwc/typography'
+import { Grid, Typography } from '@mui/material'
 
 const W6MIR = () => (
     <div className="member-card">
@@ -343,36 +342,32 @@ const CatNoir = () => (
     </div>
 )
 
-// const MoonlitOwl = () => (
-//     <div></div>
-// )
-
 const Members = () => {
     return (
         <div className="main-tab-content">
-            <Grid style={{ paddingLeft: '0', paddingRight: '0' }}>
-                <GridCell><Ace /></GridCell>
-                <GridCell><CatNoir /></GridCell>
-                <GridCell><Darkwomble /></GridCell>
-                <GridCell><GMann /></GridCell>
-                <GridCell><Hada /></GridCell>
-                <GridCell><Halily /></GridCell>
-                <GridCell><Harmony /></GridCell>
-                <GridCell><Kaizyn /></GridCell>
-                <GridCell><KaiJae /></GridCell>
-                <GridCell><KillerPotatoez /></GridCell>
-                <GridCell><Mabie /></GridCell>
-                <GridCell><Nutbar /></GridCell>
-                <GridCell><Momo /></GridCell>
-                <GridCell><Nekro /></GridCell>
-                <GridCell><Samus /></GridCell>
-                <GridCell><Stink /></GridCell>
-                <GridCell><Tansy /></GridCell>
-                <GridCell><ThirdEye /></GridCell>
-                <GridCell><W6MIR /></GridCell>
-                <GridCell><Wdnesday /></GridCell>
+            <Grid container spacing={4}>
+                <Grid item xs="auto"><Ace /></Grid>
+                <Grid item xs="auto"><CatNoir /></Grid>
+                <Grid item xs="auto"><Darkwomble /></Grid>
+                <Grid item xs="auto"><GMann /></Grid>
+                <Grid item xs="auto"><Hada /></Grid>
+                <Grid item xs="auto"><Halily /></Grid>
+                <Grid item xs="auto"><Harmony /></Grid>
+                <Grid item><Kaizyn /></Grid>
+                <Grid item><KaiJae /></Grid>
+                <Grid item><KillerPotatoez /></Grid>
+                <Grid item><Mabie /></Grid>
+                <Grid item><Nutbar /></Grid>
+                <Grid item><Momo /></Grid>
+                <Grid item><Nekro /></Grid>
+                <Grid item><Samus /></Grid>
+                <Grid item><Stink /></Grid>
+                <Grid item><Tansy /></Grid>
+                <Grid item><ThirdEye /></Grid>
+                <Grid item><W6MIR /></Grid>
+                <Grid item><Wdnesday /></Grid>
             </Grid>
-            <div>Want your own entry? Tell Samus what you want and he'll put it in!</div>
+            <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
     )
 }

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Typography } from '@rmwc/typography'
+import {
+    List,
+    ListItemText,
+    ListItemButton,
+    Divider, Typography
+} from '@mui/material'
 import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'
-import { List, SimpleListItem } from '@rmwc/list'
 import dayjs from 'dayjs'
 import sortBy from 'lodash.sortby'
 
@@ -24,6 +28,15 @@ const query = gql`
         }
     }
 `
+const EventListItem = (({ activity, onClick }) => (
+    <ListItemButton onClick={onClick}>
+        <ListItemText
+            primary={activity.instanceName}
+            secondary={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`}
+        />
+        <ListItemText secondary={activity.activityName} />
+    </ListItemButton>
+))
 
 const EventList = () => {
     const [events, setEvents] = useState([])
@@ -54,13 +67,15 @@ const EventList = () => {
             history.push(`/raid/${event.id}`)
         }
     }
+    console.log(events)
     return (
         <div style={{ maxWidth: '500px' }}>
             <Typography use="headline4">Upcoming events:</Typography>
 
-            <List twoLine>
+            <List>
                 {events.map((activity) => (
-                    <SimpleListItem onClick={() => onSelectEvent(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.activityName} />
+                    <EventListItem key={activity.id} onClick={() => onSelectEvent(activity)} activity={activity} />
+                    // <SimpleListItem onClick={() => onSelectEvent(activity)} key={activity.id} text={`${activity.instanceName}`} secondaryText={`${dayjs(activity.date).format('MM/DD/YYYY hh:mm:ss a')}`} meta={activity.activityName} />
                 ))}
             </List>
         </div>

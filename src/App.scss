@@ -54,6 +54,12 @@
   height: 24px;
 }
 
+.menu-surface {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .member-card {
   text-align: center;
   border: 2px solid lightgray;
@@ -61,7 +67,9 @@
   box-shadow: 5px 10px #888888;
   padding: 5px;
   min-height: 350px;
-
+  min-width: 426px;
+  max-width: 445px;
+  width: 430px;
   .member-detail {
     padding: 5px;
   }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Typography } from '@rmwc/typography'
-import { TabBar, Tab } from '@rmwc/tabs'
+import {
+    Tabs,
+    Tab
+} from '@mui/material'
 import Members from './Members'
 import Activities from './Activities'
 import packageJSON from '../../package.json'
@@ -14,14 +16,19 @@ const tabs = {
 
 const Main = (props) => {
     const [activeTab, setActiveTab] = useState(0)
-
+    const handleTabChange = (evt, newValue) => setActiveTab(newValue)
     return (
         <div>
-            <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
-                <Tab>Activities</Tab>
-                <Tab>Members</Tab>
-                <Tab>Extras</Tab>
-            </TabBar>
+            <Tabs indicatorColor="secondary"
+                textColor="inherit"
+                variant="fullWidth"
+                value={activeTab}
+                onChange={handleTabChange}
+            >
+                <Tab label="Activities" />
+                <Tab label="Members" />
+                <Tab label="Extras" />
+            </Tabs>
             {
                 activeTab === tabs.acitivities && (
                     <Activities />
@@ -41,21 +48,3 @@ const Main = (props) => {
 }
 
 export default Main
-
-/*
-<div className="main-tab-content">
-                        <Typography use="headline4">Welcome to the Shenaniganizers!</Typography>
-                        <div><Typography use="headline6">The glitchiest clan ever. <small>(this website is bug free though)</small></Typography></div>
-                        <div>
-                            Right now this simply has a raid randomizer + some other items as ideas of what this page can do. Some ideas to add in the future:
-                            <ul>
-                                <li>Allow signup of associates for non-clan members to join in the Among Us schedule</li>
-                                <li>Automatically communicating via calendar link</li>
-                                <li>Allow scheduling of a dungeon.</li>
-                                <li>Saving of preferences (i.e. I HATE being scanner) which the algorithm will take into account.</li>
-                                <li>Make this more mobile friendly, at least for viewing the raid assignments.</li>
-                            </ul>
-                            <div>BTW if you get lost, just hit the title in the upper left to come back here.</div>
-                            <div style={{ paddingTop: '10px' }}>The source code is hosted at <a href="https://github.com/samus42/raid-organizer">https://github.com/samus42/raid-organizer</a> if you feel like contributing code.  Or you can use the Issues tab so suggest ideas!</div>
-                        </div>
-                    </div>*/

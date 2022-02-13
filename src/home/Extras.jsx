@@ -1,15 +1,14 @@
 import React from 'react'
-import { Grid, GridCell } from '@rmwc/grid'
-import { Typography } from '@rmwc/typography'
+import { Grid, Typography } from '@mui/material'
 
 const Extras = () => {
     return (
         <div className="main-tab-content">
-            <div><Typography use="headline6">Our clan members have their own things to share with the community.</Typography></div>
-            <div><Typography use="headline6">Check out their web pages / creations!</Typography> </div>
-            <Grid>
-                <GridCell span="6">
-                    <Typography use="headline4">Ace Malicious</Typography>
+            <div><Typography variant="h6">Our clan members have their own things to share with the community.</Typography></div>
+            <div style={{ paddingBottom: '20px' }}><Typography variant="h6">Check out their web pages / creations!</Typography> </div>
+            <Grid container >
+                <Grid item xs="5">
+                    <Typography variant="h4">Ace Malicious</Typography>
                     <ul className="extras-list">
                         <li>
                             <a href="https://www.acemalicious.com/">Visit Ace's Home page</a> to learn more about the player and see some writings about the character.
@@ -21,9 +20,9 @@ const Extras = () => {
                             Book 2 just released: <a href="https://drive.google.com/file/d/1KHoI2UM9XrucOfadcGYgQA-VmRZaIJam/view?usp=sharing">Halily's War</a>
                         </li>
                     </ul>
-                </GridCell>
-                <GridCell>
-                    <Typography use="headline4">Samus Darkthorn</Typography>
+                </Grid>
+                <Grid item xs="5">
+                    <Typography variant="h4">Samus Darkthorn</Typography>
 
                     <ul className="extras-list">
                         <li>
@@ -39,7 +38,7 @@ const Extras = () => {
                         <li><a href="/guides/taken-king">Taken King Raid Guide</a></li>
                         <li>A special <a href="https://docs.google.com/document/d/1uqDBXnZr-ZUKNLKE7t-30NyN_ze6pOI2nP__xpYXs04/edit?usp=sharing">holiday story</a> for all my clanmates!</li>
                     </ul>
-                </GridCell>
+                </Grid>
             </Grid>
         </div>
     )
