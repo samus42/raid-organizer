@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from '@rmwc/button'
+import { Button } from '@mui/material'
 import { defaultIconUrl } from '../../api/destiny'
 import { getCurrentUserInfo } from '../../user/currentUser'
 
@@ -47,7 +47,7 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
     return (
         <div>
             <div style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}>
-                <Button raised disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                <Button variant="contained" disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
                 {!currentUser && <div style={{ paddingTop: '5px' }}><strong>You must login to add/remove yourself.</strong></div>}
             </div>
 

@@ -1,7 +1,5 @@
 import React from 'react'
-import { Typography } from '@rmwc/typography'
-import { Grid, GridCell } from '@rmwc/grid'
-import { Button } from '@rmwc/button'
+import { Typography, Grid, Button } from '@mui/material'
 import MobileEditStageDialog from './MobileEditStage'
 
 const Role = ({ role, onChange = () => { } }) => {
@@ -18,14 +16,14 @@ const Role = ({ role, onChange = () => { } }) => {
 }
 
 const Stage = ({ raid, stage, onChange = () => { } }) =>
-    <div style={{ marginTop: '20px' }} className="raid-stage">
+    <div style={{ marginTop: '20px', width: '100%' }} className="raid-stage">
         <div>
-            <Typography use="headline4">{stage.title}</Typography>
+            <Typography variant="h4">{stage.title}</Typography>
             <div>
                 <MobileEditStageDialog raid={raid} stage={stage} onChange={onChange} />
             </div>
             <div>
-                <Typography use="subtitle1">{stage.description}</Typography>
+                <Typography variant="subtitle1">{stage.description}</Typography>
             </div>
             <div>
                 {stage.roles.map((role) => <Role key={`role-${role.name}`} role={role} />)}
@@ -38,13 +36,13 @@ const RaidAssignments = ({ raid, onChange = () => { }, onRandomizeRoles = () => 
     return (
         <div>
             <div style={{ textAlign: 'center' }}>
-                <Button raised disabled={raid.roster.length < 6} onClick={onRandomizeRoles}>Randomize Roles</Button>
+                <Button variant="contained" disabled={raid.roster.length < 6} onClick={onRandomizeRoles}>Randomize Roles</Button>
             </div>
             <Grid>
                 {raid.stages.map((stage, index) =>
-                    <GridCell key={`${stage}_${index}`}>
+                    <Grid container key={`${stage}_${index}`}>
                         <Stage key={`${stage}-${index}`} raid={raid} stage={stage} onChange={onChange} />
-                    </GridCell>)}
+                    </Grid>)}
             </Grid>
         </div>
     )

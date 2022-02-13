@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Dialog, DialogTitle, DialogContent, DialogActions, DialogButton } from '@rmwc/dialog'
-import { Button } from '@rmwc/button'
+import { Button } from '@mui/material'
 import { changeStagePosition } from '../changePosition'
 const clone = (obj) => JSON.parse(JSON.stringify(obj))
 
@@ -56,7 +56,7 @@ const MobileEditStageDialog = ({ stage, raid, onChange = () => { } }) => {
                     <DialogButton action="accept">Save</DialogButton>
                 </DialogActions>
             </Dialog>
-            <Button raised onClick={() => setOpen(true)}>Edit Roles</Button>
+            <Button variant="contained" onClick={() => setOpen(true)}>Edit Roles</Button>
         </>
     )
 }

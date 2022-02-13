@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TabBar, Tab } from '@rmwc/tabs'
-import { Typography } from '@rmwc/typography'
+import { Tabs, Tab, Typography } from '@mui/material'
 import MobileDetails from './MobileDetails'
 import MobileRoster from './MobileRoster'
 import MobileStages from './MobileStages'
@@ -30,12 +29,16 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
     }
     return (
         <div>
-            <TabBar activeTabIndex={activeTab} onActivate={evt => setActiveTab(evt.detail.index)}>
-                <Tab>Details</Tab>
-                <Tab>Roster</Tab>
-                <Tab>Stages</Tab>
-            </TabBar>
-            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography use="headline4">{raid.raidName}</Typography></div>
+            <Tabs indicatorColor="secondary"
+                textColor="inherit"
+                variant="fullWidth"
+                value={activeTab}
+                onChange={(evt, newValue) => setActiveTab(newValue)}>
+                <Tab label="Details" />
+                <Tab label="Roster" />
+                <Tab label="Stages" />
+            </Tabs>
+            <div style={{ padding: '5px', paddingTop: '20px', textAlign: 'center' }}><Typography variant="h4">{raid.raidName}</Typography></div>
             <div style={{ padding: '5px' }}>
                 {activeTab === tabs.details && <MobileDetails date={date} instanceName={instanceName} saveEnabled={saveEnabled} onChange={onDetailsChange} onSave={onSave} />}
                 {activeTab === tabs.roster && <MobileRoster roster={roster} saveEnabled={saveEnabled} onRosterChange={onUpdateRoster} />}
