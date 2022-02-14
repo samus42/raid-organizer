@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import RaidDetails from './RaidDetails'
 import MobileMain from './mobile/MobileMain'
-import { useHistory } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { newRaidByKey, isRaidKey } from './templates'
 import { loadRaid, saveRaid, archiveRaid } from '../api/clan'
 import { Snackbar, IconButton } from '@mui/material'
@@ -11,9 +11,9 @@ import isEmpty from 'lodash.isempty'
 import differenceBy from 'lodash.differenceby'
 import { getCurrentUserInfo } from '../user/currentUser'
 
-const RaidMain = ({ match }) => {
+const RaidMain = () => {
     const [screenLayout, setScreenLayout] = useState('desktop')
-    const history = useHistory()
+    const navigate = useNavigate()
     const [raid, setRaid] = useState()
     const [instanceName, setInstanceName] = useState('')
     const [date, setDate] = useState(new Date())
@@ -23,6 +23,7 @@ const RaidMain = ({ match }) => {
     const [saveMessage, setSaveMessage] = useState(null)
     const [error, setError] = useState(null)
     const [reloadFlag, setReloadFlag] = useState(1)
+    const { raidKey } = useParams()
 
     useLayoutEffect(() => {
         const updateSize = () => {
@@ -40,7 +41,7 @@ const RaidMain = ({ match }) => {
 
     useEffect(() => {
         const getRaid = async () => {
-            const loaded = await loadRaid(match.params.raidKey)
+            const loaded = await loadRaid(raidKey)
             setRaid(loaded)
             setInstanceName(loaded.instanceName)
             setDate(new Date(loaded.date))
@@ -49,8 +50,8 @@ const RaidMain = ({ match }) => {
             setSaveEnabled(true)
         }
         setIsLoading(true)
-        if (isRaidKey([match.params.raidKey])) {
-            const newRaid = newRaidByKey(match.params.raidKey)
+        if (isRaidKey([raidKey])) {
+            const newRaid = newRaidByKey(raidKey)
             setIsLoading(false)
             setSaveEnabled(false)
             const currentUser = getCurrentUserInfo()
@@ -62,7 +63,7 @@ const RaidMain = ({ match }) => {
         } else {
             getRaid()
         }
-    }, [match, reloadFlag])
+    }, [raidKey, reloadFlag])
 
     const onDetailsChange = (details) => {
         setInstanceName(details.instanceName)
@@ -76,7 +77,7 @@ const RaidMain = ({ match }) => {
             const updated = await saveRaid(raidData)
             setRaid(updated)
             if (isNew) {
-                history.push(`/raid/${updated.id}`)
+                navigate(`/raid/${updated.id}`)
                 setSaveMessage('Raid saved! You can now share the URL in the browser with others.')
             } else {
                 setSaveMessage('Raid updates saved!')

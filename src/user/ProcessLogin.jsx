@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useHistory, useLocation } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { getUserAuthInfo, getMembershipById } from '../api/destiny'
 import { setMembershipInfo, setAuthInfo } from './currentUser'
 
@@ -9,7 +9,7 @@ function useQuery() {
 
 const ProcessLogin = () => {
     const query = useQuery()
-    const history = useHistory()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const processCode = async (code) => {
@@ -17,7 +17,7 @@ const ProcessLogin = () => {
             const membershipInfo = await getMembershipById(authInfo.membershipId)
             setMembershipInfo(membershipInfo)
             setAuthInfo(authInfo)
-            history.push('/')
+            navigate('/')
         }
         processCode(query.get('code'))
     })

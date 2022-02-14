@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import DesktopMain from './desktop/DesktopMain'
 import MobileMain from './mobile/MobileMain'
-import { useHistory } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { newActivityByKey, isActivityKey } from './templates'
 import { loadActivity, saveActivity, archiveActivity } from '../api/clan'
 import { Snackbar, IconButton } from '@mui/material'
@@ -9,9 +9,9 @@ import CloseIcon from '@mui/icons-material/Close'
 import ErrorDialog from '../ErrorDialog'
 import isEmpty from 'lodash.isempty'
 
-const ActivityMain = ({ match }) => {
+const ActivityMain = () => {
     const [screenLayout, setScreenLayout] = useState('desktop')
-    const history = useHistory()
+    const navigate = useNavigate()
     const [activity, setActivity] = useState()
     const [instanceName, setInstanceName] = useState('')
     const [maxPlayers, setMaxPlayers] = useState(6)
@@ -22,6 +22,7 @@ const ActivityMain = ({ match }) => {
     const [saveMessage, setSaveMessage] = useState(null)
     const [error, setError] = useState(null)
     const [reloadFlag, setReloadFlag] = useState(1)
+    const { activityKey } = useParams()
     useLayoutEffect(() => {
         const updateSize = () => {
             if (window.innerWidth < 1025) {
@@ -39,7 +40,7 @@ const ActivityMain = ({ match }) => {
     useEffect(() => {
         const getActivity = async () => {
             try {
-                const loaded = await loadActivity(match.params.activityKey)
+                const loaded = await loadActivity(activityKey)
                 setActivity(loaded)
                 setInstanceName(loaded.instanceName)
                 setDate(new Date(loaded.date))
@@ -53,14 +54,14 @@ const ActivityMain = ({ match }) => {
             }
         }
         setIsLoading(true)
-        if (isActivityKey([match.params.activityKey])) {
-            setActivity(newActivityByKey(match.params.activityKey))
+        if (isActivityKey([activityKey])) {
+            setActivity(newActivityByKey(activityKey))
             setIsLoading(false)
             setSaveEnabled(false)
         } else {
             getActivity()
         }
-    }, [match, reloadFlag])
+    }, [activityKey, reloadFlag])
 
     const onDetailsChange = (details) => {
         setInstanceName(details.instanceName)
@@ -75,7 +76,7 @@ const ActivityMain = ({ match }) => {
             const updated = await saveActivity(activityData)
             setActivity(updated)
             if (isNew) {
-                history.push(`/activity/${updated.id}`)
+                navigate(`/activity/${updated.id}`)
                 setSaveMessage('Activity saved! You can now share the URL in the browser with others.')
             } else {
                 setSaveMessage('Activity updates saved!')

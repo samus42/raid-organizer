@@ -9,14 +9,14 @@ import {
     Menu,
     MenuItem,
 } from '@mui/material'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { getCurrentUserInfo, clearMembershipInfo } from './user/currentUser'
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const bungieLoginUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code`
 
 const ApplicationBar = (props) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const location = useLocation()
     const [userInfo, setUserInfo] = useState(null)
     const [screenLayout, setScreenLayout] = useState('desktop')
@@ -55,7 +55,7 @@ const ApplicationBar = (props) => {
     }
 
     const onProfile = () => {
-        history.push('/profile')
+        navigate('/profile')
         handleClose()
     }
     return (

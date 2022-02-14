@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
     List,
     ListItemText,
@@ -41,7 +41,7 @@ const EventListItem = (({ activity, onClick }) => (
 const EventList = () => {
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
-    const history = useHistory()
+    const navigate = useNavigate()
     useEffect(() => {
         const loadActivities = async () => {
             setLoading(true)
@@ -62,9 +62,9 @@ const EventList = () => {
     }
     const onSelectEvent = (event) => {
         if (event.eventType === 'activity') {
-            history.push(`/activity/${event.id}`)
+            navigate(`/activity/${event.id}`)
         } else {
-            history.push(`/raid/${event.id}`)
+            navigate(`/raid/${event.id}`)
         }
     }
     return (

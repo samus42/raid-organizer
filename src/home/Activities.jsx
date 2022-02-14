@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Grid, Typography } from '@mui/material'
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import ActiveList from './ActiveList'
 
 const Activities = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
     return (<div className="main-tab-content">
         <Grid container spacing={8}>
             <Grid item>
@@ -19,31 +19,31 @@ const Activities = () => {
                 <div><Typography variant="h4">Organize an Activity:</Typography></div>
                 <div style={{ paddingLeft: '20px' }}>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/vault')}>Vault Of Glass</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/vault')}>Vault Of Glass</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/crypt')}>Deep Stone Crypt</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/crypt')}>Deep Stone Crypt</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/garden')}>Garden Of Salvation</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/garden')}>Garden Of Salvation</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/wish')}>Last Wish</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/wish')}>Last Wish</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/wrath')}>Wrath Of the Machine</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/wrath')}>Wrath Of the Machine</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/ttk')}>Taken King</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/ttk')}>Taken King</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/raid/crota')}>Crota's End</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/crota')}>Crota's End</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/activity/amongus')}>Among Us</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/activity/amongus')}>Among Us</Button>
                     </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
-                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => history.push('/activity/custom')}>Custom Activity</Button>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/activity/custom')}>Custom Activity</Button>
                     </div>
                 </div>
             </Grid>
