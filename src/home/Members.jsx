@@ -6,7 +6,7 @@ const W6MIR = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc22.jpg" />
         </div>
-        <Typography use="headline4">W6MIR</Typography>
+        <Typography variant="h4">W6MIR</Typography>
         <div className="member-detail">
             <strong>Alert!</strong> Under Section 8, Paragraph 4 of the Clan Charter, W6MIR will not be obligated to be fireteam leader under any circumstance.
         </div>
@@ -20,7 +20,7 @@ const Ace = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/avatar23.jpg" />
         </div>
-        <Typography use="headline4">Ace Malicious</Typography>
+        <Typography variant="h4">Ace Malicious</Typography>
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"I'm tired of people saying I'm directionally challenged! Now follow me, it's to the right!"</span>
         </div>
@@ -38,7 +38,7 @@ const Samus = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net/img/profile/avatars/e2015_14.jpg" />
         </div>
-        <Typography use="headline4">Samus Darkthorn</Typography>
+        <Typography variant="h4">Samus Darkthorn</Typography>
         <div className="member-detail">
             <strong>Meat Shield</strong>
         </div>
@@ -63,7 +63,7 @@ const Nutbar = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/avatar2.jpg" />
         </div>
-        <Typography use="headline4">Malkavian Nutbar</Typography>
+        <Typography variant="h4">Malkavian Nutbar</Typography>
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Empowered Left"</span>
         </div>
@@ -81,7 +81,7 @@ const ThirdEye = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net/img/profile/avatars/odst_skull_fire.png" />
         </div>
-        <Typography use="headline4">ThirdEye</Typography>
+        <Typography variant="h4">ThirdEye</Typography>
         <div className="member-detail">
             <div><strong>Q:</strong><span> What do you use when fighting Fallen?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
@@ -98,7 +98,7 @@ const Halily = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" />
         </div>
-        <Typography use="headline4">Halily</Typography>
+        <Typography variant="h4">Halily</Typography>
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"God@#$@ @%#@ing @#@$% of a jumping puzzle."</span>
         </div>
@@ -116,7 +116,7 @@ const Momo = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
         </div>
-        <Typography use="headline4">Momo</Typography>
+        <Typography variant="h4">Momo</Typography>
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Can you remind me which weapons I killed you with? I've lost track."</span>
         </div>
@@ -131,7 +131,7 @@ const Mabie = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/attention2.gif" />
         </div>
-        <Typography use="headline4">Mabie</Typography>
+        <Typography variant="h4">Mabie</Typography>
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Hey, this orange glowing Shank followed me home, can we keep it?"</span>
         </div>
@@ -147,7 +147,7 @@ const Kaizyn = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/septagonsuperanimated6.gif" />
         </div>
-        <Typography use="headline4">Kaizyn</Typography>
+        <Typography variant="h4">Kaizyn</Typography>
         <div className="member-detail">
             <strong>Chief Interrogator</strong>
         </div>
@@ -162,7 +162,7 @@ const KaiJae = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
         </div>
-        <Typography use="headline4">KaiJae</Typography>
+        <Typography variant="h4">KaiJae</Typography>
         <div className="member-detail">
             <div><span style={{ fontStyle: 'italic' }}>"You're right, that WAS a hard bounty. It took me 3 matches to get 250 sniper kills in the Crucible.  Rough."</span></div>
         </div>
@@ -177,7 +177,7 @@ const GMann = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/e2015_11.jpg" />
         </div>
-        <Typography use="headline4">GMann</Typography>
+        <Typography variant="h4">GMann</Typography>
         <div className="member-detail">
             <div>Ok, for Atraks-1 we need to decide who is go-</div>
             <div><span style={{ fontStyle: 'italic' }}>"I'm going to space."</span></div>
@@ -194,7 +194,7 @@ const Stink = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/bungieday_19.jpg" />
         </div>
-        <Typography use="headline4">Stink Machine</Typography>
+        <Typography variant="h4">Stink Machine</Typography>
         <div className="member-detail">
             <div>[Stickmachine has joined your fireteam]</div>
             <div>Hey man! Long time so see! How you doing?</div>
@@ -211,7 +211,7 @@ const Nekro = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc000011.jpg" />
         </div>
-        <Typography use="headline4">Nekronomikan</Typography>
+        <Typography variant="h4">Nekronomikan</Typography>
         <div className="member-detail">
             <strong>Apex Predator</strong>
         </div>
@@ -229,7 +229,7 @@ const Hada = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net/img/profile/avatars/cc21.jpg" />
         </div>
-        <Typography use="headline4">Hadashirts</Typography>
+        <Typography variant="h4">Hadashirts</Typography>
         <div className="member-detail">
             <strong>Gotta snag a Hada</strong>
         </div>
@@ -246,7 +246,7 @@ const Tansy = () => (
         <div>
             <img alt="icon" src="https://image.api.np.km.playstation.net/images/?format=png&w=160&h=160&image=https%3A%2F%2Fkfscdn.api.np.km.playstation.net%2F5387964934898443052%2F1541722837287.png&sign=1cc7d0286c4fc59c83ec1f0c6a37f2d414df1daa" />
         </div>
-        <Typography use="headline4">TansyRagwort</Typography>
+        <Typography variant="h4">TansyRagwort</Typography>
         <div className="member-detail">
             <strong>Ringer</strong><small style={{ marginLeft: '5px' }}>Also Samus's Best Friend</small>
         </div>
@@ -264,7 +264,7 @@ const KillerPotatoez = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc47.jpg" />
         </div>
-        <Typography use="headline4">KillerPotatoez</Typography>
+        <Typography variant="h4">KillerPotatoez</Typography>
         <div className="member-detail">
             <div>We would like to formally apologize for the comments made by KillerPotatoez on Monday, Tuesday, Thursday, Friday, Saturday, and Sunday.</div>
             <div>After a formal investigation, we retract our apology for Wednesday.</div>
@@ -278,7 +278,7 @@ const Wdnesday = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc12.jpg" />
         </div>
-        <Typography use="headline4">Wdnesday</Typography>
+        <Typography variant="h4">Wdnesday</Typography>
         <div className="member-detail">
             <div>Is that your pet turtle?</div>
             <div><span style={{ fontStyle: 'italic' }}>"Yup! Isn't he cute?"</span></div>
@@ -294,7 +294,7 @@ const Darkwomble = () => (
         <div>
             <img alt="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWEvoJqVSiysJaQ1l3e0ofHo3Nxj6fHt9a_A&usqp=CAU" style={{ height: '180px' }} />
         </div>
-        <Typography use="headline4">Darkwomble</Typography>
+        <Typography variant="h4">Darkwomble</Typography>
         <div className="member-detail">
             <div>Ok, here's how this next part works- </div>
             <div><span style={{ fontStyle: 'italic' }}>[Explosions and gunfire erupts]</span></div>
@@ -312,7 +312,7 @@ const Harmony = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" style={{ height: '180px' }} />
         </div>
-        <Typography use="headline4">Harmony</Typography>
+        <Typography variant="h4">Harmony</Typography>
         <div className="member-detail">
             <div>Hey Harmony, want to raid?</div>
             <div><span style={{ fontStyle: 'italic' }}>"Of course! But can we do the Lava challenge?"</span></div>
@@ -330,7 +330,7 @@ const CatNoir = () => (
         <div>
             <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc54.jpg" style={{ height: '180px' }} />
         </div>
-        <Typography use="headline4">CatNoir</Typography>
+        <Typography variant="h4">CatNoir</Typography>
         <div className="member-detail">
             <div>Okay, so Cat we need you to-</div>
             <div><span style={{ fontStyle: 'italic' }}>"I just shoot things."</span></div>

@@ -83,39 +83,9 @@ const ApplicationBar = (props) => {
                             <MenuItem onClick={onLogout}>Logout</MenuItem>
                         </Menu>
                     </div>
-                ) : (<Button raised onClick={() => window.location.href = bungieLoginUrl}>Login</Button>)}
+                ) : (<Button variant="contained" onClick={() => window.location.href = bungieLoginUrl}>Login</Button>)}
             </Toolbar>
         </AppBar >
-        // <>
-        //     <TopAppBar>
-        //         <TopAppBarRow>
-        //             <TopAppBarSection>
-        //                 <TopAppBarTitle style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-        //                     <a href="/" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>
-        //                         {screenLayout === 'desktop' ? (
-        //                             <div style={{ display: 'flex' }}>
-        //                                 <img src="/chaos-white.png" style={{ width: '56px' }} alt="" />
-        //                                 <div style={{ paddingLeft: '10px', paddingTop: '13px' }}>Shenaniganizers</div>
-        //                             </div>
-        //                         ) : 'Shenaniganizers'}
-        //                     </a>
-        //                 </TopAppBarTitle>
-        //             </TopAppBarSection>
-        //             <TopAppBarSection alignEnd>
-        //                 {userInfo ?
-        //                     (<SimpleMenu
-        //                         handle={<div className="menu-bar-user" style={{ display: 'flex' }}><img alt="user" src={userInfo.iconPath} style={{ width: '24px', height: '24px' }} /><div style={{ paddingLeft: '10px' }}> {userInfo.name}</div></div>} >
-        //                         <MenuItem onClick={onLogout}>Logout</MenuItem>
-        //                         <MenuItem onClick={onProfile}>Profile</MenuItem>
-        //                     </SimpleMenu>
-        //                     )
-        //                     : (<Button raised onClick={() => window.location.href = bungieLoginUrl}>Login</Button>)
-        //                 }
-        //             </TopAppBarSection>
-        //         </TopAppBarRow>
-        //     </TopAppBar>
-        //     <TopAppBarFixedAdjust />
-        // </>
     )
 }
 

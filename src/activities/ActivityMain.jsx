@@ -102,6 +102,7 @@ const ActivityMain = ({ match }) => {
     }
 
     const onErrorDialogClose = (action) => {
+        console.log('onErrorDialogClose: ', action)
         if (action === 'reload') {
             //refresh page
             window.location.reload()

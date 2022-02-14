@@ -61,7 +61,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
 
             </div>
             <div style={{ paddingTop: '10px' }}>
-                <Button disabled={isEmpty(manualPlayerName) || atLimit()} onClick={onAddPlayer}>Add Player</Button>
+                <Button disabled={isEmpty(manualPlayerName) || atLimit()} onClick={onAddPlayer}>Add PlayerJILL</Button>
             </div>
             <div style={{ paddingTop: '10px' }}>
                 <div style={{ paddingLeft: '10px' }}>

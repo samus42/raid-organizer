@@ -1,6 +1,6 @@
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogButton } from '@rmwc/dialog'
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material'
 
-const VersionSyncDialog = () => (
+const VersionSyncDialog = ({ onClose }) => (
     <>
         <DialogTitle>Error - Info out of date!</DialogTitle>
         <DialogContent>
@@ -8,13 +8,13 @@ const VersionSyncDialog = () => (
             <div style={{ paddingTop: '20px' }}>Go ahead and use the reload action and then try to make your changes again. Or if you don't remember what you just did, hit the cancel button, take a good look, then refresh the page.</div>
         </DialogContent>
         <DialogActions>
-            <DialogButton action="close">Cancel</DialogButton>
-            <DialogButton action="reload">Reload</DialogButton>
+            <Button variant="contained" onClick={() => onClose('close')}>Cancel</Button>
+            <Button variant="contained" onClick={() => onClose('reload')}>Reload</Button>
         </DialogActions>
     </>
 )
 
-const UnknownErrorDialog = ({ error }) => (
+const UnknownErrorDialog = ({ error, onClose }) => (
     <>
         <DialogTitle>Oops! There was an error!</DialogTitle>
         <DialogContent>
@@ -22,7 +22,7 @@ const UnknownErrorDialog = ({ error }) => (
             <div style={{ paddingTop: '20px' }}>You did something Samus didn't plan for, or he screwed up. Big time. You should tell him. Be smug about it when you do.</div>
         </DialogContent>
         <DialogActions>
-            <DialogButton action="close">Cancel</DialogButton>
+            <Button variant="contained" onClick={() => onClose('close')}>Cancel</Button>
         </DialogActions>
     </>
 )
@@ -30,8 +30,8 @@ const UnknownErrorDialog = ({ error }) => (
 const ErrorDialog = ({ error, onClose }) => {
     const Content = error && error.message.includes('mismatch') ? VersionSyncDialog : UnknownErrorDialog
     return (
-        <Dialog open={error} onClose={(evt) => onClose(evt.detail.action)}>
-            <Content error={error} />
+        <Dialog open={error}>
+            <Content error={error} onClose={onClose} />
         </Dialog >
     )
 }

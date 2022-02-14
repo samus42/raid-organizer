@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MobileRoster from '../desktop/DesktopRoster'
-// import MobileRoster from './MobileRoster'
 import MobileDetails from './MobileDetails'
 import { Tabs, Tab, Typography } from '@mui/material'
-// import '@rmwc/select/styles';
 
 const tabs = {
     details: 0,
