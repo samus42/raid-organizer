@@ -63,7 +63,7 @@ const archiveActivityMutation = gql`
 `
 
 const loadActivityQuery = gql`
-    fragment PlayerInfo on ActivityPlayer {
+    fragment ActivityPlayerInfo on ActivityPlayer {
         name, id, type
     }
     query ($id: ID!) {
@@ -71,7 +71,7 @@ const loadActivityQuery = gql`
             id, type, instanceName, date, active
             maxPlayers, info, version
             players {
-                ...PlayerInfo
+                ...ActivityPlayerInfo
             }
         }
     }

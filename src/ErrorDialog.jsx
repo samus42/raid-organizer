@@ -30,7 +30,7 @@ const UnknownErrorDialog = ({ error, onClose }) => (
 const ErrorDialog = ({ error, onClose }) => {
     const Content = error && error.message.includes('mismatch') ? VersionSyncDialog : UnknownErrorDialog
     return (
-        <Dialog open={error}>
+        <Dialog open={!!error}>
             <Content error={error} onClose={onClose} />
         </Dialog >
     )

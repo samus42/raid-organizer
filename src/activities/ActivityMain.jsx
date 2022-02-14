@@ -139,7 +139,7 @@ const ActivityMain = ({ match }) => {
                     vertical: 'bottom',
                     horizontal: 'center'
                 }}
-                open={saveMessage}
+                open={!!saveMessage}
                 onClose={evt => setSaveMessage(null)}
                 message={saveMessage}
                 autoHideDuration={6000}

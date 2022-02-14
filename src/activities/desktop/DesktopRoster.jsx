@@ -21,7 +21,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
             setFilteredRoster(differenceBy(results.map(normalizeId), roster, 'id'))
         }
         loadDestinyRoster()
-    }, [excludeList])
+    }, [excludeList, roster])
 
     useEffect(() => {
         setFilteredRoster(differenceBy(destinyRoster, roster, 'id'))
@@ -54,7 +54,6 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
                     disabled={atLimit()}
                     placeholder="Select Destiny Player"
                     value={null} getOptionLabel={(o) => o.name}
-                    getOptionValue={(o) => o}
                     options={filteredRoster}
                     renderInput={(params) => <TextField {...params} label="Select Destiny Player" />}
                     onChange={onSelectDestinyPlayer} />

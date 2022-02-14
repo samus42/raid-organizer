@@ -31,7 +31,7 @@ const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEna
                     </div>
                     <div style={{ paddingTop: '20px' }}>
                         <label style={{ paddingRight: '10px' }}>How many players? <strong style={{ paddingLeft: '10px' }}>{maxPlayers}</strong></label>
-                        <Slider discrete displayMarkers value={maxPlayers} min={1} max={10} step={1} marks onChange={(evt, newValue) => onDetailsChange({ instanceName, date, maxPlayers: newValue })}></Slider>
+                        <Slider value={maxPlayers} min={1} max={10} step={1} marks onChange={(evt, newValue) => onDetailsChange({ instanceName, date, maxPlayers: newValue })}></Slider>
                     </div>
                     <div style={{ paddingTop: '30px' }}>
                         <Button variant="contained" disabled={!saveEnabled} onClick={onSave}>Save Changes</Button>

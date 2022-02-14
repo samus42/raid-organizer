@@ -7,7 +7,7 @@ const Extras = () => {
             <div><Typography variant="h6">Our clan members have their own things to share with the community.</Typography></div>
             <div style={{ paddingBottom: '20px' }}><Typography variant="h6">Check out their web pages / creations!</Typography> </div>
             <Grid container >
-                <Grid item xs="5">
+                <Grid item xs={5}>
                     <Typography variant="h4">Ace Malicious</Typography>
                     <ul className="extras-list">
                         <li>
@@ -21,7 +21,7 @@ const Extras = () => {
                         </li>
                     </ul>
                 </Grid>
-                <Grid item xs="5">
+                <Grid item xs={5}>
                     <Typography variant="h4">Samus Darkthorn</Typography>
 
                     <ul className="extras-list">

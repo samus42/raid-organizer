@@ -1,5 +1,6 @@
 import agent from 'superagent'
 import sortBy from 'lodash.sortby'
+import uniqBy from 'lodash.uniqby'
 import dayjs from 'dayjs'
 
 const header = { 'X-API-KEY': process.env.REACT_APP_API_KEY }
@@ -32,6 +33,7 @@ export const getClanRoster = async () => {
     })).filter(({ name }) => !deprecatedMemberNames.includes(name))
 
     rosterCache = sortBy(members, ({ name }) => name.toUpperCase())
+    rosterCache = uniqBy(rosterCache, ({ name }) => name.toUpperCase())
     return rosterCache
 }
 
