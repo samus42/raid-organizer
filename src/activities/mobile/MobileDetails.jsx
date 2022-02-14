@@ -17,8 +17,7 @@ const MobileDetails = ({ instanceName, date, maxPlayers, saveEnabled, activity, 
                     onChange={(val) => onChange({ instanceName, date: val, maxPlayers })}
                     selected={date}
                     showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={5}
+                    timeIntervals={15}
                     timeCaption="time"
                     dateFormat="iii MM/dd hh:mm a" />
             </div>

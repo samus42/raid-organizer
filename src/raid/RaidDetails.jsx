@@ -46,8 +46,7 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
                                 onChange={(val) => onDetailsChange({ instanceName, date: val })}
                                 selected={date}
                                 showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={5}
+                                timeIntervals={15}
                                 timeCaption="time"
                                 dateFormat="iii MM/dd hh:mm a" />
                         </div>

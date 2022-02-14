@@ -24,8 +24,7 @@ const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEna
                             onChange={(val) => onDetailsChange({ instanceName, date: val, maxPlayers })}
                             selected={date}
                             showTimeSelect
-                            timeFormat="HH:mm"
-                            timeIntervals={5}
+                            timeIntervals={15}
                             timeCaption="time"
                             dateFormat="iii MM/dd hh:mm a" />
                     </div>
