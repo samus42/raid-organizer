@@ -5,7 +5,7 @@ import DraggablePlayer from './DraggablePlayer'
 import { useDrop } from 'react-dnd'
 
 const Role = ({ role, onChange = () => { } }) => {
-    const [{ isOver }, drop] = useDrop({
+    const [{ isOver }, drop] = useDrop(() => ({
         accept: 'player',
         drop: (item) => onChange(role, item.player),
         canDrop: (item) => (!role.player || item.player.destinyId !== role.player.destinyId),
@@ -13,7 +13,7 @@ const Role = ({ role, onChange = () => { } }) => {
             isOver: !!monitor.isOver(),
             canDrop: !!monitor.canDrop(),
         }),
-    })
+    }))
 
     let modifiers = 'player-drop-target-unassigned'
     if (isOver) {
