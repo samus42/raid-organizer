@@ -6,7 +6,7 @@ import ActiveList from './ActiveList'
 const Activities = () => {
     const navigate = useNavigate()
     return (<div className="main-tab-content">
-        <Grid container spacing={8}>
+        <Grid container spacing={10}>
             <Grid item>
                 <div>
                     Subscribe to the events calendar! <a href="/help/calendar" target="_blank">Click here for help.</a>
