@@ -8,12 +8,12 @@
     "@mui/icons-material": "^5.4.1",
     "@mui/material": "^5.4.1",
     "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "apollo-boost": "^0.4.9",
     "capitalize": "^2.0.3",
     "dayjs": "^1.9.7",
-    "graphql": "^15.4.0",
+    "graphql": "^16.3.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.difference": "^4.5.0",
     "lodash.differenceby": "^4.8.0",
@@ -30,9 +30,9 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "superagent": "^6.1.0",
+    "superagent": "^7.1.1",
     "uuid": "^8.3.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
