@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
 import differenceBy from 'lodash.differenceby'
 import isEmpty from 'lodash.isempty'
 import { getClanRoster } from '../../api/destiny'
-import { TextField, Button, List, ListItem, IconButton } from '@mui/material'
+import { TextField, Button, List, ListItem, IconButton, Autocomplete } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/PersonRemove'
 import { v4 as uuid } from 'uuid'
 
@@ -28,7 +27,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
         setFilteredRoster(differenceBy(destinyRoster, roster, 'id'))
     }, [roster])
 
-    const onSelectDestinyPlayer = (player) => {
+    const onSelectDestinyPlayer = (evt, player) => {
         onRosterChange(roster.concat(player))
         setManualPlayerName('')
     }
@@ -51,7 +50,14 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
     return (
         <div style={{ maxWidth: '500px' }}>
             <div>
-                <Select isDisabled={atLimit()} placeholder="Select Destiny Player" value={null} getOptionLabel={(o) => o.name} getOptionValue={(o) => o} options={filteredRoster} onChange={onSelectDestinyPlayer} />
+                <Autocomplete
+                    disabled={atLimit()}
+                    placeholder="Select Destiny Player"
+                    value={null} getOptionLabel={(o) => o.name}
+                    getOptionValue={(o) => o}
+                    options={filteredRoster}
+                    renderInput={(params) => <TextField {...params} label="Select Destiny Player" />}
+                    onChange={onSelectDestinyPlayer} />
             </div>
             <div style={{ padding: '20px' }}>
                 <strong>OR</strong>
@@ -76,7 +82,6 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
                                 </IconButton>
                             }>
                             <span>{player.name}</span>
-                            {/* <ListItemMeta icon="clear" onClick={() => onRemovePlayer(player)} /> */}
                         </ListItem>
                     ))}
                 </List>
