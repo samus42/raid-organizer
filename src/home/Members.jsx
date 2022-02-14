@@ -346,13 +346,13 @@ const Members = () => {
     return (
         <div className="main-tab-content">
             <Grid container spacing={4}>
-                <Grid item xs="auto"><Ace /></Grid>
-                <Grid item xs="auto"><CatNoir /></Grid>
-                <Grid item xs="auto"><Darkwomble /></Grid>
-                <Grid item xs="auto"><GMann /></Grid>
-                <Grid item xs="auto"><Hada /></Grid>
-                <Grid item xs="auto"><Halily /></Grid>
-                <Grid item xs="auto"><Harmony /></Grid>
+                <Grid item><Ace /></Grid>
+                <Grid item><CatNoir /></Grid>
+                <Grid item><Darkwomble /></Grid>
+                <Grid item><GMann /></Grid>
+                <Grid item><Hada /></Grid>
+                <Grid item><Halily /></Grid>
+                <Grid item><Harmony /></Grid>
                 <Grid item><Kaizyn /></Grid>
                 <Grid item><KaiJae /></Grid>
                 <Grid item><KillerPotatoez /></Grid>

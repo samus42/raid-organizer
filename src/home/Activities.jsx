@@ -7,19 +7,15 @@ const Activities = () => {
     const history = useHistory()
     return (<div className="main-tab-content">
         <Grid container spacing={3}>
-            <Grid item xs={5}>
+            <Grid item>
                 <div>
-                    <div>
-                        Subscribe to the events calendar! <a href="/help/calendar" target="_blank">Click here for help.</a>
-                        <div>
-                            <a href="webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar">webcal://us-central1-shenaniganizers-e51d9.cloudfunctions.net/api/rest/calendar</a></div>
-                    </div>
+                    Subscribe to the events calendar! <a href="/help/calendar" target="_blank">Click here for help.</a>
                 </div>
                 <div style={{ paddingTop: '20px' }}>
                     <ActiveList />
                 </div>
             </Grid>
-            <Grid item span={5}>
+            <Grid item>
                 <div><Typography variant="h4">Organize an Activity:</Typography></div>
                 <div style={{ paddingLeft: '20px' }}>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
