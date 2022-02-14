@@ -20,12 +20,12 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
             setDestinyRoster(normalized)
             setFilteredRoster(differenceBy(results.map(normalizeId), roster, 'id'))
         }
-        loadDestinyRoster()
+        loadDestinyRoster().catch(console.error)
     }, [excludeList, roster])
 
     useEffect(() => {
         setFilteredRoster(differenceBy(destinyRoster, roster, 'id'))
-    }, [roster])
+    }, [roster, destinyRoster])
 
     const onSelectDestinyPlayer = (evt, player) => {
         onRosterChange(roster.concat(player))
@@ -66,7 +66,7 @@ const DesktopRoster = ({ roster = [], excludeList, onRosterChange, activity, max
 
             </div>
             <div style={{ paddingTop: '10px' }}>
-                <Button disabled={isEmpty(manualPlayerName) || atLimit()} onClick={onAddPlayer}>Add PlayerJILL</Button>
+                <Button disabled={isEmpty(manualPlayerName) || atLimit()} onClick={onAddPlayer}>Add Player</Button>
             </div>
             <div style={{ paddingTop: '10px' }}>
                 <div style={{ paddingLeft: '10px' }}>
