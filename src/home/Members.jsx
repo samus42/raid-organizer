@@ -1,26 +1,29 @@
 import React from 'react'
 import { Grid, Typography } from '@mui/material'
 
-const W6MIR = () => (
+const MemberCard = ({ name, iconUrl, children }) => (
     <div className="member-card">
         <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc22.jpg" />
+            <img alt="icon" src={iconUrl} style={{ height: '180px' }} />
         </div>
-        <Typography variant="h4">W6MIR</Typography>
+        <Typography variant="h4">{name}</Typography>
+        {children}
+    </div>
+)
+
+const W6MIR = () => (
+    <MemberCard name="W6MIR" iconUrl="https://www.bungie.net//img/profile/avatars/cc22.jpg">
         <div className="member-detail">
             <strong>Alert!</strong> Under Section 8, Paragraph 4 of the Clan Charter, W6MIR will not be obligated to be fireteam leader under any circumstance.
         </div>
         <div>
             <small>And no, he has no interest in playing Gambit with you.</small>
         </div>
-    </div>
+    </MemberCard>
 )
+
 const Ace = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/avatar23.jpg" />
-        </div>
-        <Typography variant="h4">Ace Malicious</Typography>
+    <MemberCard name="Ace Malicious" iconUrl="https://www.bungie.net//img/profile/avatars/avatar23.jpg">
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"I'm tired of people saying I'm directionally challenged! Now follow me, it's to the right!"</span>
         </div>
@@ -30,15 +33,11 @@ const Ace = () => (
         <div>
             <span style={{ fontStyle: 'italic' }}>"Damn it to hell!"</span>
         </div>
-    </div >
+    </MemberCard>
 )
 
 const Samus = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net/img/profile/avatars/e2015_14.jpg" />
-        </div>
-        <Typography variant="h4">Samus Darkthorn</Typography>
+    <MemberCard name="Samus Darkthorn" iconUrl="https://www.bungie.net/img/profile/avatars/e2015_14.jpg">
         <div className="member-detail">
             <strong>Meat Shield</strong>
         </div>
@@ -54,16 +53,11 @@ const Samus = () => (
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>Wait...wait...medic...</span>
         </div>
-    </div>
+    </MemberCard>
 )
 
-
 const Nutbar = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/avatar2.jpg" />
-        </div>
-        <Typography variant="h4">Malkavian Nutbar</Typography>
+    <MemberCard name="Malkavian Nutbar" iconUrl="https://www.bungie.net//img/profile/avatars/avatar2.jpg">
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Empowered Left"</span>
         </div>
@@ -73,15 +67,11 @@ const Nutbar = () => (
         <div className="member-detail">
             <small>And his other character is ALSO a Warlock...</small>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const ThirdEye = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net/img/profile/avatars/odst_skull_fire.png" />
-        </div>
-        <Typography variant="h4">ThirdEye</Typography>
+    <MemberCard name="ThirdEye" iconUrl="https://www.bungie.net/img/profile/avatars/odst_skull_fire.png">
         <div className="member-detail">
             <div><strong>Q:</strong><span> What do you use when fighting Fallen?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
@@ -90,15 +80,11 @@ const ThirdEye = () => (
             <div><strong>Q:</strong><span> What do you use when fighting a bow proof boss?</span></div>
             <div><strong>A:</strong><span> A bow.</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Halily = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" />
-        </div>
-        <Typography variant="h4">Halily</Typography>
+    <MemberCard name="Halily" iconUrl="https://www.bungie.net//img/profile/avatars/cc24.jpg">
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"God@#$@ @%#@ing @#@$% of a jumping puzzle."</span>
         </div>
@@ -108,30 +94,22 @@ const Halily = () => (
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"@#$# you, you @#$@ing @#$wipe mother @#$@er"</span>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Momo = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
-        </div>
-        <Typography variant="h4">Momo</Typography>
+    <MemberCard name="Momo" iconUrl="https://www.bungie.net//img/profile/avatars/cc25.jpg">
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Can you remind me which weapons I killed you with? I've lost track."</span>
         </div>
         <div className="member-detail">
             If he tells you something's going to be easy. <strong>RUN</strong>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Mabie = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/attention2.gif" />
-        </div>
-        <Typography variant="h4">Mabie</Typography>
+    <MemberCard name="Mabie" iconUrl="https://www.bungie.net//img/profile/avatars/attention2.gif">
         <div className="member-detail">
             <span style={{ fontStyle: 'italic' }}>"Hey, this orange glowing Shank followed me home, can we keep it?"</span>
         </div>
@@ -139,62 +117,44 @@ const Mabie = () => (
             <div>Mabie, where did you go? We just started this jumping puzzle.</div>
             <div><span style={{ fontStyle: 'italic' }}>"@#$@ that. I'm in orbit."</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Kaizyn = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/septagonsuperanimated6.gif" />
-        </div>
-        <Typography variant="h4">Kaizyn</Typography>
+    <MemberCard name="Kaizyn" iconUrl="https://www.bungie.net//img/profile/avatars/septagonsuperanimated6.gif">
         <div className="member-detail">
             <strong>Chief Interrogator</strong>
         </div>
         <div className="member-detail">
             <div><span style={{ fontStyle: 'italic' }}>"Before I let you go, I need to know your college roommate's sister's best friend's middle name."</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const KaiJae = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc25.jpg" />
-        </div>
-        <Typography variant="h4">KaiJae</Typography>
+    <MemberCard name="KaiJae" iconUrl="https://www.bungie.net//img/profile/avatars/cc25.jpg">
         <div className="member-detail">
             <div><span style={{ fontStyle: 'italic' }}>"You're right, that WAS a hard bounty. It took me 3 matches to get 250 sniper kills in the Crucible.  Rough."</span></div>
         </div>
         <div className="member-detail">
             <div><span style={{ fontStyle: 'italic' }}>"What do you mean you're having trouble getting a PS5?"</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const GMann = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/e2015_11.jpg" />
-        </div>
-        <Typography variant="h4">GMann</Typography>
-        <div className="member-detail">
-            <div>Ok, for Atraks-1 we need to decide who is go-</div>
-            <div><span style={{ fontStyle: 'italic' }}>"I'm going to space."</span></div>
-            <div>GMann, you should probably let others-</div>
-            <div><span style={{ fontStyle: 'italic' }}>{`[Gun cocks] "I'm going to space."`}</span></div>
-            <div>Oooook, you are going to space. You can be operat-</div>
-            <div><span style={{ fontStyle: 'italic' }}>{`[Gunshot]`}</span></div>
-        </div>
-    </div>
+    <MemberCard name="GMann" iconUrl="https://www.bungie.net//img/profile/avatars/e2015_11.jpg">
+        <div>Ok, for Atraks-1 we need to decide who is go-</div>
+        <div><span style={{ fontStyle: 'italic' }}>"I'm going to space."</span></div>
+        <div>GMann, you should probably let others-</div>
+        <div><span style={{ fontStyle: 'italic' }}>{`[Gun cocks] "I'm going to space."`}</span></div>
+        <div>Oooook, you are going to space. You can be operat-</div>
+        <div><span style={{ fontStyle: 'italic' }}>{`[Gunshot]`}</span></div>
+    </MemberCard>
 )
 
 const Stink = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/bungieday_19.jpg" />
-        </div>
-        <Typography variant="h4">Stink Machine</Typography>
+    <MemberCard name="Stink Machine" iconUrl="https://www.bungie.net//img/profile/avatars/bungieday_19.jpg">
         <div className="member-detail">
             <div>[Stickmachine has joined your fireteam]</div>
             <div>Hey man! Long time so see! How you doing?</div>
@@ -203,15 +163,11 @@ const Stink = () => (
             <div>I....I've been used...for shared wisdom.</div>
             <div>[crying sounds]</div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Nekro = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc000011.jpg" />
-        </div>
-        <Typography variant="h4">Nekronomikan</Typography>
+    <MemberCard name="Nekronomikan" iconUrl="https://www.bungie.net//img/profile/avatars/cc000011.jpg">
         <div className="member-detail">
             <strong>Apex Predator</strong>
         </div>
@@ -221,15 +177,11 @@ const Nekro = () => (
             <div>That's right, even <span style={{ fontStyle: 'italic' }}>etiquette</span>.</div>
             <div>Our table manners are <strong>impeccable</strong>!</div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Hada = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net/img/profile/avatars/cc21.jpg" />
-        </div>
-        <Typography variant="h4">Hadashirts</Typography>
+    <MemberCard name="Hadashirts" iconUrl="https://www.bungie.net/img/profile/avatars/cc21.jpg">
         <div className="member-detail">
             <strong>Gotta snag a Hada</strong>
         </div>
@@ -238,15 +190,11 @@ const Hada = () => (
             <div>You wiped out all the enemies in record time!</div>
             <div><span style={{ fontStyle: 'italic' }}>"So....that's good...right?"</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Tansy = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://image.api.np.km.playstation.net/images/?format=png&w=160&h=160&image=https%3A%2F%2Fkfscdn.api.np.km.playstation.net%2F5387964934898443052%2F1541722837287.png&sign=1cc7d0286c4fc59c83ec1f0c6a37f2d414df1daa" />
-        </div>
-        <Typography variant="h4">TansyRagwort</Typography>
+    <MemberCard name="TansyRagwort" iconUrl="https://image.api.np.km.playstation.net/images/?format=png&w=160&h=160&image=https%3A%2F%2Fkfscdn.api.np.km.playstation.net%2F5387964934898443052%2F1541722837287.png&sign=1cc7d0286c4fc59c83ec1f0c6a37f2d414df1daa">
         <div className="member-detail">
             <strong>Ringer</strong><small style={{ marginLeft: '5px' }}>Also Samus's Best Friend</small>
         </div>
@@ -256,29 +204,21 @@ const Tansy = () => (
             <div>I'm in your voice chat right now, I'm in your clan!</div>
             <div><span style={{ fontStyle: 'italic' }}>"That's a good Blueberry, good job."</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const KillerPotatoez = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc47.jpg" />
-        </div>
-        <Typography variant="h4">KillerPotatoez</Typography>
+    <MemberCard name="KillerPotatoez" iconUrl="https://www.bungie.net//img/profile/avatars/cc47.jpg">
         <div className="member-detail">
             <div>We would like to formally apologize for the comments made by KillerPotatoez on Monday, Tuesday, Thursday, Friday, Saturday, and Sunday.</div>
             <div>After a formal investigation, we retract our apology for Wednesday.</div>
             <div>DNA analysis concluded that yes, he is your daddy.</div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Wdnesday = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc12.jpg" />
-        </div>
-        <Typography variant="h4">Wdnesday</Typography>
+    <MemberCard name="Wdnesday" iconUrl="https://www.bungie.net//img/profile/avatars/cc12.jpg">
         <div className="member-detail">
             <div>Is that your pet turtle?</div>
             <div><span style={{ fontStyle: 'italic' }}>"Yup! Isn't he cute?"</span></div>
@@ -286,15 +226,11 @@ const Wdnesday = () => (
             <div><span style={{ fontStyle: 'italic' }}>[Explosion]</span></div>
             <div><span style={{ fontStyle: 'italic' }}>"Yup! Isn't it cute?"</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
-
+//style={{ height: '180px' }}
 const Darkwomble = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWEvoJqVSiysJaQ1l3e0ofHo3Nxj6fHt9a_A&usqp=CAU" style={{ height: '180px' }} />
-        </div>
-        <Typography variant="h4">Darkwomble</Typography>
+    <MemberCard name="Darkwomble" iconUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWEvoJqVSiysJaQ1l3e0ofHo3Nxj6fHt9a_A&usqp=CAU">
         <div className="member-detail">
             <div>Ok, here's how this next part works- </div>
             <div><span style={{ fontStyle: 'italic' }}>[Explosions and gunfire erupts]</span></div>
@@ -303,16 +239,12 @@ const Darkwomble = () => (
             <div>Womble?</div>
             <div><span style={{ fontStyle: 'italic' }}>"Uh... cheers mate!"</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 
 const Harmony = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc24.jpg" style={{ height: '180px' }} />
-        </div>
-        <Typography variant="h4">Harmony</Typography>
+    <MemberCard name="Harmony" iconUrl="https://www.bungie.net//img/profile/avatars/cc24.jpg">
         <div className="member-detail">
             <div>Hey Harmony, want to raid?</div>
             <div><span style={{ fontStyle: 'italic' }}>"Of course! But can we do the Lava challenge?"</span></div>
@@ -322,15 +254,11 @@ const Harmony = () => (
             <div><span style={{ fontStyle: 'italic' }}>"Oh, and you have use sidearms for every kill."</span></div>
             <div><span style={{ fontStyle: 'italic' }}>"Hello? Hello?"</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const CatNoir = () => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src="https://www.bungie.net//img/profile/avatars/cc54.jpg" style={{ height: '180px' }} />
-        </div>
-        <Typography variant="h4">CatNoir</Typography>
+    <MemberCard name="CatNoir" iconUrl="https://www.bungie.net//img/profile/avatars/cc54.jpg">
         <div className="member-detail">
             <div>Okay, so Cat we need you to-</div>
             <div><span style={{ fontStyle: 'italic' }}>"I just shoot things."</span></div>
@@ -339,7 +267,7 @@ const CatNoir = () => (
             <div>You killed our team leader! Why?!</div>
             <div><span style={{ fontStyle: 'italic' }}>"As I said, I just shoot things."</span></div>
         </div>
-    </div>
+    </MemberCard>
 )
 
 const Members = () => {
