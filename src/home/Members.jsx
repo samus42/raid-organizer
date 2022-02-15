@@ -270,6 +270,19 @@ const CatNoir = () => (
     </MemberCard>
 )
 
+const Wendy = () => (
+    <MemberCard name="Wdimunoz" iconUrl="https://www.bungie.net//img/profile/avatars/cc000014.jpg">
+        <div className="member-detail">
+            <div>[Quick rifle shots in succession]</div>
+            <div><span style={{ fontStyle: 'italic' }}>She's a good shot, even if she doesn't say much.</span></div>
+            <div>You haven't seen the half of it.</div>
+            <div>[Submachine gun fire]</div>
+            <div><span style={{ fontStyle: 'italic' }}>Wait, did she just write 'Sorry, I meant to hit that last one in the right eye instead of the left.' on the wall, <strong>with bullets?!</strong></span></div>
+            <div>Yeah, her y's are still a bit shakey, we're working on that.</div>
+        </div>
+    </MemberCard>
+)
+
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -293,6 +306,7 @@ const Members = () => {
                 <Grid item><Tansy /></Grid>
                 <Grid item><ThirdEye /></Grid>
                 <Grid item><W6MIR /></Grid>
+                <Grid item><Wendy /></Grid>
                 <Grid item><Wdnesday /></Grid>
             </Grid>
             <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>Want your own entry? Tell Samus what you want and he'll put it in!</div>
