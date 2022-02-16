@@ -1,6 +1,6 @@
 {
   "name": "raid-organizer",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
