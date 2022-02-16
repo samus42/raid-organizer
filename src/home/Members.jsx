@@ -283,6 +283,20 @@ const Wendy = () => (
     </MemberCard>
 )
 
+const Cody = () => (
+    <MemberCard name="Wilhelm_MD" iconUrl='https://www.bungie.net//img/profile/avatars/cc000011.jpg'>
+        <div className="member-detail">
+            <div>Yo doc! There's this mole...</div>
+            <div><span style={{ fontStyle: 'italic' }}>Not that kind of doctor.</span></div>
+            <div>Well then, I think my cholesterol-</div>
+            <div><span style={{ fontStyle: 'italic' }}>Nope.</span></div>
+            <div>There's this ringing in my ears...</div>
+            <div><span style={{ fontStyle: 'italic' }}>Sigh, no.</span></div>
+            <div>Well what the hell are you good for- [Cracking sounds] Ow! You broke my back!</div>
+            <div><span style={{ fontStyle: 'italic' }}>That, I'm good at that.</span></div>
+        </div>
+    </MemberCard>
+)
 const Members = () => {
     return (
         <div className="main-tab-content">
@@ -308,6 +322,7 @@ const Members = () => {
                 <Grid item><W6MIR /></Grid>
                 <Grid item><Wendy /></Grid>
                 <Grid item><Wdnesday /></Grid>
+                <Grid item><Cody /></Grid>
             </Grid>
             <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
