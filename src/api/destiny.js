@@ -53,3 +53,19 @@ export const getMembershipById = async (membershipId) => {
     const { destinyMemberships, bungieNetUser } = body.Response
     return { destinyMemberships, bungieNetUser }
 }
+
+export const searchUsers = async (prefix) => {
+    const url = `https://www.bungie.net/Platform/User/Search/GlobalName/0`
+    const payload = { "displayNamePrefix": prefix }
+    const { body } = await agent.post(url).set(header).send(payload)
+    const { Response } = body
+    const users = Response.searchResults.map(({ destinyMemberships }) => {
+        const first = destinyMemberships[0]
+        return {
+            name: first.displayName,
+            destinyId: first.membershipId,
+            iconPath: `${baseUrl}/${first.iconPath}`
+        }
+    })
+    return users
+}

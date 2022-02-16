@@ -4,6 +4,7 @@ import { List, ListItem, Button, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/PersonRemove'
 import { getCurrentUserInfo } from '../user/currentUser'
 import DraggablePlayer from './DraggablePlayer'
+import SelectNonClanMember from './SelectNonClanMember'
 const emptyPlayer = { name: 'Select a player', iconPath: defaultIconUrl, destinyId: null }
 const raidSlots = 6
 const backupSlots = 2
@@ -12,7 +13,7 @@ const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () =
     const [players, setPlayers] = useState([])
     const [currentUserAdded, setCurrentUserAdded] = useState(false)
     const [currentUser, setCurrentUser] = useState(null)
-
+    const [isFull, setIsFull] = useState(false)
     useEffect(() => {
         const emptySpots = Math.max(0, raidSlots - roster.length)
         const backupSpots = Math.max(0, (raidSlots + backupSlots) - Math.max(roster.length, raidSlots))
@@ -27,6 +28,7 @@ const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () =
                 .concat(emptyBackupSlotArr.map((item, index) => ({ ...item, name: `Backup ${index + 1}` })))
         )
         const user = getCurrentUserInfo()
+        setIsFull(roster.length >= raidSlots + backupSlots)
         setCurrentUser(user)
         setCurrentUserAdded(user && !!roster.find((player) => player.destinyId === user.destinyId))
     }, [roster])
@@ -43,6 +45,11 @@ const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () =
             onRosterChange(roster.concat(currentUser))
         }
     }
+
+    const addNonClanMember = (player) => {
+        onRosterChange(roster.concat(player))
+    }
+
     return (
         <div>
             <h4>Select your roster for {raidTitle}</h4>
@@ -63,9 +70,12 @@ const RaidRoster = ({ roster = [], saveEnabled, raidTitle, onRosterChange = () =
             </List >
             {currentUser &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button variant="contained" disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
+                    <Button variant="contained" disabled={!saveEnabled || !currentUser || isFull} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
                 </div>
             }
+            <div style={{ paddingTop: '20px', display: 'flex', justifyContent: 'center' }}>
+                <SelectNonClanMember disabled={isFull} onSelected={addNonClanMember} />
+            </div>
         </div >
     )
 }
