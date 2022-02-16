@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 import { defaultIconUrl } from '../../api/destiny'
 import { getCurrentUserInfo } from '../../user/currentUser'
+import SelectNonClanMember from '../SelectNonClanMember'
 
 const raidSlots = 6
 const backupSlots = 2
@@ -17,6 +18,7 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
     const [players, setPlayers] = useState([])
     const [currentUserAdded, setCurrentUserAdded] = useState(false)
     const [currentUser, setCurrentUser] = useState(null)
+    const [isFull, setIsFull] = useState(false)
 
     useEffect(() => {
         const emptySpots = Math.max(0, raidSlots - roster.length)
@@ -31,6 +33,7 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
                 .concat(emptyRaidSlotArr.map((item, index) => ({ ...item, name: `${item.name} ${index + startingNumberLabel}` })))
                 .concat(emptyBackupSlotArr.map((item, index) => ({ ...item, name: `Backup ${index + 1}` })))
         )
+        setIsFull(roster.length >= raidSlots + backupSlots)
         const user = getCurrentUserInfo()
         setCurrentUser(user)
         setCurrentUserAdded(user && !!roster.find((player) => player.destinyId === user.destinyId))
@@ -44,11 +47,20 @@ const MobileRoster = ({ roster = [], saveEnabled, onRosterChange = () => { } }) 
             onRosterChange(roster.concat(currentUser))
         }
     }
+
+    const addNonClanMember = (player) => {
+        onRosterChange(roster.concat(player))
+    }
+
     return (
         <div>
             <div style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}>
                 <Button variant="contained" disabled={!saveEnabled || !currentUser} onClick={memberChanged}>{currentUserAdded ? 'Remove Myself' : 'Add Myself'}</Button>
                 {!currentUser && <div style={{ paddingTop: '5px' }}><strong>You must login to add/remove yourself.</strong></div>}
+            </div>
+
+            <div style={{ paddingTop: '10px', display: 'flex', justifyContent: 'center' }}>
+                <SelectNonClanMember fullScreen disabled={isFull} onSelected={addNonClanMember} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
