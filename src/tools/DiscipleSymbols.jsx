@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { ImageList, ImageListItem, Button, Typography } from "@mui/material"
 
 const symbolFileNames = [
@@ -36,6 +36,23 @@ const SymbolItem = ({ fileName, selected, onSelect }) => {
 }
 const DiscipleSymbols = () => {
     const [selected, setSelected] = useState([])
+    const [symbolColumns, setSymbolColumns] = useState(7)
+    useLayoutEffect(() => {
+        const updateSize = () => {
+            let cols = Math.round(window.innerWidth / 100)
+            if (cols < 3) {
+                cols = 3
+            }
+            if (cols > 7) {
+                cols = 7
+            }
+            setSymbolColumns(cols)
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, [])
+
     const isSelected = (fileName) => selected.includes(fileName)
     const onSymbolSelected = (fileName) => {
         if (isSelected(fileName)) {
@@ -50,7 +67,7 @@ const DiscipleSymbols = () => {
                 <Typography variant="h4">Disciple Symbols</Typography>
                 <Button variant="contained" onClick={() => setSelected([])}>Reset</Button>
             </div>
-            <ImageList cols={7} >
+            <ImageList cols={symbolColumns} >
                 {symbolFileNames.map((fileName) =>
                     <SymbolItem
                         key={fileName}

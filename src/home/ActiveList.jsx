@@ -69,7 +69,7 @@ const EventList = () => {
     }
     return (
         <div style={{ maxWidth: '500px' }}>
-            <Typography variant="h4">Upcoming events:</Typography>
+            <Typography variant="h4">Upcoming events</Typography>
 
             <List>
                 {events.map((activity) => (
