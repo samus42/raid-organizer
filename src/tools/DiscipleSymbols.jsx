@@ -73,9 +73,11 @@ const DiscipleSymbols = () => {
     const [selected, setSelected] = useState([])
     const [filter, setFilter] = useState('all')
     const [symbolColumns, setSymbolColumns] = useState(7)
+    const [isMobile, setIsMobile] = useState(false)
     useLayoutEffect(() => {
         const updateSize = () => {
-            let cols = Math.round(window.innerWidth / 100)
+            setIsMobile(window.innerWidth < 1025)
+            let cols = Math.floor(window.innerWidth / 100)
             if (cols < 3) {
                 cols = 3
             }
@@ -102,7 +104,7 @@ const DiscipleSymbols = () => {
     return (
         <div className="main-tab-content">
             <div style={{ display: 'flex', justifyContent: "space-between" }}>
-                <Typography variant="h4">Disciple Symbols</Typography>
+                {!isMobile && <Typography variant="h4">Disciple Symbols</Typography>}
                 <ToggleButtonGroup value={filter} exclusive onChange={(evt, newValue) => setFilter(newValue)}>
                     <ToggleButton value='all'>
                         All
