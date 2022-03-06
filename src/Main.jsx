@@ -7,7 +7,7 @@ import ProcessLogin from './user/ProcessLogin'
 import Profile from './user/Profile'
 import ActivityMain from './activities/ActivityMain'
 import CalendarInstructions from './home/CalendarInstructions'
-
+import DiscipleSymbols from './tools/DiscipleSymbols';
 const Main = (props) => {
     return (
         <Router>
@@ -19,6 +19,7 @@ const Main = (props) => {
                 <Route exact path="/activity/:activityKey" element={<ActivityMain />} />
                 <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/process-login" element={<ProcessLogin />} />
+                <Route exact path="/tools/disciple" element={<DiscipleSymbols />} />
             </Routes>
         </Router>
     )

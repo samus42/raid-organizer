@@ -16,7 +16,7 @@ const Activities = () => {
                 </div>
             </Grid>
             <Grid item>
-                <div><Typography variant="h4">Organize an Activity:</Typography></div>
+                <div><Typography variant="h4">Organize an Activity</Typography></div>
                 <div style={{ paddingLeft: '20px' }}>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/vault')}>Vault Of Glass</Button>
@@ -47,7 +47,12 @@ const Activities = () => {
                     </div>
                 </div>
             </Grid>
-
+            <Grid item>
+                <div><Typography variant="h4">Helpful Tools</Typography></div>
+                <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                    <Button variant="contained" onClick={() => navigate('/tools/disciple')}>Disciple Symbols</Button>
+                </div>
+            </Grid>
         </Grid>
     </div>
     )
