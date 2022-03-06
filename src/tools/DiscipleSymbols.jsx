@@ -1,5 +1,6 @@
 import { useState, useLayoutEffect } from 'react'
-import { ImageList, ImageListItem, Button, Typography } from "@mui/material"
+import { ImageList, ImageListItem, Button, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { filter } from 'lodash'
 
 const symbolFileNames = [
     'ascendant_plane-raw.png',
@@ -29,6 +30,40 @@ const symbolFileNames = [
     'worship-raw.png',
 ]
 
+const obeliskOnly = [
+    'ascendant_plane-raw.png',
+    'black_garden-raw.png',
+    'black_heart-raw.png',
+    'earth-raw.png',
+    'fleet-raw.png',
+    'guardian-raw.png',
+    'hive-raw.png',
+    'savathun-raw.png',
+    'scorn-raw.png',
+    'witness-raw.png',
+    'worm-raw.png',
+]
+
+const roomsOnly = [
+    'commune-raw.png',
+    'drink-raw.png',
+    'enter-raw.png',
+    'gift-raw.png',
+    'grief-raw.png',
+    'kill-raw.png',
+    'knowledge-raw.png',
+    'stop-raw.png',
+    'worship-raw.png',
+]
+const getFilteredSymbols = (filter) => {
+    if (filter === 'obelisk') {
+        return obeliskOnly
+    }
+    if (filter === 'rooms') {
+        return roomsOnly
+    }
+    return symbolFileNames
+}
 const SymbolItem = ({ fileName, selected, onSelect }) => {
     return <ImageListItem className={selected ? 'gradient-border' : 'unselected-symbol'} onClick={() => onSelect(fileName)}>
         <img src={`/disciple/${fileName}`} alt={fileName} />
@@ -36,6 +71,7 @@ const SymbolItem = ({ fileName, selected, onSelect }) => {
 }
 const DiscipleSymbols = () => {
     const [selected, setSelected] = useState([])
+    const [filter, setFilter] = useState('all')
     const [symbolColumns, setSymbolColumns] = useState(7)
     useLayoutEffect(() => {
         const updateSize = () => {
@@ -61,14 +97,27 @@ const DiscipleSymbols = () => {
             setSelected(selected.concat(fileName))
         }
     }
+
+
     return (
         <div className="main-tab-content">
             <div style={{ display: 'flex', justifyContent: "space-between" }}>
                 <Typography variant="h4">Disciple Symbols</Typography>
+                <ToggleButtonGroup value={filter} exclusive onChange={(evt, newValue) => setFilter(newValue)}>
+                    <ToggleButton value='all'>
+                        All
+                    </ToggleButton>
+                    <ToggleButton value='rooms'>
+                        Rooms
+                    </ToggleButton>
+                    <ToggleButton value='obelisk'>
+                        Obelisk
+                    </ToggleButton>
+                </ToggleButtonGroup>
                 <Button variant="contained" onClick={() => setSelected([])}>Reset</Button>
             </div>
             <ImageList cols={symbolColumns} >
-                {symbolFileNames.map((fileName) =>
+                {getFilteredSymbols(filter).map((fileName) =>
                     <SymbolItem
                         key={fileName}
                         fileName={fileName}
@@ -77,7 +126,7 @@ const DiscipleSymbols = () => {
                     />
                 )}
             </ImageList>
-        </div>
+        </div >
     )
 }
 
