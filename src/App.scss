@@ -101,5 +101,61 @@
 }
 
 .selected-symbol {
-  border: 5px solid gold;
+  border: 5px solid goldenrod;
+  &:hover {
+    cursor: pointer;
+  }
 }
+
+.unselected-symbol {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.gradient-border {
+  &:hover {
+    cursor: pointer;
+  }
+  --border-width: 5px;
+  margin: 5px;
+  border-radius: var(--border-width);
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      gold,
+      darkgoldenrod,
+      silver,
+      // #5d1049,
+      // green,
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+/*
+hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+      */

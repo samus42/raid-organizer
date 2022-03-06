@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ImageList, ImageListItem } from "@mui/material"
-import { shouldComponentUpdate } from 'react-window'
+import { ImageList, ImageListItem, Button, Typography } from "@mui/material"
 
 const symbolFileNames = [
     'ascendant_plane-raw.png',
@@ -30,10 +29,8 @@ const symbolFileNames = [
     'worship-raw.png',
 ]
 
-const selectedStyle = { border: '5px solid darkgoldenrod' }
-const unselectedStyle = {}
 const SymbolItem = ({ fileName, selected, onSelect }) => {
-    return <ImageListItem sx={selected ? selectedStyle : unselectedStyle} onClick={() => onSelect(fileName)}>
+    return <ImageListItem className={selected ? 'gradient-border' : 'unselected-symbol'} onClick={() => onSelect(fileName)}>
         <img src={`/disciple/${fileName}`} alt={fileName} />
     </ImageListItem>
 }
@@ -49,7 +46,11 @@ const DiscipleSymbols = () => {
     }
     return (
         <div className="main-tab-content">
-            <ImageList cols={7}>
+            <div style={{ display: 'flex', justifyContent: "space-between" }}>
+                <Typography variant="h4">Disciple Symbols</Typography>
+                <Button variant="contained" onClick={() => setSelected([])}>Reset</Button>
+            </div>
+            <ImageList cols={7} >
                 {symbolFileNames.map((fileName) =>
                     <SymbolItem
                         key={fileName}
