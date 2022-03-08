@@ -6,9 +6,9 @@ const Extras = () => {
         <div className="main-tab-content">
             <div><Typography variant="h6">Our clan members have their own things to share with the community.</Typography></div>
             <div style={{ paddingBottom: '20px' }}><Typography variant="h6">Check out their web pages / creations!</Typography> </div>
-            <Grid container >
-                <Grid item >
-                    <div style={{ width: '400px' }}>
+            <Grid container spacing={10} >
+                <Grid item md={6}>
+                    <div>
                         <Typography variant="h4">Ace Malicious</Typography>
                         <ul className="extras-list">
                             <li>
@@ -23,8 +23,8 @@ const Extras = () => {
                         </ul>
                     </div>
                 </Grid>
-                <Grid item >
-                    <div style={{ width: '400px' }}>
+                <Grid item md={6}>
+                    <div>
                         <Typography variant="h4">Samus Darkthorn</Typography>
 
                         <ul className="extras-list">

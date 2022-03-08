@@ -58,6 +58,26 @@ const ApplicationBar = (props) => {
         navigate('/profile')
         handleClose()
     }
+
+    if (location.pathname.startsWith('/public')) {
+        return (
+            <AppBar position="static">
+                <Toolbar>
+                    <a href="/public" style={{ textDecoration: 'none', color: 'white', paddingTop: '5px' }}>
+                        {screenLayout === 'desktop' ? (
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src="/chaos-white.png" style={{ width: '56px' }} alt="" />
+                                <Typography variant="h6" color="inherit" component="div" sx={{ paddingLeft: '10px' }}>
+                                    Shenaniganizers - Public
+                                </Typography>
+                            </div>
+                        ) : 'Shenaniganizers - Public'}
+                    </a>
+                    <Box sx={{ flexGrow: 1 }} />
+                </Toolbar>
+            </AppBar >
+        )
+    }
     return (
         <AppBar position="static">
             <Toolbar>
