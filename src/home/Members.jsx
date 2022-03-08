@@ -2,13 +2,16 @@ import React from 'react'
 import { Grid, Typography } from '@mui/material'
 
 const MemberCard = ({ name, iconUrl, children }) => (
-    <div className="member-card">
-        <div>
-            <img alt="icon" src={iconUrl} style={{ height: '180px' }} />
+    <Grid item>
+        <div className="member-card">
+            <div>
+                <img alt="icon" src={iconUrl} style={{ height: '180px' }} />
+            </div>
+            <Typography variant="h4">{name}</Typography>
+            {children}
         </div>
-        <Typography variant="h4">{name}</Typography>
-        {children}
-    </div>
+    </Grid>
+
 )
 
 const W6MIR = () => (
@@ -301,28 +304,28 @@ const Members = () => {
     return (
         <div className="main-tab-content">
             <Grid container spacing={4}>
-                <Grid item><Ace /></Grid>
-                <Grid item><CatNoir /></Grid>
-                <Grid item><Darkwomble /></Grid>
-                <Grid item><GMann /></Grid>
-                <Grid item><Hada /></Grid>
-                <Grid item><Halily /></Grid>
-                <Grid item><Harmony /></Grid>
-                <Grid item><Kaizyn /></Grid>
-                <Grid item><KaiJae /></Grid>
-                <Grid item><KillerPotatoez /></Grid>
-                <Grid item><Mabie /></Grid>
-                <Grid item><Nutbar /></Grid>
-                <Grid item><Momo /></Grid>
-                <Grid item><Nekro /></Grid>
-                <Grid item><Samus /></Grid>
-                <Grid item><Stink /></Grid>
-                <Grid item><Tansy /></Grid>
-                <Grid item><ThirdEye /></Grid>
-                <Grid item><W6MIR /></Grid>
-                <Grid item><Wendy /></Grid>
-                <Grid item><Wdnesday /></Grid>
-                <Grid item><Cody /></Grid>
+                <Ace />
+                <CatNoir />
+                <Darkwomble />
+                <GMann />
+                <Hada />
+                <Halily />
+                <Harmony />
+                <Kaizyn />
+                <KaiJae />
+                <KillerPotatoez />
+                <Mabie />
+                <Nutbar />
+                <Momo />
+                <Nekro />
+                <Samus />
+                <Stink />
+                <Tansy />
+                <ThirdEye />
+                <W6MIR />
+                <Wendy />
+                <Wdnesday />
+                <Cody />
             </Grid>
             <div style={{ paddingTop: '20px', paddingBottom: '10px' }}>Want your own entry? Tell Samus what you want and he'll put it in!</div>
         </div>
