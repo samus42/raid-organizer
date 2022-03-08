@@ -7,7 +7,7 @@ const Activities = () => {
     const navigate = useNavigate()
     return (<div className="main-tab-content">
         <Grid container spacing={10}>
-            <Grid item>
+            <Grid item md={6}>
                 <div>
                     Subscribe to the events calendar! <a href="/help/calendar" target="_blank">Click here for help.</a>
                 </div>
@@ -22,7 +22,7 @@ const Activities = () => {
                     </div>
                 </div>
             </Grid>
-            <Grid item>
+            <Grid item md={6}>
                 <div><Typography variant="h4">Organize an Activity</Typography></div>
                 <div style={{ paddingLeft: '20px' }}>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>

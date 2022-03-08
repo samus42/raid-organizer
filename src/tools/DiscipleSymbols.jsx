@@ -1,4 +1,5 @@
 import { useState, useLayoutEffect } from 'react'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { ImageList, ImageListItem, Button, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material"
 
 const symbolFileNames = [
@@ -73,8 +74,11 @@ const SymbolItem = ({ fileName, selected, onSelect }) => {
     </ImageListItem>
 }
 const DiscipleSymbols = () => {
+    const params = useParams()
+    const navigate = useNavigate()
+    const location = useLocation()
     const [selected, setSelected] = useState([])
-    const [filter, setFilter] = useState('all')
+    const [filter, setFilter] = useState(params.filter || 'all')
     const [symbolColumns, setSymbolColumns] = useState(7)
     const [isMobile, setIsMobile] = useState(false)
     useLayoutEffect(() => {
@@ -103,12 +107,17 @@ const DiscipleSymbols = () => {
         }
     }
 
+    const changeFilter = (evt, newValue) => {
+        setFilter(newValue)
+        const prefix = location.pathname.startsWith('/public') ? '/public' : ''
+        navigate(`${prefix}/tools/disciple/${newValue}`, { replace: true })
+    }
 
     return (
         <div className="main-tab-content">
             <div style={{ display: 'flex', justifyContent: "space-between" }}>
                 {!isMobile && <Typography variant="h4">Disciple Symbols</Typography>}
-                <ToggleButtonGroup value={filter} exclusive onChange={(evt, newValue) => setFilter(newValue)}>
+                <ToggleButtonGroup value={filter} exclusive onChange={changeFilter}>
                     <ToggleButton value='all'>
                         All
                     </ToggleButton>

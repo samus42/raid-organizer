@@ -21,9 +21,13 @@ const Main = (props) => {
                 <Route exact path="/activity/:activityKey" element={<ActivityMain />} />
                 <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/process-login" element={<ProcessLogin />} />
-                <Route exact path="/tools/disciple" element={<DiscipleSymbols />} />
+                <Route path="/tools/disciple" element={<DiscipleSymbols />}>
+                    <Route path=":filter" element={<DiscipleSymbols />} />
+                </Route>
                 <Route exact path="/public/" element={<ExternalHome />} />
-                <Route exact path="/public/tools/disciple" element={<DiscipleSymbols />} />
+                <Route exact path="/public/tools/disciple" element={<DiscipleSymbols />}>
+                    <Route path=":filter" element={<DiscipleSymbols />} />
+                </Route>
             </Routes>
         </Router>
     )
