@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Grid, Typography } from '@mui/material'
 import { useNavigate } from "react-router-dom"
 import ActiveList from './ActiveList'
 import DisplayRotation from '../rotations/DisplayRotation'
+import ChooseActivity from './ChooseActivity'
 
 const Activities = () => {
     const navigate = useNavigate()
+    const [showChooseActivity, setShowChooseActivity] = useState(false)
+
+    if (showChooseActivity) {
+        return (
+            <div className="main-tab-content">
+                <ChooseActivity onClose={() => setShowChooseActivity(false)} />
+            </div>
+        )
+    }
     return (<div className="main-tab-content">
         <Grid container spacing={10}>
             <Grid item md={6}>
@@ -29,6 +39,9 @@ const Activities = () => {
             <Grid item md={6}>
                 <div><Typography variant="h4">Organize an Activity</Typography></div>
                 <div style={{ paddingLeft: '20px' }}>
+                    <div style={{ marginBottom: '20px', marginTop: '20px' }}>
+                        <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => setShowChooseActivity(true)}>Choose Activity</Button>
+                    </div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/raid/vault')}>Vault Of Glass</Button>
                     </div>
@@ -57,9 +70,6 @@ const Activities = () => {
                         <Button style={{ minWidth: '250px' }} variant="contained" onClick={() => navigate('/activity/custom')}>Custom Activity</Button>
                     </div>
                 </div>
-            </Grid>
-            <Grid item>
-
             </Grid>
         </Grid>
     </div>
