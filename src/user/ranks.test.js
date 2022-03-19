@@ -15,7 +15,7 @@ describe('ranks', () => {
 
     it('ranked', () => {
         expect(determineRank('Deep Stone Crypt', 'operator', 6)).toEqual({
-            rank: 'Light Switch Operator', nextAt: 20
+            rank: 'Light Switch Operator', nextAt: 10
         })
     })
 })

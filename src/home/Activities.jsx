@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Grid, Typography } from '@mui/material'
 import { useNavigate } from "react-router-dom"
 import ActiveList from './ActiveList'
+import DisplayRotation from '../rotations/DisplayRotation'
 
 const Activities = () => {
     const navigate = useNavigate()
@@ -16,6 +17,9 @@ const Activities = () => {
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
+                    <DisplayRotation />
+                </div>
+                <div style={{ marginTop: '40px' }}>
                     <div><Typography variant="h4">Helpful Tools</Typography></div>
                     <div style={{ marginBottom: '20px', marginTop: '20px' }}>
                         <Button variant="contained" onClick={() => navigate('/tools/disciple')}>Disciple Symbols</Button>

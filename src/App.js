@@ -1,6 +1,9 @@
 import './App.scss';
 import Main from './Main'
+import { LocalizationProvider } from '@mui/lab'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import DateAdapter from '@mui/lab/AdapterDayjs';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -30,8 +33,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
       < div >
-
-        <Main />
+        <LocalizationProvider dateAdapter={DateAdapter}>
+          <Main />
+        </LocalizationProvider>
       </ div>
     </ThemeProvider>
   );
