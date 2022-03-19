@@ -4,7 +4,8 @@ import {
     List,
     ListItemText,
     ListItemButton,
-    Typography
+    Typography,
+    Button
 } from '@mui/material'
 import raidClient from '../api/raidClient'
 import gql from 'graphql-tag'
@@ -38,7 +39,7 @@ const EventListItem = (({ activity, onClick }) => (
     </ListItemButton>
 ))
 
-const EventList = () => {
+const EventList = ({ onChooseActivity }) => {
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
@@ -70,12 +71,18 @@ const EventList = () => {
     return (
         <div style={{ maxWidth: '500px' }}>
             <Typography variant="h4">Upcoming events</Typography>
-
+            <div style={{ marginTop: '10px' }}>
+                <Button style={{ width: '100%' }} variant="contained" onClick={onChooseActivity}>Organize An Activity</Button>
+            </div>
+            {events.length < 1 && (<div>No active events, you should schedule one!</div>)}
             <List>
                 {events.map((activity) => (
                     <EventListItem key={activity.id} onClick={() => onSelectEvent(activity)} activity={activity} />
                 ))}
             </List>
+            <div>
+                Subscribe to the events calendar! <a href="/help/calendar" target="_blank">Click here for help.</a>
+            </div>
         </div>
     )
 }

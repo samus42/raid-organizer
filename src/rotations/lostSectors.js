@@ -10,7 +10,7 @@ export const Areas = {
 
 export const Rewards = {
     Chest: 'Chest',
-    Head: 'Head',
+    Head: 'Helmet',
     Legs: 'Legs',
     Arms: 'Arms'
 }

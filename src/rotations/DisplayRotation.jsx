@@ -36,11 +36,13 @@ const DisplayRotation = () => {
         <div>
             <div style={{ display: 'flex' }}>
                 <div style={{ alignSelf: 'center', paddingRight: '20px' }}>
-                    <Typography variant="h4">Daily</Typography>
+                    <Typography variant="h4">Daily Activities</Typography>
                 </div>
                 <div><DatePicker value={selectedDate} onChange={setSelectedDate} label="Date" renderInput={(params) => <TextField {...params} />} /></div>
+
             </div>
-            <div style={{ paddingLeft: '10px' }}>
+
+            <div style={{ paddingLeft: '0px' }}>
                 <div>
                     <LostSector date={selectedDate} />
                 </div>
