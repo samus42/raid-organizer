@@ -1,6 +1,6 @@
 {
   "name": "raid-organizer",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "private": true,
   "dependencies": {
     "@date-io/dayjs": "^2.13.1",
