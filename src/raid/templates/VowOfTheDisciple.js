@@ -11,7 +11,7 @@ const VowOfTheDisciple = () => ({
                 { name: 'Stop Pillar Defender', type: 'soldier' },
                 { name: 'Stop Pillar Runner', type: 'runner' },
                 { name: 'Kill Pillar Defender', type: 'soldier' },
-                { name: 'Stop Pillar Runner', type: 'runner' },
+                { name: 'Kill Pillar Runner', type: 'runner' },
             ]
         },
         {
