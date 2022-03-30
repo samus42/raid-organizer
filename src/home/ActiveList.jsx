@@ -58,9 +58,6 @@ const EventList = ({ onChooseActivity }) => {
     if (loading) {
         return <div>Loading...</div>
     }
-    if (events.length < 1) {
-        return <div>No active events</div>
-    }
     const onSelectEvent = (event) => {
         if (event.eventType === 'activity') {
             navigate(`/activity/${event.id}`)
