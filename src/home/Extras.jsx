@@ -15,10 +15,18 @@ const Extras = () => {
                                 <a href="https://www.acemalicious.com/">Visit Ace's Home page</a> to learn more about the player and see some writings about the character.
                             </li>
                             <li>
-                                Book 1: <a href="https://drive.google.com/file/d/1aRAdXjs53rym6sK1TX0QnqLbMOhccBOK/view?usp=sharing">Into the Lair of Dôl Arnách</a>!
+                                Book 1: <strong>Into the Lair of Dôl Arnách</strong>
+                                <ul className="extras-list">
+                                    <li><a href="https://drive.google.com/file/d/1aRAdXjs53rym6sK1TX0QnqLbMOhccBOK/view?usp=sharing">PDF</a></li>
+                                    <li><a href="https://drive.google.com/file/d/14oVvqN4yXzc7XzbztzsJbWumwChvAiIU/view?usp=sharing">ePub (for all eReaders, including Kindle)</a></li>
+                                </ul>
                             </li>
                             <li>
-                                Book 2 just released: <a href="https://drive.google.com/file/d/1KHoI2UM9XrucOfadcGYgQA-VmRZaIJam/view?usp=sharing">Halily's War</a>
+                                Book 2: <strong>Halily's War</strong>
+                                <ul className="extras-list">
+                                    <li><a href="https://drive.google.com/file/d/1KHoI2UM9XrucOfadcGYgQA-VmRZaIJam/view?usp=sharing">PDF</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1NxuxoskUfQyGNrOMauO13GNuH_LaUmnU/view?usp=sharing">ePub (for all eReaders, including Kindle)</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
