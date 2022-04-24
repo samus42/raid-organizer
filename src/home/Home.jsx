@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import {
     Tabs,
     Tab
@@ -9,14 +10,24 @@ import packageJSON from '../../package.json'
 import Extras from './Extras'
 
 const tabs = {
-    acitivities: 0,
+    activities: 0,
     members: 1,
     extras: 2,
 }
 
+const findTabByName = (name) => {
+    const index = Object.keys(tabs).indexOf(name)
+    return Math.max(0, index);
+}
+
 const Main = (props) => {
-    const [activeTab, setActiveTab] = useState(0)
-    const handleTabChange = (evt, newValue) => setActiveTab(newValue)
+    const params = useParams()
+    const navigate = useNavigate()
+    const [activeTab, setActiveTab] = useState(findTabByName(params.tab))
+    const handleTabChange = (evt, newValue) => {
+        setActiveTab(newValue)
+        navigate(`/${Object.keys(tabs)[newValue]}`, { replace: true })
+    }
     return (
         <div>
             <Tabs indicatorColor="secondary"
@@ -30,7 +41,7 @@ const Main = (props) => {
                 <Tab label="Extras" />
             </Tabs>
             {
-                activeTab === tabs.acitivities && (
+                activeTab === tabs.activities && (
                     <Activities />
                 )
             }

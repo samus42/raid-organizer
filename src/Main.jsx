@@ -15,7 +15,9 @@ const Main = (props) => {
         <Router>
             <ApplicationBar />
             <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route path="/" element={<Home />}>
+                    <Route path=":tab" element={<Home />} />
+                </Route>
                 <Route exact path="/help/calendar" element={<CalendarInstructions />} />
                 <Route exact path="/raid/:raidKey" element={<RaidMain />} />
                 <Route exact path="/activity/:activityKey" element={<ActivityMain />} />
