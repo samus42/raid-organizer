@@ -1,9 +1,12 @@
+import React, { useMemo } from 'react'
+import debounce from 'lodash.debounce'
 import { Grid, Button, Typography, TextField, Slider } from '@mui/material'
 import DateTimePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import DesktopRoster from './DesktopRoster'
 
 const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
+    const debouncedSave = useMemo(() => debounce(onSave, 300), [onSave])
     return (
         <div style={{ paddingLeft: '20px' }}>
             <div style={{ paddingLeft: '0px', paddingTop: '20px', paddingBottom: '10px' }}>
@@ -33,7 +36,7 @@ const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEna
                         <Slider value={maxPlayers} min={1} max={10} step={1} marks onChange={(evt, newValue) => onDetailsChange({ instanceName, date, maxPlayers: newValue })}></Slider>
                     </div>
                     <div style={{ paddingTop: '30px' }}>
-                        <Button variant="contained" disabled={!saveEnabled} onClick={onSave}>Save Changes</Button>
+                        <Button variant="contained" disabled={!saveEnabled} onClick={debouncedSave}>Save Changes</Button>
                     </div>
                     {activity.id && <div style={{ marginTop: '50px' }}>
                         <Button onClick={onArchive} variant="contained">Archive Activity To Remove From Active List</Button>
