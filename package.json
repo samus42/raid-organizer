@@ -17,6 +17,7 @@
     "dayjs": "^1.9.7",
     "graphql": "^16.3.0",
     "lodash.clonedeep": "^4.5.0",
+    "lodash.debounce": "^4.0.8",
     "lodash.difference": "^4.5.0",
     "lodash.differenceby": "^4.8.0",
     "lodash.isempty": "^4.4.0",

@@ -72,7 +72,11 @@ const RaidMain = () => {
     }
 
     const performSave = async (raidData) => {
+        if (!saveEnabled) {
+            return
+        }
         try {
+            setSaveEnabled(false)
             const isNew = !raid.id
             const updated = await saveRaid(raidData)
             setRaid(updated)
@@ -86,6 +90,7 @@ const RaidMain = () => {
             console.error(err)
             setError(err)
         }
+        setSaveEnabled(true)
     }
     const onSave = async () => {
         await performSave({ ...raid, roster: currentRoster, instanceName: instanceName.trim(), date })

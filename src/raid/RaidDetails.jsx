@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import debounce from 'lodash.debounce'
 import ClanRoster from './ClanRoster'
 import RaidRoster from './RaidRoster'
 import { Button, TextField, Stack } from '@mui/material'
@@ -9,7 +10,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { changeRaidPosition } from './changePosition'
-
 const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, onArchive, onChangeRaid, onDetailsChange, onRosterChange }) => {
 
     const onAddPlayer = (player) => {
@@ -24,6 +24,8 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
         const newRaid = changeRaidPosition(raid, stage, role, player)
         onChangeRaid(newRaid)
     }
+
+    const debouncedSave = useMemo(() => debounce(onSave, 300), [onSave])
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -51,7 +53,7 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
                                 dateFormat="iii MM/dd hh:mm a" />
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <Button style={{ marginBottom: '10px' }} variant="contained" disabled={instanceName.length < 1 || !date} onClick={onSave}>Save Details</Button>
+                            <Button style={{ marginBottom: '10px' }} variant="contained" disabled={instanceName.length < 1 || !date} onClick={debouncedSave}>Save Details</Button>
                         </div>
                     </Stack>
 

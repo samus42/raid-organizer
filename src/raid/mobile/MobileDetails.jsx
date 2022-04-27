@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import debounce from 'lodash.debounce'
 import { TextField, Button } from '@mui/material'
 import DateTimePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 const MobileDetails = ({ instanceName, date, saveEnabled, onChange = () => { }, onSave = () => { } }) => {
+
+    const debouncedSave = useMemo(() => debounce(onSave, 300), [onSave])
+
     return (
         <div>
-            <div style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}><Button variant="contained" disabled={!saveEnabled} onClick={onSave}>Save Changes</Button></div>
+            <div style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}><Button variant="contained" disabled={!saveEnabled} onClick={debouncedSave}>Save Changes</Button></div>
 
             <div style={{ paddingTop: '50px' }}>
                 <TextField fullWidth variant='filled' label="Create a name for this run!" value={instanceName} onChange={(evt) => onChange({ instanceName: evt.target.value, date })} />
