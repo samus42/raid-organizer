@@ -1,4 +1,4 @@
-import { DatePicker } from "@mui/lab"
+import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 import { TextField, Typography } from "@mui/material"
 import dayjs from 'dayjs'
 import { useState } from "react"
