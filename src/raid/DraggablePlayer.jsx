@@ -3,18 +3,13 @@ import { useDrag } from 'react-dnd'
 
 
 const DraggablePlayer = ({ player, onMoved = () => { } }) => {
-    const [{ isDragging }, drag] = useDrag({
-        item: { type: 'player', player },
-        collect: monitor => ({
-            isDragging: !!monitor.isDragging(),
-        }),
-        end: (item, monitor) => {
-            if (monitor.didDrop()) {
-                onMoved(player)
-            }
-        },
-        canDrag: () => player.destinyId
-    })
+    const [{ isDragging }, drag] = useDrag(
+        () => ({
+            type: 'player',
+            item: { player },
+            canDrag: () => player.destinyId
+        }), [player])
+
     const opacity = isDragging ? 0.5 : 1
     if (!player) {
         return (<div></div>)
