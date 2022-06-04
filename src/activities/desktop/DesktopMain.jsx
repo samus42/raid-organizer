@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react'
 import debounce from 'lodash.debounce'
 import { Grid, Button, Typography, TextField, Slider } from '@mui/material'
-import DateTimePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import DesktopRoster from './DesktopRoster'
 
 const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEnabled, onSave, onArchive, onDetailsChange, onRosterChange }) => {
@@ -25,11 +24,10 @@ const DesktopMain = ({ roster, date, instanceName, maxPlayers, activity, saveEna
                         <label style={{ paddingRight: '10px' }}>What time do you want to go?</label>
                         <DateTimePicker
                             onChange={(val) => onDetailsChange({ instanceName, date: val, maxPlayers })}
-                            selected={date}
-                            showTimeSelect
-                            timeIntervals={15}
-                            timeCaption="time"
-                            dateFormat="iii MM/dd hh:mm a" />
+                            value={date}
+                            minutesStep={5}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
                     </div>
                     <div style={{ paddingTop: '20px' }}>
                         <label style={{ paddingRight: '10px' }}>How many players? <strong style={{ paddingLeft: '10px' }}>{maxPlayers}</strong></label>

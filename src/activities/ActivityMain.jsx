@@ -71,6 +71,7 @@ const ActivityMain = () => {
     }
 
     const performSave = async (activityData) => {
+        console.log('saving: ', activityData)
         try {
             const isNew = !activity.id
             const updated = await saveActivity(activityData)
@@ -87,7 +88,7 @@ const ActivityMain = () => {
         }
     }
     const onSave = async () => {
-        await performSave({ ...activity, players: currentRoster, instanceName, date, maxPlayers })
+        await performSave({ ...activity, players: currentRoster, instanceName, date: date.toISOString(), maxPlayers })
     }
 
     const onArchive = async () => {

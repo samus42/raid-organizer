@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react'
 import debounce from 'lodash.debounce'
 import { TextField, Button } from '@mui/material'
-import DateTimePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 const MobileDetails = ({ instanceName, date, saveEnabled, onChange = () => { }, onSave = () => { } }) => {
 
@@ -19,11 +18,10 @@ const MobileDetails = ({ instanceName, date, saveEnabled, onChange = () => { }, 
                 <div>What time do you want to go?</div>
                 <DateTimePicker
                     onChange={(val) => onChange({ instanceName, date: val })}
-                    selected={date}
-                    showTimeSelect
-                    timeIntervals={15}
-                    timeCaption="time"
-                    dateFormat="iii MM/dd hh:mm a" />
+                    value={date}
+                    minutesStep={5}
+                    renderInput={(params) => <TextField fullWidth {...params} />}
+                />
             </div>
             {!saveEnabled && (
                 <div style={{ marginTop: '30px' }}><strong>You must enter a name and date before saving.</strong></div>

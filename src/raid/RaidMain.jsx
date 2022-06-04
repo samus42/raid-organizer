@@ -93,7 +93,7 @@ const RaidMain = () => {
         setSaveEnabled(true)
     }
     const onSave = async () => {
-        await performSave({ ...raid, roster: currentRoster, instanceName: instanceName.trim(), date })
+        await performSave({ ...raid, roster: currentRoster, instanceName: instanceName.trim(), date: date.toISOString() })
     }
 
     const onArchive = async () => {

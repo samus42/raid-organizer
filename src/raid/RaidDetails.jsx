@@ -5,8 +5,7 @@ import RaidRoster from './RaidRoster'
 import { Button, TextField, Stack } from '@mui/material'
 import randomizeRaidAssignments from './randomizeRaidAssignments'
 import RaidAssignments from './RaidAssignments'
-import DateTimePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { changeRaidPosition } from './changePosition'
@@ -46,11 +45,10 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
                             </div>
                             <DateTimePicker
                                 onChange={(val) => onDetailsChange({ instanceName, date: val })}
-                                selected={date}
-                                showTimeSelect
-                                timeIntervals={15}
-                                timeCaption="time"
-                                dateFormat="iii MM/dd hh:mm a" />
+                                value={date}
+                                minutesStep={5}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <Button style={{ marginBottom: '10px' }} variant="contained" disabled={instanceName.length < 1 || !date} onClick={debouncedSave}>Save Details</Button>
