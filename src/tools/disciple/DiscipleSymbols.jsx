@@ -1,13 +1,9 @@
 import { useState, useLayoutEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { ImageList, ImageListItem, Button, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material"
-import { getFilteredSymbols, SymbolFilters } from './symbolList'
+import { Button, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { SymbolFilters } from './symbolList'
+import SymbolGrid from './SymbolGrid'
 
-const SymbolItem = ({ fileName, selected, onSelect }) => {
-    return <ImageListItem className={selected ? 'gradient-border' : 'unselected-symbol'} onClick={() => onSelect(fileName)}>
-        <img src={`/disciple/${fileName}`} alt={fileName} />
-    </ImageListItem>
-}
 const DiscipleSymbols = () => {
     const params = useParams()
     const navigate = useNavigate()
@@ -33,15 +29,6 @@ const DiscipleSymbols = () => {
         return () => window.removeEventListener('resize', updateSize);
     }, [])
 
-    const isSelected = (fileName) => selected.includes(fileName)
-    const onSymbolSelected = (fileName) => {
-        if (isSelected(fileName)) {
-            setSelected(selected.filter((fn) => fn !== fileName))
-        } else {
-            setSelected(selected.concat(fileName))
-        }
-    }
-
     const changeFilter = (evt, newValue) => {
         setFilter(newValue)
         const prefix = location.pathname.startsWith('/public') ? '/public' : ''
@@ -65,16 +52,7 @@ const DiscipleSymbols = () => {
                 </ToggleButtonGroup>
                 <Button variant="contained" onClick={() => setSelected([])}>Reset</Button>
             </div>
-            <ImageList cols={symbolColumns} >
-                {getFilteredSymbols(filter).map((fileName) =>
-                    <SymbolItem
-                        key={fileName}
-                        fileName={fileName}
-                        selected={isSelected(fileName)}
-                        onSelect={onSymbolSelected}
-                    />
-                )}
-            </ImageList>
+            <SymbolGrid cols={symbolColumns} selected={selected} filter={filter} onChange={(vals) => setSelected(vals)} />
         </div >
     )
 }
