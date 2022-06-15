@@ -7,7 +7,7 @@ import ProcessLogin from './user/ProcessLogin'
 import Profile from './user/Profile'
 import ActivityMain from './activities/ActivityMain'
 import CalendarInstructions from './home/CalendarInstructions'
-import DiscipleSymbols from './tools/DiscipleSymbols'
+import DiscipleSymbols from './tools/disciple/DiscipleSymbols'
 import ExternalHome from './external/ExternalHome'
 
 const Main = (props) => {
