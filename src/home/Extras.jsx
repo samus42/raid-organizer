@@ -28,6 +28,16 @@ const Extras = () => {
                                     <li><a href="https://drive.google.com/file/d/1NxuxoskUfQyGNrOMauO13GNuH_LaUmnU/view?usp=sharing">ePub (for all eReaders, including Kindle)</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                Book 3: <strong>The Redjack Thief</strong>
+                                <ul className="extras-list">
+                                    <li><a href="https://drive.google.com/file/d/18fRu74TJTExGUI4KuevNN-OkAkOsp4IC/view?usp=sharing">PDF</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1C98vmkwY-598Cm1OGHjrUpHkbsS7XoYP/view?usp=sharing">ePub (for all eReaders, including Kindle)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                If you want a print copy of any of these books, just ask!
+                            </li>
                         </ul>
                     </div>
                 </Grid>
@@ -44,6 +54,9 @@ const Extras = () => {
                                     <li><a href="https://drive.google.com/file/d/1BjwOC80JfBmZVaoKJtgPpn8m5J1OeUOD/view?usp=sharing">ePUB (for all other eReaders)</a></li>
                                     <li>In print! Just reach out to him and he'll send you a copy when he orders a batch.</li>
                                 </ul>
+                            </li>
+                            <li>
+                                Book 2 is underway and should be coming soon! And no, he doesn't have a title yet...
                             </li>
                             <li><a href="/guides/shattered-throne/">Shattered Throne Solo Guide</a></li>
                             <li><a href="/guides/taken-king">Taken King Raid Guide</a></li>
