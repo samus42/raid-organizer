@@ -11,6 +11,9 @@ const Tools = () => {
             <div style={{ marginTop: '20px' }}>
                 <Button onClick={() => navigate('/public/tools/disciple')} variant="contained">Disciple Symbols</Button>
             </div>
+            <div style={{ marginTop: '20px' }}>
+                <Button onClick={() => navigate('/public/tools/disciple-puzzle')} variant="contained">Disciple Extra Chest Instructions</Button>
+            </div>
         </div>
     )
 }

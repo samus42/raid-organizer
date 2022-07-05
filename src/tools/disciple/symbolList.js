@@ -56,18 +56,34 @@ const roomsOnly = [
     'worship-alpha.png',
 ]
 
+const puzzleOnly = [
+    'pyramid-alpha.png',
+    'gift-alpha.png',
+    'darkness-alpha.png',
+    'traveler-alpha.png',
+    'worship-alpha.png',
+    'light-alpha.png',
+    'stop-alpha.png',
+    'guardian-alpha.png',
+    'kill-alpha.png',
+]
+
 export const SymbolFilters = {
     All: 'all',
     Obelisk: 'obelisk',
-    Rooms: 'rooms'
+    Rooms: 'rooms',
+    Puzzle: 'puzzle',
 }
 
 export const getFilteredSymbols = (filter) => {
-    if (filter === 'obelisk') {
+    if (filter === SymbolFilters.Obelisk) {
         return obeliskOnly
     }
-    if (filter === 'rooms') {
+    if (filter === SymbolFilters.Rooms) {
         return roomsOnly
+    }
+    if (filter === SymbolFilters.Puzzle) {
+        return puzzleOnly
     }
     return symbolFileNames
 }

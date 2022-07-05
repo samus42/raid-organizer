@@ -9,6 +9,7 @@ import ActivityMain from './activities/ActivityMain'
 import CalendarInstructions from './home/CalendarInstructions'
 import DiscipleSymbols from './tools/disciple/DiscipleSymbols'
 import ExternalHome from './external/ExternalHome'
+import DisciplePuzzle from './tools/disciple/DisciplePuzzle';
 
 const Main = (props) => {
     return (
@@ -26,10 +27,12 @@ const Main = (props) => {
                 <Route path="/tools/disciple" element={<DiscipleSymbols />}>
                     <Route path=":filter" element={<DiscipleSymbols />} />
                 </Route>
+                <Route path="/tools/disciple-puzzle" element={<DisciplePuzzle />} />
                 <Route exact path="/public/" element={<ExternalHome />} />
                 <Route exact path="/public/tools/disciple" element={<DiscipleSymbols />}>
                     <Route path=":filter" element={<DiscipleSymbols />} />
                 </Route>
+                <Route path="/public/tools/disciple-puzzle" element={<DisciplePuzzle />} />
             </Routes>
         </Router>
     )
