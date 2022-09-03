@@ -9,6 +9,7 @@ const HelpfulTools = () => {
         <div>
             <div style={{ marginBottom: '10px' }}><Typography variant="h4">Helpful Tools</Typography></div>
             <Stack spacing={2} sx={{ maxWidth: '400px' }}>
+                <Button onClick={() => navigate('/tools/tkk-puzzle')} variant="contained">Taken King Extra Chest Instructions</Button>
                 <Button variant="contained" onClick={() => navigate('/tools/disciple')}>Disciple Symbols</Button>
                 <Button onClick={() => navigate('/tools/disciple-puzzle')} variant="contained">Disciple Extra Chest Instructions</Button>
                 <a rel="noreferrer" target="_blank" href={discipleThirdEncounterMap}><Button sx={{ width: '100%' }} variant="contained">Disciple 3rd Encounter Map</Button></a>

@@ -1,8 +1,8 @@
 import { useState, useLayoutEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Button, Typography, ToggleButton, ToggleButtonGroup } from "@mui/material"
-import { SymbolFilters } from './symbolList'
-import SymbolGrid from './SymbolGrid'
+import { getFilteredSymbols, SymbolFilters } from './symbolList'
+import SymbolGrid from '../SymbolGrid'
 
 const DiscipleSymbols = () => {
     const params = useParams()
@@ -52,7 +52,7 @@ const DiscipleSymbols = () => {
                 </ToggleButtonGroup>
                 <Button variant="contained" onClick={() => setSelected([])}>Reset</Button>
             </div>
-            <SymbolGrid cols={symbolColumns} selected={selected} filter={filter} onChange={(vals) => setSelected(vals)} />
+            <SymbolGrid cols={symbolColumns} selected={selected} imagePathPrefix="disciple" symbols={getFilteredSymbols(filter)} onChange={(vals) => setSelected(vals)} />
         </div >
     )
 }

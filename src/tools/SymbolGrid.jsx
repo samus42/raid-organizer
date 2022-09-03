@@ -1,13 +1,12 @@
 import { ImageList, ImageListItem } from "@mui/material"
-import { getFilteredSymbols } from './symbolList'
 
-const SymbolItem = ({ fileName, selected, onSelect }) => {
+const SymbolItem = ({ fileName, imagePathPrefix, selected, onSelect }) => {
     return <ImageListItem className={selected ? 'gradient-border' : 'unselected-symbol'} onClick={() => onSelect(fileName)}>
-        <img src={`/disciple/${fileName}`} alt={fileName} />
+        <img src={`/${imagePathPrefix}/${fileName}`} alt={fileName} />
     </ImageListItem>
 }
 
-const SymbolGrid = ({ cols, filter, selected, onChange }) => {
+const SymbolGrid = ({ cols, symbols = [], imagePathPrefix, selected, onChange }) => {
     const isSelected = (fileName) => selected.includes(fileName)
 
     const onSymbolSelected = (fileName) => {
@@ -20,12 +19,13 @@ const SymbolGrid = ({ cols, filter, selected, onChange }) => {
 
     return (
         <ImageList cols={cols} >
-            {getFilteredSymbols(filter).map((fileName) =>
+            {symbols.map((fileName) =>
                 <SymbolItem
                     key={fileName}
                     fileName={fileName}
                     selected={isSelected(fileName)}
                     onSelect={onSymbolSelected}
+                    imagePathPrefix={imagePathPrefix}
                 />
             )}
         </ImageList>

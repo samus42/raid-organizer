@@ -10,6 +10,7 @@ import CalendarInstructions from './home/CalendarInstructions'
 import DiscipleSymbols from './tools/disciple/DiscipleSymbols'
 import ExternalHome from './external/ExternalHome'
 import DisciplePuzzle from './tools/disciple/DisciplePuzzle';
+import TakenKingChestPuzzle from './tools/takenking/ChestPuzzle';
 
 const Main = (props) => {
     return (
@@ -28,11 +29,13 @@ const Main = (props) => {
                     <Route path=":filter" element={<DiscipleSymbols />} />
                 </Route>
                 <Route path="/tools/disciple-puzzle" element={<DisciplePuzzle />} />
+                <Route path="/tools/tkk-puzzle" element={<TakenKingChestPuzzle />} />
                 <Route exact path="/public/" element={<ExternalHome />} />
                 <Route exact path="/public/tools/disciple" element={<DiscipleSymbols />}>
                     <Route path=":filter" element={<DiscipleSymbols />} />
                 </Route>
                 <Route path="/public/tools/disciple-puzzle" element={<DisciplePuzzle />} />
+                <Route path="/public/tools/tkk-puzzle" element={<TakenKingChestPuzzle />} />
             </Routes>
         </Router>
     )

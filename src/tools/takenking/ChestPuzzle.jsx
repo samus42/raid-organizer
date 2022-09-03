@@ -2,7 +2,7 @@ import { useState, useLayoutEffect } from 'react'
 import { Button, Typography } from "@mui/material"
 import { getFilteredSymbols, SymbolFilters } from './symbolList'
 import SymbolGrid from '../SymbolGrid'
-import PuzzleSolution from './PuzzleSolution'
+import PuzzleSolution from './ChestPuzzleSolution'
 
 const Panels = {
     SelectSymbols: 'selectSymbols',
@@ -31,15 +31,18 @@ const SelectSymbols = ({ onSubmit }) => {
 
     return (
         <div>
+            <p>
+                Go underneath the platform that holds the gate after dunking all the balls to find the symbols you need to light up.
+            </p>
             <div style={{ textAlign: 'center' }}>
                 <Button disabled={selected.length !== 3} variant="contained" onClick={() => onSubmit(selected)}>View Solution</Button>
             </div>
-            <SymbolGrid symbols={getFilteredSymbols(SymbolFilters.Puzzle)} imagePathPrefix="disciple" selected={selected} cols={symbolColumns} onChange={(newVals) => setSelected(newVals)} />
+            <SymbolGrid symbols={getFilteredSymbols(SymbolFilters.TakenKingPuzzle)} imagePathPrefix="takenking" selected={selected} cols={symbolColumns} onChange={(newVals) => setSelected(newVals)} />
         </div>
     )
 }
 
-const DisciplePuzzle = () => {
+const TakenKingChestPuzzle = () => {
     const [currentPanel, setCurrentPanel] = useState(Panels.SelectSymbols)
     const [selected, setSelected] = useState([])
     const onSymbolsSelected = (vals) => {
@@ -60,4 +63,4 @@ const DisciplePuzzle = () => {
     )
 }
 
-export default DisciplePuzzle
+export default TakenKingChestPuzzle
