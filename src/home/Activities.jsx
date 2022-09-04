@@ -24,7 +24,7 @@ const Activities = () => {
                 <Grid item md={6}>
                     <DisplayRotation />
                 </Grid>
-                <Grid item md={6}>
+                <Grid item md={12}>
                     <HelpfulTools />
                 </Grid>
             </Grid>
