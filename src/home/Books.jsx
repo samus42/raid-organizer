@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Timeline, TimelineItem, TimelineSeparator, TimelineOppositeContent, TimelineDot, TimelineConnector, TimelineContent } from '@mui/lab'
 import { Link, Avatar, Typography, Popover, Card, CardContent, List, ListItem } from '@mui/material'
-import HotelIcon from '@mui/icons-material/Hotel';
 
 const ace = 'Aaron Corcoran'
 const samus = 'Scott MacDonald'
@@ -32,9 +31,9 @@ const darkBalance = {
     author: samus,
     icon: samusIcon,
     title: 'A Dark Balance',
-    subtext: 'Coming very soon!',
-    pdf: null,
-    epub: null
+    subtext: 'Just released!',
+    pdf: 'https://drive.google.com/file/d/1gTzGi75dX5fK4Sr-p65teATbz4mpFuZ_/view?usp=sharing',
+    epub: 'https://drive.google.com/file/d/19b-YBJl4gYCMleH9VM-hqDuTEsk-qkD4/view?usp=sharing'
 }
 const redjackThief = {
     author: ace,
@@ -127,7 +126,7 @@ export default function Books() {
                 <BookItem book={thornInTwilight} onClick={onBookClick} />
                 <EventItem event="The Red War" />
                 <BookItem book={halilysWar} onClick={onBookClick} />
-                <BookItem book={darkBalance} />
+                <BookItem book={darkBalance} onClick={onBookClick} />
                 <EventItem event="Forsaken" />
                 <BookItem book={redjackThief} onClick={onBookClick} />
             </Timeline>
