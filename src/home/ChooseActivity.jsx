@@ -4,6 +4,7 @@ import { Grid, Card, CardActionArea, Typography, Button } from '@mui/material'
 
 const createActivity = (title, imagePath, target) => ({ title, imagePath, target })
 const activities = [
+    createActivity("Taken King", "/activities/takenking.png", '/raid/ttk'),
     createActivity("Vow Of The Disciple", "/activities/disciple.png", '/raid/disciple'),
     createActivity("Vault Of Glass", "/activities/vaultofglass.png", '/raid/vault'),
     createActivity("Deep Stone Crypt", "/activities/deepstonecrypt.png", '/raid/crypt'),
@@ -12,8 +13,7 @@ const activities = [
     createActivity("Among Us", "/activities/amongus.png", '/activity/amongus'),
     createActivity("Custom Activity", "/chaos-aqua.png", '/activity/custom'),
     createActivity(`Crota's End`, "/activities/crota.png", '/raid/crota'),
-    createActivity("Taken King", "/activities/takenking.png", '/raid/ttk'),
-    createActivity("Wrath Of The Machine", "/activities/wrathofthemachine.png", '/raid/wrath'),
+    createActivity("Wrath Of The Machine", "/activities/wrathofthemachine.png", '/raid/wrath')
 ]
 const ActivityCard = ({ imagePath, title, screenLayout, target }) => {
     const navigate = useNavigate()

@@ -31,11 +31,11 @@ const TakenKing = () => ({
             description: '',
             roles: [
                 { name: 'Left - On Plate', type: 'soldier' },
-                { name: 'Left - Soldier', type: 'soldier' },
+                { name: 'Left - Knight Hunter', type: 'soldier' },
                 { name: 'Center - On Plate', type: 'soldier' },
                 { name: 'Center - Soldier', type: 'soldier' },
                 { name: 'Right - On Plate', type: 'soldier' },
-                { name: 'Right - Soldier', type: 'soldier' },
+                { name: 'Right - Knight Hunter', type: 'soldier' },
             ]
         },
         {
@@ -43,7 +43,7 @@ const TakenKing = () => ({
             description: '',
             roles: [
                 { name: 'First Gaze Pull', type: 'soldier' },
-                { name: 'Main Gaze Pull', type: 'soldier' },
+                { name: 'Second Gaze Pull', type: 'soldier' },
                 { name: 'Position 3', type: 'soldier' },
                 { name: 'Position 4', type: 'soldier' },
                 { name: 'Position 5', type: 'soldier' },
@@ -66,12 +66,12 @@ const TakenKing = () => ({
             title: 'Oryx',
             description: '',
             roles: [
-                { name: 'Platform Runner', type: 'runner' },
-                { name: 'Position 1 (Runner start plate)', type: 'soldier' },
-                { name: 'Position 2 (Counter-clockwise once from start)', type: 'soldier' },
-                { name: 'Position 3 (Counter-clockwise twice from start)', type: 'soldier' },
-                { name: 'Ogre Killer (Taking orb clockwise from runner start)', type: 'soldier' },
-                { name: 'Ogre Killer (Taking rouge orbs)', type: 'soldier' },
+                { name: 'Platform 1 (Back Left)', type: 'soldier' },
+                { name: 'Platform 2 (Back Right)', type: 'soldier' },
+                { name: 'Platform 3 (Front Right)', type: 'soldier' },
+                { name: 'Platform 4 (Front Left)', type: 'soldier' },
+                { name: 'Center Adds', type: 'soldier' },
+                { name: 'Floater (Replaces whoever gets torn)', type: 'soldier' },
             ]
         },
     ]
