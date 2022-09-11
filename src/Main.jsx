@@ -11,6 +11,7 @@ import DiscipleSymbols from './tools/disciple/DiscipleSymbols'
 import ExternalHome from './external/ExternalHome'
 import DisciplePuzzle from './tools/disciple/DisciplePuzzle';
 import TakenKingChestPuzzle from './tools/takenking/ChestPuzzle';
+import { BlogMain } from './blog';
 
 const Main = (props) => {
     return (
@@ -30,6 +31,7 @@ const Main = (props) => {
                 </Route>
                 <Route path="/tools/disciple-puzzle" element={<DisciplePuzzle />} />
                 <Route path="/tools/tkk-puzzle" element={<TakenKingChestPuzzle />} />
+                <Route path="/blog" element={<BlogMain />} />
                 <Route exact path="/public/" element={<ExternalHome />} />
                 <Route exact path="/public/tools/disciple" element={<DiscipleSymbols />}>
                     <Route path=":filter" element={<DiscipleSymbols />} />
