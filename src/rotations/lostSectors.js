@@ -18,20 +18,21 @@ export const Rewards = {
     Arms: 'Arms'
 }
 
-export const FirstDayOfLostSectorRotation = dayjs('2022-08-23')
+export const FirstDayOfLostSectorRotation = dayjs('2022-10-28')
 
 const sectorRotation = [
-    sector('Concealed Void', Areas.Europa),
-    sector('Bunker E15', Areas.Europa),
-    sector('The Conflux', Areas.Nessus),
-    sector('The Rift', Areas.Nessus),
-    sector(`K1 Crew Quarters`, Areas.Moon),
     sector(`K1 Logistics`, Areas.Moon),
     sector(`K1 Communion`, Areas.Moon),
     sector(`Skydock IV`, Areas.EDZ),
     sector(`Scavenger's Den`, Areas.EDZ),
     sector(`The Quarry`, Areas.EDZ),
     sector(`Excavation Site XII`, Areas.EDZ),
+    sector('Concealed Void', Areas.Europa),
+    sector('Bunker E15', Areas.Europa),
+    sector('Perdition', Areas.Europa),
+    sector('The Conflux', Areas.Nessus),
+    // sector('The Rift', Areas.Nessus),
+    sector(`K1 Crew Quarters`, Areas.Moon),
 ]
 
 /*
@@ -52,7 +53,7 @@ const rewardRotation = [
     Rewards.Chest,
     Rewards.Head,
     Rewards.Legs,
-    Rewards.Arms
+    Rewards.Arms,
 ]
 
 export const getLostSector = (date) => {
