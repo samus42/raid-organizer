@@ -3,6 +3,7 @@
   "version": "1.13.1",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.7.3",
     "@datastructures-js/stack": "^3.1.4",
     "@date-io/dayjs": "^2.13.1",
     "@emotion/react": "^11.7.1",
@@ -14,7 +15,6 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "apollo-boost": "^0.4.9",
     "capitalize": "^2.0.3",
     "dayjs": "^1.9.7",
     "graphql": "^16.3.0",
