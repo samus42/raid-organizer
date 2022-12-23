@@ -3,6 +3,7 @@
   "version": "1.13.1",
   "private": true,
   "dependencies": {
+    "@datastructures-js/stack": "^3.1.4",
     "@date-io/dayjs": "^2.13.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

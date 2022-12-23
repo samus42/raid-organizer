@@ -4,6 +4,7 @@ import ActiveList from './ActiveList'
 import DisplayRotation from '../rotations/DisplayRotation'
 import ChooseActivity from './ChooseActivity'
 import HelpfulTools from './HelpfulTools'
+import { HelpfulToolsContainer } from '../tools/HelpfulToolsContainer'
 
 const Activities = () => {
     const [showChooseActivity, setShowChooseActivity] = useState(false)
@@ -25,7 +26,7 @@ const Activities = () => {
                     <DisplayRotation />
                 </Grid>
                 <Grid item md={12}>
-                    <HelpfulTools />
+                    <HelpfulToolsContainer />
                 </Grid>
             </Grid>
         </div >
