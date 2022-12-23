@@ -1,6 +1,6 @@
 import { Areas, getLostSector, Rewards } from './lostSectors'
 
-describe('lost sector schedule', () => {
+xdescribe('lost sector schedule', () => {
     it('starting day', () => {
         expect(getLostSector('2022-05-24')).toEqual({ name: 'K1 Crew Quarters', area: Areas.Moon, reward: Rewards.Chest })
     })
