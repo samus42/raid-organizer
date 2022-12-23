@@ -3,7 +3,6 @@ import { Grid } from '@mui/material'
 import ActiveList from './ActiveList'
 import DisplayRotation from '../rotations/DisplayRotation'
 import ChooseActivity from './ChooseActivity'
-import HelpfulTools from './HelpfulTools'
 import { HelpfulToolsContainer } from '../tools/HelpfulToolsContainer'
 
 const Activities = () => {
