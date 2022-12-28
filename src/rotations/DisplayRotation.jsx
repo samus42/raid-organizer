@@ -1,7 +1,7 @@
 import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 import { TextField, Typography } from "@mui/material"
 import dayjs from 'dayjs'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getWellspring } from "./wellspring"
 import { getLostSector } from "./lostSectors"
 
@@ -32,6 +32,11 @@ const Wellspring = ({ date }) => {
 }
 const DisplayRotation = () => {
     const [selectedDate, setSelectedDate] = useState(dayjs().format('MM/DD/YYYY'))
+    useEffect(() => {
+        const fourHours = 14400000
+        const interval = setInterval(() => setSelectedDate(dayjs().format('MM/DD/YYYY')), fourHours)
+        return () => clearInterval(interval)
+    }, [])
     return (
         <div>
             <div style={{ display: 'flex' }}>
@@ -42,6 +47,7 @@ const DisplayRotation = () => {
 
             </div>
 
+
             <div style={{ paddingLeft: '0px' }}>
                 <div>
                     <LostSector date={selectedDate} />
@@ -50,7 +56,10 @@ const DisplayRotation = () => {
                     <Wellspring date={selectedDate} />
                 </div>
             </div>
-        </div>
+            <div style={{ marginTop: '20px' }}>
+                <strong>Note:</strong> This reflects the activity after the daily reset on the selected day.
+            </div>
+        </div >
     )
 }
 

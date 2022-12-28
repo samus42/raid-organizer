@@ -43,6 +43,7 @@ const EventList = ({ onChooseActivity }) => {
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
+
     useEffect(() => {
         const loadActivities = async () => {
             setLoading(true)
@@ -53,6 +54,8 @@ const EventList = ({ onChooseActivity }) => {
             setLoading(false)
         }
         loadActivities()
+        const interval = setInterval(loadActivities, 900000)
+        return () => clearInterval(interval)
     }, [])
 
     if (loading) {
