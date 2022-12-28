@@ -2,18 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { getClanRoster } from '../api/destiny'
 import { List, ListItemIcon, ListItemText, ListItemButton } from '@mui/material'
 import differenceBy from 'lodash.differenceby'
+import { maxWidth } from '@mui/system'
 
 const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }) => {
     const [roster, setRoster] = useState([])
+    const [loadError, setLoadError] = useState(null)
 
     useEffect(() => {
         const getRoster = async () => {
-            const results = await getClanRoster()
-            setRoster(differenceBy(results, excludeList, 'destinyId'))
+            try {
+                const results = await getClanRoster()
+                setRoster(differenceBy(results, excludeList, 'destinyId'))
+            } catch (err) {
+                console.error('Error loading clan roster: ', err)
+                setLoadError(`Destiny API is currently having issues, so we cannot display the clan roster. It's not my fault!`)
+            }
         }
         getRoster()
     }, [excludeList])
 
+    if (loadError) {
+        return (<div style={{ paddingTop: '20px', paddingLeft: '10px', maxWidth: '200px', color: 'red' }}><strong>{loadError}</strong></div>)
+    }
     if (roster.length < 1) {
         return (<div style={{ paddingTop: '20px', paddingLeft: '10px' }}><strong>Loading...</strong></div>)
     }
