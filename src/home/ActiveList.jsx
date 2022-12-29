@@ -42,21 +42,32 @@ const EventListItem = (({ activity, onClick }) => (
 const EventList = ({ onChooseActivity }) => {
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
+    const [nextLoadTime, setNextLoadTime] = useState(null)
+    const [reloadFlag, setReloadFlag] = useState(0)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (new dayjs().isAfter(nextLoadTime)) {
+                setReloadFlag(new Date().getTime())
+            }
+        }, 10000)
+        return () => clearInterval(interval)
+    }, [nextLoadTime])
 
     useEffect(() => {
         const loadActivities = async () => {
             setLoading(true)
-            const { data } = await raidClient.query({ query })
+            const { data } = await raidClient.query({ query, fetchPolicy: 'network-only' })
             const activities = data.activities.map((a) => ({ ...a, eventType: 'activity' }))
             const raids = data.raids.map((a) => ({ ...a, eventType: 'raid', activityName: a.raidName }))
             setEvents(sortBy(activities.concat(raids), 'date'))
+            setNextLoadTime(new dayjs().add(5, 'minutes'))
             setLoading(false)
         }
         loadActivities()
-        const interval = setInterval(loadActivities, 900000)
-        return () => clearInterval(interval)
-    }, [])
+
+    }, [reloadFlag])
 
     if (loading) {
         return <div>Loading...</div>

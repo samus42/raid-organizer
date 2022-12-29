@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { getClanRoster } from '../api/destiny'
 import { List, ListItemIcon, ListItemText, ListItemButton } from '@mui/material'
 import differenceBy from 'lodash.differenceby'
-import { maxWidth } from '@mui/system'
 
 const ClanRoster = ({ excludeList = [], onSelect = () => { }, disabled = false }) => {
     const [roster, setRoster] = useState([])
