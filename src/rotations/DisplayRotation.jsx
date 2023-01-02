@@ -33,10 +33,15 @@ const Wellspring = ({ date }) => {
 const DisplayRotation = () => {
     const [selectedDate, setSelectedDate] = useState(dayjs().format('MM/DD/YYYY'))
     useEffect(() => {
-        const fourHours = 14400000
-        const interval = setInterval(() => setSelectedDate(dayjs().format('MM/DD/YYYY')), fourHours)
+        const fifteenMinutes = 900000
+        const interval = setInterval(() => {
+            const today = dayjs()
+            if (dayjs(selectedDate).isBefore(today, 'day')) {
+                setSelectedDate(today.format('MM/DD/YYYY'))
+            }
+        }, fifteenMinutes)
         return () => clearInterval(interval)
-    }, [])
+    }, [selectedDate])
     return (
         <div>
             <div style={{ display: 'flex' }}>
