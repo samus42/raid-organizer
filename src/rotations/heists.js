@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
 // https://kyberscorner.com/destiny2/heist-battlegrounds-legend/
 
-const startDate = dayjs('12-20-2022')
-const seasonEndDate = dayjs('02-28-2023')
+const startDate = dayjs('2022-12-20')
+const seasonEndDate = dayjs('2023-02-28')
 
 const rotation = ['Europa', 'Moon', 'Mars']
 
