@@ -74,9 +74,6 @@ const DisplayRotation = () => {
                 <div style={{ marginTop: '20px' }}>
                     <Wellspring date={selectedDate} />
                 </div>
-                <div style={{ marginTop: '20px' }}>
-                    <LegendaryHeist date={selectedDate} />
-                </div>
             </div>
             <div style={{ marginTop: '20px' }}>
                 <strong>Note:</strong> This reflects the activity after the daily reset on the selected day.
