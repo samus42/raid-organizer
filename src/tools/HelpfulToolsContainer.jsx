@@ -58,9 +58,22 @@ function VowPanel() {
         </div>
     )
 }
+
+function NightmarePanel() {
+    const macrocosmMap = 'https://imgur.com/a/rROiP1P'
+    return (
+        <div>
+            <Typography variant="h6">Root of Nightmares</Typography>
+            <Stack spacing={2} sx={{ maxWidth: '400px' }}>
+                <a rel="noreferrer" target="_blank" href={macrocosmMap}><Button sx={{ width: '100%' }} variant="contained">Macrocosm Map</Button></a>
+            </Stack>
+        </div>
+    )
+}//mlsfs
 function TopLevelPanel({ screenLayout, onChangePanel }) {
     return (
         <Grid container spacing={1}>
+            <SubjectCard imagePath="/activities/nightmares.png" title="Root of Nightmares" screenLayout={screenLayout} onClick={() => { onChangePanel("nightmare") }} />
             <SubjectCard imagePath="/activities/takenking.png" title="Taken King" screenLayout={screenLayout} onClick={() => { onChangePanel("kf") }} />
             <SubjectCard imagePath="/activities/disciple.png" title="Vow of the Disciple" screenLayout={screenLayout} onClick={() => { onChangePanel("vow") }} />
             <SubjectCard imagePath="/loot-chest.png" title="Loot Tables" screenLayout={screenLayout} onClick={() => window.open("https://www.blueberries.gg/weapons/destiny-2-loot-tables/", "_blank")} />
@@ -70,7 +83,8 @@ function TopLevelPanel({ screenLayout, onChangePanel }) {
 
 const components = {
     kf: KingsFallPanel,
-    vow: VowPanel
+    vow: VowPanel,
+    nightmare: NightmarePanel
 }
 
 export function HelpfulToolsContainer() {
@@ -92,6 +106,10 @@ export function HelpfulToolsContainer() {
     }, [])
 
     if (subPanel) {
+        if (!components[subPanel]) {
+            console.log('subpane: ', subPanel)
+            throw new Error('Invalid subpanel: ', subPanel)
+        }
         const SubComponent = components[subPanel]
         if (screenLayout === 'mobile') {
             return (<div>

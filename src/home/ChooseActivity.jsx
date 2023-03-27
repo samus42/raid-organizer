@@ -4,6 +4,7 @@ import { Grid, Card, CardActionArea, Typography, Button } from '@mui/material'
 
 const createActivity = (title, imagePath, target) => ({ title, imagePath, target })
 const activities = [
+    createActivity('Root of Nightmares', '/activities/nightmares.png', '/raid/nightmare'),
     createActivity("Taken King", "/activities/takenking.png", '/raid/ttk'),
     createActivity("Vow Of The Disciple", "/activities/disciple.png", '/raid/disciple'),
     createActivity("Vault Of Glass", "/activities/vaultofglass.png", '/raid/vault'),

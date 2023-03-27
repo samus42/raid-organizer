@@ -6,6 +6,7 @@ import TakenKing from './TakenKing'
 import WrathOfTheMachine from './WrathOfTheMachine'
 import VaultOfGlass from './VaultOfGlass'
 import VowOfTheDisciple from './VowOfTheDisciple'
+import Nightmare from './Nightmare'
 
 const raidMap = {
     'garden': GardenOfSalvation,
@@ -15,7 +16,8 @@ const raidMap = {
     'ttk': TakenKing,
     'wrath': WrathOfTheMachine,
     'vault': VaultOfGlass,
-    'disciple': VowOfTheDisciple
+    'disciple': VowOfTheDisciple,
+    'nightmare': Nightmare
 }
 
 export const newRaidByKey = (key) => {
