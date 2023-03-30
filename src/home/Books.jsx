@@ -37,6 +37,24 @@ const darkBalance = {
     pdf: 'https://drive.google.com/file/d/1gTzGi75dX5fK4Sr-p65teATbz4mpFuZ_/view?usp=sharing',
     epub: 'https://drive.google.com/file/d/19b-YBJl4gYCMleH9VM-hqDuTEsk-qkD4/view?usp=sharing'
 }
+const loyaltysTest = {
+    author: samus,
+    icon: samusIcon,
+    title: `Loyalty's Test`,
+    subtext: 'Coming Fall 2023'
+}
+const threadsOfDeceit = {
+    author: samus,
+    icon: samusIcon,
+    title: `Threads of Deceit`,
+    subtext: 'Coming Fall 2024'
+}
+const thornOfDarkness = {
+    author: samus,
+    icon: samusIcon,
+    title: `Thorn of Darkness`,
+    subtext: 'Coming Fall 2025'
+}
 const redjackThief = {
     author: ace,
     icon: aceIcon,
@@ -138,7 +156,11 @@ export default function Books() {
                 <BookItem book={darkBalance} onClick={onBookClick} />
                 <BookItem book={worstHunter} onClick={onBookClick} />
                 <EventItem event="Forsaken" />
+                <BookItem book={loyaltysTest} />
                 <BookItem book={redjackThief} onClick={onBookClick} />
+                <BookItem book={threadsOfDeceit} />
+                <BookItem book={thornOfDarkness} />
+                <EventItem event="Shadowkeep" />
             </Timeline>
             <Popover
                 open={anchorEl}

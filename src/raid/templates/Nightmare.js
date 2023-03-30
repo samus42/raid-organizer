@@ -18,12 +18,12 @@ const Nightmare = () => ({
             title: 'Scisson',
             description: 'Gardners fly through the air, everyone else kill anything that moves.',
             roles: [
-                { name: 'Light Gardener', type: 'gardener' },
-                { name: 'Light Soldier 1', type: 'soldier' },
-                { name: 'Light Soldier 2', type: 'soldier' },
-                { name: 'Dark Gardener', type: 'soldier' },
-                { name: 'Dark Soldier 1', type: 'soldier' },
-                { name: `Dark Soldier 2`, type: 'soldier' }
+                { name: 'Light Gardener 1', type: 'gardener' },
+                { name: 'Light Gardener 2', type: 'soldier' },
+                { name: 'Light Soldier', type: 'soldier' },
+                { name: 'Dark Gardener 1', type: 'soldier' },
+                { name: 'Dark Gardener 2', type: 'soldier' },
+                { name: `Dark Soldier`, type: 'soldier' }
             ]
         },
         {
