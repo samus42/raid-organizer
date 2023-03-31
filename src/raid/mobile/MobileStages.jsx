@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Grid, Button } from '@mui/material'
+import { Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import MobileEditStageDialog from './MobileEditStage'
 
 const Role = ({ role, onChange = () => { } }) => {
@@ -15,12 +15,32 @@ const Role = ({ role, onChange = () => { } }) => {
     )
 }
 
-const Stage = ({ raid, stage, onChange = () => { } }) =>
+const Stage = ({ raid, stage, onChange = () => { }, onStrategyChange = () => { } }) =>
     <div style={{ marginTop: '20px', width: '100%' }} className="raid-stage">
         <div>
             <Typography variant="h4">{stage.title}</Typography>
             <div>
                 <MobileEditStageDialog raid={raid} stage={stage} onChange={onChange} />
+                {stage.strategies && (
+                    <FormControl fullWidth size="small" sx={{ marginTop: '10px' }}>
+                        <InputLabel id="select-label">Strategies</InputLabel>
+                        <Select
+                            value={stage.strategy?.title || stage.strategies[0].title}
+                            labelId="select-label"
+                            label="Strategy"
+                            onChange={(evt) => {
+                                console.log('val: ', evt.target.value)
+                                onStrategyChange(stage, stage.strategies.find((s) => s.title === evt.target.value))
+                            }}
+                        >
+                            {
+                                stage.strategies.map((strat) => (
+                                    <MenuItem key={strat.title} value={strat.title}>{strat.title}</MenuItem>
+                                ))
+                            }
+                        </Select>
+                    </FormControl>
+                )}
             </div>
             <div>
                 <Typography variant="subtitle1">{stage.description}</Typography>
@@ -32,7 +52,7 @@ const Stage = ({ raid, stage, onChange = () => { } }) =>
     </div>
 
 
-const RaidAssignments = ({ raid, onChange = () => { }, onRandomizeRoles = () => { } }) => {
+const RaidAssignments = ({ raid, onChange = () => { }, onRandomizeRoles = () => { }, onStrategyChange = () => { } }) => {
     return (
         <div>
             <div style={{ textAlign: 'center' }}>
@@ -41,7 +61,7 @@ const RaidAssignments = ({ raid, onChange = () => { }, onRandomizeRoles = () => 
             <Grid>
                 {raid.stages.map((stage, index) =>
                     <Grid container key={`${stage}_${index}`}>
-                        <Stage key={`${stage}-${index}`} raid={raid} stage={stage} onChange={onChange} />
+                        <Stage key={`${stage}-${index}`} raid={raid} stage={stage} onChange={onChange} onStrategyChange={onStrategyChange} />
                     </Grid>)}
             </Grid>
         </div>

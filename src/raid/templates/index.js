@@ -27,6 +27,12 @@ export const newRaidByKey = (key) => {
     const newRaid = raidMap[key]()
     newRaid.active = true
     newRaid.roster = []
+    newRaid.stages.forEach((stage) => {
+        if (stage.strategies) {
+            stage.roles = stage.strategies[0].roles
+            stage.strategy = stage.strategies[0]
+        }
+    })
     return newRaid
 }
 

@@ -27,6 +27,17 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
     const onRandomizeRoles = () => {
         onChangeRaid(randomizeRaidAssignments({ raid, roster }), true)
     }
+
+    const onStrategyChange = (stage, strategy) => {
+        console.log('rs: ', stage)
+        console.log('rt: ', strategy)
+        const clone = (obj) => JSON.parse(JSON.stringify(obj))
+        const newRaid = clone(raid)
+        const changeStage = newRaid.stages.find((s) => s.title === stage.title)
+        changeStage.strategy = strategy
+        changeStage.roles = strategy.roles
+        onChangeRaid(newRaid)
+    }
     return (
         <div>
             <Tabs indicatorColor="secondary"
@@ -48,6 +59,7 @@ const MobileMain = ({ roster, date, instanceName, raid, saveEnabled, onSave, onA
                         saveEnabled={saveEnabled}
                         onChange={(newRaid) => onChangeRaid(newRaid, true)}
                         onRandomizeRoles={onRandomizeRoles}
+                        onStrategyChange={onStrategyChange}
                     />
                     )}
             </div>

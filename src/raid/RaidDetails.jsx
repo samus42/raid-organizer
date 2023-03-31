@@ -24,6 +24,16 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
         onChangeRaid(newRaid)
     }
 
+    const onRaidStageStrategyChange = (stage, strategy) => {
+        console.log('rs: ', stage)
+        console.log('rt: ', strategy)
+        const clone = (obj) => JSON.parse(JSON.stringify(obj))
+        const newRaid = clone(raid)
+        const changeStage = newRaid.stages.find((s) => s.title === stage.title)
+        changeStage.strategy = strategy
+        changeStage.roles = strategy.roles
+        onChangeRaid(newRaid)
+    }
     const debouncedSave = useMemo(() => debounce(onSave, 300), [onSave])
 
     return (
@@ -60,7 +70,7 @@ const RaidDetails = ({ roster, date, instanceName, raid, saveEnabled, onSave, on
                         <Button variant="contained" disabled={roster.length < 6} onClick={determineRoles}>Randomize Roles</Button>
                     </div>
 
-                    <RaidAssignments raid={raid} onChange={onRaidPositionChange} />
+                    <RaidAssignments raid={raid} onChange={onRaidPositionChange} onStrategyChange={onRaidStageStrategyChange} />
                     {raid.id && <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
                         <Button onClick={onArchive} variant="contained">Archive Raid To Remove From Active List</Button>
 
