@@ -146,6 +146,7 @@ export default function Books() {
     return (
         <div>
             <Typography variant="h6">Our clan members have written a few Destiny novels using a shared universe. Give them a try! See the timeline below for reading order. Click on a book link to get download options.</Typography>
+            <Typography variant="h6">If you'd like to get in touch with our authors, drop us an email at <a href="mailto:books@shenaniganizers.com">books@shenaniganizers.com</a></Typography>
             <Timeline>
                 <EventItem event={`Crota's End`} />
                 <EventItem event={`Fall of Oryx`} />
