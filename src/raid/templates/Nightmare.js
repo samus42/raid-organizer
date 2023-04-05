@@ -49,18 +49,6 @@ const Nightmare = () => ({
             description: 'Move the planets',
             strategies: [
                 {
-                    title: 'Set Readers',
-                    descripition: `Useful for newer teams, or when people can't talk`,
-                    roles: [
-                        { name: 'Light Reader', type: 'reader' },
-                        { name: 'Light Far Plate', type: 'soldier' },
-                        { name: 'Light Near Plate', type: 'soldier' },
-                        { name: 'Dark Reader', type: 'reader' },
-                        { name: 'Dark Far Plate', type: 'soldier' },
-                        { name: `Dark Near Plate`, type: 'soldier' }
-                    ]
-                },
-                {
                     title: 'Free for all',
                     descripition: `Everyone reads their own plate.`,
                     roles: [
@@ -70,6 +58,18 @@ const Nightmare = () => ({
                         { name: `Dark Near Plate`, type: 'reader' },
                         { name: 'Soldier 1', type: 'soldier' },
                         { name: 'Soldier 2', type: 'soldier' }
+                    ]
+                },
+                {
+                    title: 'Set Readers',
+                    descripition: `Useful for newer teams, or when people can't talk`,
+                    roles: [
+                        { name: 'Light Reader', type: 'reader' },
+                        { name: 'Light Far Plate', type: 'soldier' },
+                        { name: 'Light Near Plate', type: 'soldier' },
+                        { name: 'Dark Reader', type: 'reader' },
+                        { name: 'Dark Far Plate', type: 'soldier' },
+                        { name: `Dark Near Plate`, type: 'soldier' }
                     ]
                 }
             ]

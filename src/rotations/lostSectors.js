@@ -22,7 +22,7 @@ export const Rewards = {
 export const FirstDayOfLostSectorRotation = dayjs('2023-02-28')
 
 const sectorRotation = [
-    sector['Thrilladrome', Areas.Neptune],
+    sector('Thrilladrome', Areas.Neptune),
     sector('Hydroponics Delta', Areas.Neptune),
     sector('Gilded Precept', Areas.Neptune),
     sector(`Excavation Site XII`, Areas.EDZ),
