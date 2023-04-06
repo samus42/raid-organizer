@@ -50,7 +50,7 @@ const Nightmare = () => ({
             strategies: [
                 {
                     title: 'Free for all',
-                    descripition: `Everyone reads their own plate.`,
+                    description: `Everyone reads their own plate.`,
                     roles: [
                         { name: 'Light Far Plate', type: 'reader' },
                         { name: 'Light Near Plate', type: 'reader' },
@@ -62,7 +62,7 @@ const Nightmare = () => ({
                 },
                 {
                     title: 'Set Readers',
-                    descripition: `Useful for newer teams, or when people can't talk`,
+                    description: `Useful for newer teams, or when people can't talk`,
                     roles: [
                         { name: 'Light Reader', type: 'reader' },
                         { name: 'Light Far Plate', type: 'soldier' },

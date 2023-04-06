@@ -27,6 +27,20 @@ const loadRaidQuery = gql`
                     name, type, 
                     player {...PlayerInfo}
                 }
+                strategy {
+                    title
+                    description 
+                    roles {
+                        name, type
+                    }
+                }
+                strategies {
+                    title
+                    description 
+                    roles {
+                        name, type
+                    }
+                }
             }
             roster {
                 ...PlayerInfo
