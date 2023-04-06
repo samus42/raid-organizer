@@ -1,12 +1,12 @@
 import dayjs from 'dayjs'
 // https://kyberscorner.com/destiny2/heist-battlegrounds-legend/
 
-const startDate = dayjs('2022-12-20')
-const seasonEndDate = dayjs('2023-02-28')
+const startDate = dayjs('2022-04-28')
+const seasonEndDate = dayjs('2023-05-22')
 
-const rotation = ['Europa', 'Moon', 'Mars']
+const rotation = ['EDZ', 'Cosmodrome', 'Orbital Station']
 
-export const getLegendHeist = (date) => {
+export const getLegendActivity = (date) => {
     const queryDate = dayjs(date)
     const diff = queryDate.diff(startDate, 'week')
     const heist = rotation[diff % rotation.length]

@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { useEffect, useState } from "react"
 import { getWellspring } from "./wellspring"
 import { getLostSector } from "./lostSectors"
-import { getLegendHeist } from "./heists"
+import { getLegendActivity } from "./legendActivities"
 
 const LostSector = ({ date }) => {
     const lostSector = getLostSector(date)
@@ -32,11 +32,11 @@ const Wellspring = ({ date }) => {
     )
 }
 
-const LegendaryHeist = ({ date }) => {
-    const { heist, remaining } = getLegendHeist(date)
+const LegendaryActivity = ({ date }) => {
+    const { heist, remaining } = getLegendActivity(date)
     return (
         <div>
-            <Typography variant="h5">Legendary Heist (weekly)</Typography>
+            <Typography variant="h5">Legendary Defiant Battleground (weekly)</Typography>
             <div style={{ paddingLeft: '10px' }}>
                 <div><strong>{heist}</strong></div>
                 <div>Chances left this season: {remaining}</div>
@@ -73,6 +73,9 @@ const DisplayRotation = () => {
                 </div>
                 <div style={{ marginTop: '20px' }}>
                     <Wellspring date={selectedDate} />
+                </div>
+                <div style={{ marginTop: '20px' }}>
+                    <LegendaryActivity date={selectedDate} />
                 </div>
             </div>
             <div style={{ marginTop: '20px' }}>
